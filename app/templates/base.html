@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>AFC</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<script src="https://kit.fontawesome.com/32ee507fe4.js" crossorigin="anonymous"></script>
+<style>
+	/* Font Faces */
+		@font-face {
+			font-family: Didot;
+			src: url({{ url_for('static', filename='fonts/Didot.ttf') }})
+		}
+		@font-face {
+			font-family: Proxima Nova Light;
+			src: url({{ url_for('static', filename='fonts/FontsFree-Net-Proxima-Nova-Light.otf') }})
+		}
+		@font-face {
+			font-family: Proxima Nova Bold;
+			src: url({{ url_for('static', filename='fonts/FontsFree-Net-Proxima-Nova-Sbold.otf') }})
+		}
+		@font-face {
+			font-family: Proxima Nova Regular;
+			src: url({{ url_for('static', filename='fonts/ProximaNova-Regular.otf') }})
+		}
+	/* End */
+
+	/* NavBar */
+		.navbar{
+			position: absolute;
+			width: 100%;
+			background-color: transparent;
+		}
+		.navbar-toggler{
+			color:#ffffff;
+			border: 1px solid #ffffff;
+		}
+		.navbar-brand .logo{
+			height: 140px;
+			width: 140px;
+		}
+		.nav-item a{
+			font-family: Proxima Nova Regular;
+			font-size: 24px;
+			color: #cccccc;
+		}
+		.nav-item.active a{
+			font-family: Proxima Nova Bold;
+			color: #ffffff;
+		}
+		.nav-item.active a:after {
+			content: '';
+			height: 1px;
+			background: #e44e35; 
+			display:block;
+		}
+	/* End */
+	.slider_heading{
+			font-family: Didot;
+			font-style: italic;
+			color:#ffffff;
+			letter-spacing: 1.2px;
+		}
+	.heading{
+			font-family: Didot;
+			font-style: italic;
+			color:#1a1a1a;
+			
+		}
+	hr.heading_underline{
+		border-color: #e44e35;
+		border-width: 3px;
+		margin: -15px auto 25px auto;
+		width: 234px;
+	}
+	.btn_custom{
+		color:#ffffff;
+		padding: 9px 26px;
+		font-family: Proxima Nova Regular;
+		font-size: 32px;
+		background-image: linear-gradient(30deg, #e54e35, #e56e45);
+		transition: .5s ease;
+	}
+	.btn_custom:hover{
+		color:#ffffff;
+		padding: 10px 27px;
+		font-family: Proxima Nova Regular;
+		font-size: 35px;
+		background-image: linear-gradient(90deg, #e54e35, #e56e45);
+		box-shadow: 7px 7px 10px rgba(0,0,0,0.1);
+	}
+	.submit_btn_custom{
+		color:#ffffff;
+		padding: 5px 20px;
+		font-family: Proxima Nova Regular;
+		font-size: 26px;
+		background-image: linear-gradient(30deg, #e54e35, #e56e45);
+		transition: .5s ease;
+	}
+	.submit_btn_custom:hover{
+		color:#ffffff;
+		padding: 5.5px 20.5px;
+		font-family: Proxima Nova Regular;
+		font-size: 27px;
+		background-image: linear-gradient(90deg, #e54e35, #e56e45);
+		box-shadow: 7px 7px 10px rgba(0,0,0,0.1);
+	}
+	/* Home Slider */
+		#home_slider{
+			background-image:url("{{ url_for('static', filename='images/Slider02.png') }}");
+			background-repeat: no-repeat;
+			background-size: 100% 100%;
+			height: 100vh;
+		}
+	/* End */
+
+	/* About AFC */
+		#about_afc{
+			/*height: 100vh;*/
+		}
+		
+		#about_afc .content{
+			font-family: Proxima Nova Light;
+			color:#1a1a1a;
+			font-size: 22px;
+			letter-spacing: 1.2px;
+			line-height: 1.6;
+		}
+		.about_icons{
+			width: 90px;
+		}
+		.icon_heading{
+			font-family: Proxima Nova Regular;
+			font-size: 17px;
+		}
+	/* End */
+
+	#our_products .prod_block{
+		position: relative;
+	}	
+
+	.prod_col-7{
+		width: 54%;
+	}
+	.prod_col-5{
+		width: 46%;
+	}
+
+	.overlay{
+		position: absolute;
+		left: 0;
+		top: 0;
+		background-color: rgba(0,0,0,0.6);
+	}
+
+	.prod_title{
+		font-family: Proxima Nova Regular;
+		color:#ffffff;
+	}
+	.prod_title:after {
+		content: '';
+		height: 4px;
+		background: #e44e35; 
+		width: 50%;
+		margin: 0px auto;
+		display: block;
+	}
+
+	.carousel-item #Concentrix{
+		background-image:url("{{ url_for('static', filename='images/Concentrix.png') }}");
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+		height: 70vh;
+	}
+
+	.carousel-item #Tokopedia{
+		background-image:url("{{ url_for('static', filename='images/Tokopedia.png') }}");
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+		height: 70vh;
+	}
+	.carousel-item #India_Mart{
+		background-image:url("{{ url_for('static', filename='images/India_Mart.png') }}");
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+		height: 70vh;
+	}
+	.carousel-item #HCL{
+		background-image:url("{{ url_for('static', filename='images/HCL_Nagpur.png') }}");
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+		height: 70vh;
+	}
+	.carousel-item #ABC{
+		background-image:url("{{ url_for('static', filename='images/workstation.png') }}");
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+		height: 70vh;
+	}
+	.carousel-item #XYZ{
+		background-image:url("{{ url_for('static', filename='images/cabins.png') }}");
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center;
+		height: 70vh;
+	}
+	.carousel-item .overlay_proj{
+		background-color: rgba(0,0,0,0.6);
+	}
+
+	.proj_title{
+		font-family: Proxima Nova Regular;
+		color:#ffffff;
+	}
+	#projectCarousel1 .proj_title:after {
+		content: '';
+		height: 2px;
+		background: #e44e35; 
+		width: 60%;
+		margin: 0px auto;
+		display: block;
+	}
+	#projectCarousel1 .carousel-control-next,
+	#projectCarousel1 .carousel-control-prev{
+		opacity: 1;
+	}
+	#projectCarousel1 .carousel-control-next span,
+	#projectCarousel1 .carousel-control-prev span{
+		font-size: 100px;
+		font-weight: 100;
+		opacity: 1;
+	}
+	#projectCarousel2{
+		background-color:#1a1a1a;
+		height: 110vh; 
+	}
+	#projectCarousel2 .carousel-control-next,
+	#projectCarousel2 .carousel-control-prev{
+		opacity: 1;
+	}
+	#projectCarousel2 .carousel-control-next span,
+	#projectCarousel2 .carousel-control-prev span{
+		font-size: 100px;
+		font-weight: 100;
+		opacity: 1;
+	}
+
+	#clientsCarousel .carousel-control-next,
+	#clientsCarousel .carousel-control-prev{
+		opacity: 1;
+	}
+	#clientsCarousel .carousel-control-next span,
+	#clientsCarousel .carousel-control-prev span{
+		font-size: 100px;
+		font-weight: 100;
+		color:#1a1a1a;
+		opacity: 1;
+	}
+	#testimonialCarousel .carousel-control-next,
+	#testimonialCarousel .carousel-control-prev{
+		opacity: 1;
+	}
+	#testimonialCarousel .carousel-control-next span,
+	#testimonialCarousel .carousel-control-prev span{
+		font-size: 100px;
+		font-weight: 100;
+		color:#1a1a1a;
+		opacity: 1;
+	}
+	#testimonialCarousel .carousel-item .col-8{
+		background-color: #111;
+		height: 70vh;
+	}
+	.testimonial_content{
+		font-family: Didot;
+		font-style: italic;
+		color:#ffffff;
+	}
+	@media (max-width: 768px) {
+			.carousel-inner .carousel-item > div {
+				display: none;
+			}
+			.carousel-inner .carousel-item > div:first-child {
+				display: block;
+			}
+	}
+
+	.carousel-inner .carousel-item.active,
+	.carousel-inner .carousel-item-next,
+	.carousel-inner .carousel-item-prev {
+		display: flex;
+		transition: .5s ease;
+	}
+
+	/* display 3 */
+	@media (min-width: 768px) {
+		
+		.carousel-inner .carousel-item-right.active,
+		.carousel-inner .carousel-item-next {
+		  transform: translateX(25%);
+		  transition: .5s ease;
+		}
+		
+		.carousel-inner .carousel-item-left.active, 
+		.carousel-inner .carousel-item-prev {
+		  transform: translateX(-25%);
+		  transition: .5s ease;
+		}
+	}
+	.carousel-inner .carousel-item-right,
+	.carousel-inner .carousel-item-left{ 
+	  transform: translateX(0);
+	  transition: .5s ease;
+
+	}
+	.carousel_close{
+		z-index: 2;
+		font-size: 40px;
+	}
+	#our_clients .carousel-item{
+		background-color: white;
+
+	}
+	.certification_icons{
+		width: 95px;
+	}
+	#footer{
+		background-color: #f2f2f2;
+	}
+	.footer_link,.footer_content{
+		font-family: Proxima Nova Regular;
+		color:#1a1a1a;
+		font-size: 20px;
+	}
+	.footer_link:hover{
+		font-family: Proxima Nova Regular;
+		color:#1a1a1a;
+		font-size: 20px;
+	}
+
+</style>
+</head>
+<body>
+	<nav class="navbar navbar-expand-lg py-0">
+		<a class="navbar-brand py-0" href="#">
+			<img class="img-fluid logo" src="/static/icons/AFC_logo1.png" >
+		</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<i class="fa fa-bars" aria-hidden="true"></i>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item active px-2">
+					<a class="nav-link py-0" href="#">Home</a>
+				</li>
+				<li class="nav-item px-2">
+					<a class="nav-link py-0" href="#">About Us</a>
+				</li>
+				<li class="nav-item px-2">
+					<a class="nav-link py-0" href="#">Products</a>
+				</li>
+				<li class="nav-item px-2">
+					<a class="nav-link py-0" href="#">Latest at AFC</a>
+				</li>
+				<li class="nav-item px-2">
+					<a class="nav-link py-0" href="#">Clients</a>
+				</li>
+				<li class="nav-item px-2">
+					<a class="nav-link py-0" href="#">Contact Us</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+	<div id="home_slider">
+		<div class="d-flex justify-content-center align-items-center h-100">
+			<h1 class="slider_heading display-1 d-none d-md-block text-center pt-md-4 pb-0"> 
+				Reimagining<br>Workspaces
+			</h1>
+			<h1 class="slider_heading display-4 d-block d-md-none text-center pt-md-4 pb-0"> 
+				Reimagining<br>Workspaces
+			</h1>
+		</div>
+	</div>
+	<div id="about_afc" class="py-4">
+		<h1 class="heading text-center display-1 d-none d-md-block pb-0"> 
+			About AFC
+		</h1>
+		<h1 class="heading text-center display-3 d-block d-md-none pb-0"> 
+			About AFC
+		</h1>
+		<hr class="heading_underline">
+		<div class="row m-0">
+			<div class="mx-md-5 px-3 text-center">
+					<p class="content">
+						AFC Furniture Solutions is the fastest growing brand in the office furniture manufacturing industry that started in 2008. AFC is an
+						end-to-end solution company with Green Manufacturing setup spread across 1.5 lakh sq ft. and capability to manufacture 10k
+						workstations and 8k chairs in a month. Manufacturing setup in Delhi-NCR region, team of 60+ passionate professionals and a
+						skilled workforce of 300+, AFC has a pan-India presence with branch offices in Mumbai and Delhi-NCR region. Having gained
+						experience of more than a decade in Design and Manufacturing, AFC boasts of the shortest delivery timeline and has been
+						successful in retaining more than 93% clients since inception. Product Portfolio - AFC can customise solutions as per client
+						requirements and specialise in manufacturing Workstations, Cabins, Seating Solutions, Lose Furniture, Storage, Educational,
+						Laboratories and more. The company takes pride in conveying that all their products and solutions are manufactured in India.
+					</p>
+					<div class="d-flex flex-wrap justify-content-around align-items-center px-5 py-4">
+						<div>
+							<img class="img-fluid about_icons" id="icon1_static"  src="/static/icons/warehouse-static.png">
+							<img class="img-fluid about_icons d-none" id="icon1_hover" src="/static/icons/warehouse-hover.png">
+							<p class="icon_heading">Inhouse<br>Manufacturing</p>
+						</div>
+						<div>
+							<img class="img-fluid about_icons" id="icon2_static" src="/static/icons/customisation-static.png">
+							<img class="img-fluid about_icons d-none" id="icon2_hover" src="/static/icons/customisation-hover.png">
+							<p class="icon_heading">Customisation<br>Capability</p>
+						</div>
+						<div>
+							<img class="img-fluid about_icons" id="icon3_static" src="/static/icons/PANIndia-static.png">
+							<img class="img-fluid about_icons d-none" id="icon3_hover" src="/static/icons/PANIndia-hover.png">
+							<p class="icon_heading">Pan-India<br>Presence</p>
+						</div>
+						<div>
+							<img class="img-fluid about_icons" id="icon4_static" src="/static/icons/environmentally_responsible-static.png">
+							<img class="img-fluid about_icons d-none" id="icon4_hover" src="/static/icons/environmentally_responsible-hover.png">
+							<p class="icon_heading">Environmentally<br>Responsible</p>
+						</div>
+						<div>
+							<img class="img-fluid about_icons" id="icon5_static" src="/static/icons/truster_over_12years-static.png">
+							<img class="img-fluid about_icons d-none" id="icon5_hover" src="/static/icons/truster_over_12years-hover.png">
+							<p class="icon_heading">Trusted Over<br>12 Years</p>
+						</div>
+						<div>
+							<img class="img-fluid about_icons" id="icon6_static" src="/static/icons/makeinindia-static.png">
+							<img class="img-fluid about_icons d-none" id="icon6_hover" src="/static/icons/makeinindia-hover.png">
+							<p class="icon_heading">Make in<br>India</p>
+						</div>
+					</div>
+					<a href="#a" class="btn btn_custom">Know More</a>
+			</div>
+		</div>
+	</div>
+	<div id="our_products">
+		<h1 class="heading text-center display-1 d-none d-md-block pt-md-4 pb-0"> 
+			Our Products
+		</h1>
+		<h1 class="heading text-center display-3 d-block d-md-none pt-md-4 pb-0"> 
+			Our Products
+		</h1>
+		<hr class="heading_underline">
+			<div class="row m-0 ">
+				<div class="d-flex w-100">
+					<div class="prod_col-7 p-0 prod_block" style="height: 120vh;">
+						<img class="img-fluid h-100 w-100" src="/static/images/workstation.png">
+						<div class="overlay h-100 w-100 d-flex justify-content-center align-items-center">
+							<h1 class="prod_title display-4 d-none d-md-block text-center">
+								Workstations
+							</h1>
+							<h2 class="prod_title d-block d-md-none text-center">
+								Workstations
+							</h2>
+						</div>
+					</div>
+					<div class="prod_col-5 pl-2 pr-0" style="height: 120vh;">
+						<div class="col-12 p-0 mb-2 prod_block" style="height: 49.5%;">
+							<img class="img-fluid h-100 w-100" src="/static/images/cabins.png">
+							<div class="overlay h-100 w-100 d-flex justify-content-center align-items-center">
+								<h1 class="prod_title display-4 d-none d-md-block text-center">
+									Cabins
+								</h1>
+								<h2 class="prod_title d-block d-md-none text-center">
+									Cabins
+								</h2>
+							</div>
+						</div>
+						<div class="col-12 p-0  prod_block" style="height: 49.5%;">
+							<img class="img-fluid h-100 w-100" src="/static/images/cafeteria.png">
+							<div class="overlay h-100 w-100 d-flex justify-content-center align-items-center">
+								<h1 class="prod_title display-4 d-none d-md-block text-center">
+									Cafeteria
+								</h1>
+								<h2 class="prod_title d-block d-md-none text-center">
+									Cafeteria
+								</h2>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row m-0 w-100 pt-2" >
+					<div class="col-6 px-0 prod_block" style="height: 60vh;">
+						<img class="img-fluid h-100 w-100" src="/static/images/conference_room.png">
+						<div class="overlay h-100 w-100 d-flex justify-content-center align-items-center">
+							<h1 class="prod_title display-4 d-none d-md-block text-center">
+								Conference Rooms
+							</h1>
+							<h2 class="prod_title d-block d-md-none text-center">
+								Conference Rooms
+							</h2>
+						</div>
+					</div>
+					<div class="col-6 pl-2 pr-0 prod_block" style="height: 60vh;">
+						<img class="img-fluid h-100 w-100" src="/static/images/hostel_bed.png">
+						<div class="overlay h-100 w-100 d-flex justify-content-center align-items-center">
+							<h1 class="prod_title display-4 d-none d-md-block text-center">
+								Hostel Beds
+							</h1>
+							<h2 class="prod_title d-block d-md-none px-3 text-center">
+								Hostel Beds
+							</h2>
+						</div>
+					</div>
+				</div>
+			</div>
+		<div class="py-5 text-center">
+			<a href="#a" class="btn btn_custom">Explore Our Products</a>
+		</div>
+	</div>
+	<div id="our_projects">
+		<h1 class="heading text-center display-1 d-none d-md-block pb-0"> 
+			Recent Projects
+		</h1>
+		<h1 class="heading text-center display-3 d-block d-md-none pb-0"> 
+			Recent Projects
+		</h1>
+		<hr class="heading_underline my-2">
+		<div class="row m-0 py-3">
+			<div id="projectCarousel1" class="carousel slide w-100" data-ride="carousel">
+				<div class="carousel-inner w-100" role="listbox">
+					<div class="carousel-item active ">
+						<div class="col-md-3 p-0 mx-1" id="Concentrix">
+							<div class="overlay_proj h-100 w-100 d-flex justify-content-center align-items-center">
+								<h1 class="proj_title text-center">
+									Concentrix
+								</h1>
+							</div>
+						</div>
+					</div>
+					<div class="carousel-item ">
+						<div class="col-md-3 p-0 mx-1" id="Tokopedia">
+							<div class="overlay_proj h-100 w-100 d-flex justify-content-center align-items-center">
+								<h1 class="proj_title text-center">
+									Tokopedia
+								</h1>
+							</div>
+						</div>
+					</div>
+					<div class="carousel-item" >
+						<div class="col-md-3 p-0 mx-1" id="India_Mart">
+							<div class="overlay_proj h-100 w-100 d-flex justify-content-center align-items-center">
+								<h1 class="proj_title text-center">
+									India Mart
+								</h1>
+							</div>
+						</div>
+					</div>
+					<div class="carousel-item">
+						<div class="col-md-3 p-0 mx-1" id="HCL">
+							<div class="overlay_proj h-100 w-100 d-flex justify-content-center align-items-center">
+								<h1 class="proj_title text-center">
+									HCL
+								</h1>
+							</div>
+						</div>
+					</div>
+					<div class="carousel-item">
+						<div class="col-md-3 p-0 mx-1"  id="ABC">
+							<div class="overlay_proj h-100 w-100 d-flex justify-content-center align-items-center">
+								<h1 class="proj_title text-center">
+									ABC
+								</h1>
+							</div>
+						</div>
+					</div>
+					<div class="carousel-item">
+						<div class="col-md-3 p-0 mx-1"  id="XYZ">
+							<div class="overlay_proj h-100 w-100 d-flex justify-content-center align-items-center">
+								<h1 class="proj_title text-center">
+									XYZ
+								</h1>
+							</div>
+						</div>
+					</div>
+				</div>
+				<a class="carousel-control-prev w-auto" href="#projectCarousel1" role="button" data-slide="prev">
+					<span class="mx-2">&#8249;</span>
+				</a>
+				<a class="carousel-control-next w-auto" href="#projectCarousel1" role="button" data-slide="next">
+					<span class="mx-2">&#8250;</span>
+				</a>
+			</div>
+			<div id="projectCarousel2" class="carousel slide w-100 d-none" data-ride="carousel">
+				<button class="carousel_close btn text-light float-right">&times;</button>
+				<div class="carousel-inner w-100">
+					<div class="carousel-item w-100 active py-5">
+						<div class="row m-0 w-100">
+							<div class="col-8 offset-2 p-0" id="Concentrix">
+							</div>
+							<div class="w-100 py-5 d-flex flex-column  flex-column justify-content-center">
+								<hr class="heading_underline my-2">
+								<h1 class="proj_title text-center pt-4">
+									Concentrix, New Delhi
+								</h1>
+							</div>
+						</div>
+					</div>
+					<div class="carousel-item w-100 py-5">
+						<div class="row m-0 w-100">
+							<div class="col-8 offset-2" id="Tokopedia">
+							</div>
+							<div class="w-100 py-5 d-flex flex-column  justify-content-center">
+								<hr class="heading_underline my-2">
+								<h1 class="proj_title text-center pt-4">
+									Tokopedia, Gurgaon Office
+								</h1>
+							</div>
+						</div>
+					</div>
+					<div class="carousel-item w-100 py-5" >
+						<div class="row m-0 w-100">
+							<div class="col-8 offset-2 p-0" id="India_Mart">
+							</div>
+							<div class="w-100 py-5 d-flex flex-column  justify-content-center">
+								<hr class="heading_underline my-2">
+								<h1 class="proj_title text-center pt-4">
+									India Mart, Bangalore
+								</h1>
+							</div>
+						</div>
+					</div>
+					<div class="carousel-item w-100 py-5">
+						<div class="row m-0 w-100">
+							<div class="col-8 offset-2 p-0" id="HCL">
+							</div>
+							<div class="w-100 py-5 d-flex flex-column  justify-content-center">
+								<hr class="heading_underline my-2">
+								<h1 class="proj_title text-center pt-4">
+									HCL, Noida
+								</h1>
+							</div>
+						</div>
+					</div>
+					<div class="carousel-item w-100 py-5">
+						<div class="row m-0 w-100">
+							<div class="col-8 offset-2 p-0"  id="ABC">
+							</div>
+							<div class=" w-100 py-5 d-flex flex-column  justify-content-center">
+								<hr class="heading_underline my-2">
+								<h1 class="proj_title text-center pt-4">
+									ABC
+								</h1>
+							</div>
+						</div>
+					</div>
+					<div class="carousel-item w-100 py-5">
+						<div class="row m-0 w-100">
+							<div class="col-8 offset-2 p-0"  id="XYZ">
+							</div>
+							<div class="w-100 py-5 d-flex flex-column  justify-content-center">
+								<hr class="heading_underline my-2">
+								<h1 class="proj_title text-center pt-4">
+									XYZ
+								</h1>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="h-50">
+					<a class="carousel-control-prev w-auto my-5" href="#projectCarousel2" role="button" data-slide="prev">
+						<span class="mx-2">&#8249;</span>
+					</a>
+					<a class="carousel-control-next w-auto my-5" href="#projectCarousel2" role="button" data-slide="next">
+						<span class="mx-2">&#8250;</span>
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class="py-5 text-center">
+			<a href="#a" class="btn btn_custom">Know More</a>
+		</div>
+	</div>
+	<div id="testimonials">
+		<h1 class="heading text-center display-1 d-none d-md-block pb-0"> 
+			Testimonials
+		</h1>
+		<h1 class="heading text-center display-3 d-block d-md-none pb-0"> 
+			Testimonials
+		</h1>
+		<hr class="heading_underline my-2">
+		<div class="row m-0 py-3">
+			<div id="testimonialCarousel" class="carousel slide w-100" data-ride="carousel">
+				<div class="carousel-inner w-100">
+					<div class="carousel-item w-100 active py-5">
+						<div class="row m-0 w-100">
+							<div class="col-8 offset-2 p-0">
+								<div class="h-100 w-100 py-5 d-flex flex-column justify-content-center align-items-center">
+									<h1 class="testimonial_content text-center pt-4">
+										AFC is very professional and<br>up to their promise.
+									</h1>
+									<hr class="heading_underline my-2">
+									<img class="img-fluid w-25 py-3" src="/static/images/india_mart_logo.png" >
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="carousel-item w-100 py-5">
+						<div class="row m-0 w-100">
+							<div class="col-8 offset-2">
+								<div class="h-100 w-100 py-5 d-flex flex-column justify-content-center align-items-center">
+									<h1 class="testimonial_content text-center pt-4">
+										Tokopedia, Gurgaon Office
+									</h1>
+									<hr class="heading_underline my-2">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="carousel-item w-100 py-5" >
+						<div class="row m-0 w-100">
+							<div class="col-8 offset-2 p-0">
+								<div class="h-100 w-100 py-5 d-flex flex-column justify-content-center align-items-center">
+									<h1 class="testimonial_content text-center pt-4">
+										India Mart, Bangalore
+									</h1>
+									<hr class="heading_underline my-2">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="carousel-item w-100 py-5">
+						<div class="row m-0 w-100">
+							<div class="col-8 offset-2 p-0">
+								<div class="h-100 w-100 py-5 d-flex flex-column justify-content-center align-items-center">
+									<h1 class="testimonial_content text-center pt-4">
+										HCL, Noida
+									</h1>
+									<hr class="heading_underline my-2">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="carousel-item w-100 py-5">
+						<div class="row m-0 w-100">
+							<div class="col-8 offset-2 p-0">
+								<div class="h-100 w-100 py-5 d-flex flex-column justify-content-center align-items-center">
+									<h1 class="testimonial_content text-center pt-4">
+										ABC
+									</h1>
+									<hr class="heading_underline my-2">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="carousel-item w-100 py-5">
+						<div class="row m-0 w-100">
+							<div class="col-8 offset-2 p-0">
+								<div class="h-100 w-100 py-5 d-flex flex-column justify-content-center align-items-center">
+									<h1 class="testimonial_content text-center pt-4">
+										XYZ
+									</h1>
+									<hr class="heading_underline my-2">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="h-50">
+					<a class="carousel-control-prev w-auto my-5" href="#testimonialCarousel" role="button" data-slide="prev">
+						<span class="ml-5">&#8249;</span>
+					</a>
+					<a class="carousel-control-next w-auto my-5" href="#testimonialCarousel" role="button" data-slide="next">
+						<span class="mr-5">&#8250;</span>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="our_clients">
+		<h1 class="heading text-center display-1 d-none d-md-block pt-md-4 pb-0"> 
+			Our Clients
+		</h1>
+		<h1 class="heading text-center display-3 d-block d-md-none pt-md-4 pb-0"> 
+			Our Clients
+		</h1>
+		<hr class="heading_underline">
+		<div class="row m-0 py-4">
+			<div id="clientsCarousel" class="carousel slide w-100" data-ride="carousel">
+				<div class="carousel-inner w-100" role="listbox">
+					<div class="carousel-item active ">
+						<div class="col-md-3 p-0 mx-1 text-center">
+							<img class="img-fluid w-50" src="/static/icons/AIHP-loho.png" >
+						</div>
+					</div>
+					<div class="carousel-item">
+						<div class="col-md-3 p-0 mx-1 text-center">
+							<img class="img-fluid w-50" src="/static/icons/mahindra-logo.png" >
+						</div>
+					</div>
+					<div class="carousel-item" >
+						<div class="col-md-3 p-0 mx-1 text-center">
+							<img class="img-fluid w-50" src="/static/icons/amar-ujala-logo.png">
+						</div>
+					</div>
+					<div class="carousel-item">
+						<div class="col-md-3 p-0 mx-1 text-center">
+							<img class="img-fluid w-50" src="/static/icons/AIHP-loho.png" >
+						</div>
+					</div>
+					<div class="carousel-item">
+						<div class="col-md-3 p-0 mx-1 text-center">
+							<img class="img-fluid w-50" src="/static/icons/mahindra-logo.png" >
+						</div>
+					</div>
+					<div class="carousel-item">
+						<div class="col-md-3 p-0 mx-1 text-center">
+							<img class="img-fluid w-50" src="/static/icons/amar-ujala-logo.png">
+						</div>
+					</div>
+				</div>
+				<a class="carousel-control-prev w-auto" href="#clientsCarousel" role="button" data-slide="prev">
+					<span class="mx-2">&#8249;</span>
+				</a>
+				<a class="carousel-control-next w-auto" href="#clientsCarousel" role="button" data-slide="next">
+					<span class="mx-2">&#8250;</span>
+				</a>
+			</div>
+		</div>
+	</div>
+	<div id="footer" class="py-4">
+		<div id="certifications">
+			<h1 class="heading text-center d-none d-md-block pt-md-4 pb-0"> 
+				Certification & Compliance
+			</h1>
+			<h3 class="heading text-center d-block d-md-none pt-md-4 pb-0"> 
+				Certification & Compliance
+			</h3>
+			<hr class="heading_underline my-2">
+			<div class="d-flex justify-content-around flex-wrap py-4 mx-md-5 px-5">
+				<img class="img-fluid certification_icons" src="/static/icons/ISO9001-2015.png">
+				<img class="img-fluid certification_icons" src="/static/icons/ISO50001-2018.png">
+				<img class="img-fluid certification_icons" src="/static/icons/ISO14001-2015.png">
+				<img class="img-fluid certification_icons" src="/static/icons/greenguardlogo.png">
+				<img class="img-fluid certification_icons" src="/static/icons/ISO45001-2018.png">
+				<img class="img-fluid certification_icons" src="/static/icons/NSIC-logo.png">
+				<img class="img-fluid certification_icons" src="/static/icons/BIFMA-logo.png">
+				<img class="img-fluid certification_icons" src="/static/icons/MSME-logo.png">
+				<img class="img-fluid certification_icons" src="/static/icons/OHSAS-logo.png">
+			</div>
+		</div>
+		<h1 class="heading text-center d-none d-md-block pt-md-4 pb-0"> 
+			Subscribe To Our Newsletter
+		</h1>
+		<h3 class="heading text-center d-block d-md-none pt-md-4 pb-0"> 
+			Subscribe To Our Newsletter
+		</h3>
+		<hr class="heading_underline my-2">
+		<div class="d-flex justify-content-center py-4">
+			<input type="email" class="form-control w-25 d-none d-md-block" placeholder="Your Email ID">
+			<input type="email" class="form-control w-100 d-block d-md-none mx-3" placeholder="Your Email ID">
+		</div>
+		<div class="text-center pb-4">
+			<a href="#a" class="btn submit_btn_custom">Submit</a>
+		</div>
+		<div class="pt-3">
+			<div class="d-flex justify-content-center flex-wrap py-2 px-4">
+				<a class="footer_link px-3" href="#">Home</a>
+				<a class="footer_link px-3" href="#">About Us</a>
+				<a class="footer_link px-3 " href="#">Products</a>
+				<a class="footer_link px-3" href="#">Latest at AFC</a>
+				<a class="footer_link px-3" href="#">Projects</a>
+				<a class="footer_link px-3" href="#">Contact Us</a>
+				<a class="footer_link px-3" href="#">Blog</a>
+			</div>
+			<p class="footer_content d-flex justify-content-center flex-wrap pb-0">
+				Connect With Us On:
+				<a class="footer_link px-2" href="#"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a>
+				<a class="footer_link px-2" href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+				<a class="footer_link px-2 " href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i></a>
+				<a class="footer_link px-2" href="#"><i class="fa fa-facebook-official" aria-hidden="true"></i></a>
+			</p>
+		</div>
+	</div>
+</body>
+<script>
+	$(document).ready(function(){
+		$('.about_icons').hover(function(){
+			var id=$(this).attr('id').split('_')[0];
+			$('#'+id+'_static').addClass('d-none');
+			$('#'+id+'_hover').removeClass('d-none');
+		}, function(){
+		    var id=$(this).attr('id').split('_')[0];
+			$('#'+id+'_hover').addClass('d-none');
+			$('#'+id+'_static').removeClass('d-none');
+		});
+		$('#projectCarousel1').carousel({
+			interval: 10000
+		})
+		$("#projectCarousel1 .carousel-item").on("click",function(){
+			$("#projectCarousel1").addClass("d-none");
+			$("#projectCarousel2").removeClass("d-none");
+		});
+		$(".carousel_close").on("click",function(){
+			$("#projectCarousel2").addClass("d-none");
+			$("#projectCarousel1").removeClass("d-none");
+		});
+		$('#projectCarousel1.carousel .carousel-item').each(function(){
+			var minPerSlide = 4;
+			var next = $(this).next();
+			if (!next.length) {
+			next = $(this).siblings(':first');
+			}
+			next.children(':first-child').clone().appendTo($(this));
+			
+			for (var i=0;i<minPerSlide;i++) {
+				next=next.next();
+				if (!next.length) {
+					next = $(this).siblings(':first');
+				}
+				
+				next.children(':first-child').clone().appendTo($(this));
+			  }
+		});
+
+		$('#clientsCarousel').carousel({
+			interval: 10000
+		})
+
+		$('#clientsCarousel.carousel .carousel-item').each(function(){
+			var minPerSlide = 4;
+			var next = $(this).next();
+			if (!next.length) {
+			next = $(this).siblings(':first');
+			}
+			next.children(':first-child').clone().appendTo($(this));
+			
+			for (var i=0;i<minPerSlide;i++) {
+				next=next.next();
+				if (!next.length) {
+					next = $(this).siblings(':first');
+				}
+				
+				next.children(':first-child').clone().appendTo($(this));
+			  }
+		});
+	});
+
+</script>
+
+</html>
