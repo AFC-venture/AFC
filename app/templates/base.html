@@ -77,6 +77,12 @@
 		margin: -15px auto 25px auto;
 		width: 234px;
 	}
+	#testimonialCarousel hr.heading_underline{
+		border-color: #e44e35;
+		border-width: 3px;
+		margin: -15px auto 25px auto;
+		width: 50%;
+	}
 	.btn_custom{
 		color:#ffffff;
 		padding: 9px 26px;
@@ -145,9 +151,18 @@
 
 	.prod_col-7{
 		width: 54%;
+		height: 120vh;
 	}
 	.prod_col-5{
 		width: 46%;
+		height:120vh;
+	}
+	.prod_col-5 .col-12{
+		height:59.4vh;
+	}
+	.prod_col-6{
+		width: 49.15vw;
+		height: 60vh;
 	}
 
 	.overlay{
@@ -292,6 +307,19 @@
 			.carousel-inner .carousel-item > div:first-child {
 				display: block;
 			}
+			.prod_col-7{
+				height: 60vh;
+			}
+			.prod_col-5{
+				height:60vh;
+			}
+			.prod_col-5 .col-12{
+				height:29.2vh;
+			}
+			.prod_col-6{
+				width: 48.75vw;
+				height: 30vh;
+			}
 	}
 
 	.carousel-inner .carousel-item.active,
@@ -394,7 +422,7 @@
 		<h1 class="heading text-center display-1 d-none d-md-block pb-0"> 
 			About AFC
 		</h1>
-		<h1 class="heading text-center display-3 d-block d-md-none pb-0"> 
+		<h1 class="heading text-center display-4 d-block d-md-none pb-0"> 
 			About AFC
 		</h1>
 		<hr class="heading_underline">
@@ -411,32 +439,32 @@
 						Laboratories and more. The company takes pride in conveying that all their products and solutions are manufactured in India.
 					</p>
 					<div class="d-flex flex-wrap justify-content-around align-items-center px-5 py-4">
-						<div>
+						<div class="px-3">
 							<img class="img-fluid about_icons" id="icon1_static"  src="/static/icons/warehouse-static.png">
 							<img class="img-fluid about_icons d-none" id="icon1_hover" src="/static/icons/warehouse-hover.png">
 							<p class="icon_heading">Inhouse<br>Manufacturing</p>
 						</div>
-						<div>
+						<div class="px-3">
 							<img class="img-fluid about_icons" id="icon2_static" src="/static/icons/customisation-static.png">
 							<img class="img-fluid about_icons d-none" id="icon2_hover" src="/static/icons/customisation-hover.png">
 							<p class="icon_heading">Customisation<br>Capability</p>
 						</div>
-						<div>
+						<div class="px-3">
 							<img class="img-fluid about_icons" id="icon3_static" src="/static/icons/PANIndia-static.png">
 							<img class="img-fluid about_icons d-none" id="icon3_hover" src="/static/icons/PANIndia-hover.png">
 							<p class="icon_heading">Pan-India<br>Presence</p>
 						</div>
-						<div>
+						<div class="px-3">
 							<img class="img-fluid about_icons" id="icon4_static" src="/static/icons/environmentally_responsible-static.png">
 							<img class="img-fluid about_icons d-none" id="icon4_hover" src="/static/icons/environmentally_responsible-hover.png">
 							<p class="icon_heading">Environmentally<br>Responsible</p>
 						</div>
-						<div>
+						<div class="px-3">
 							<img class="img-fluid about_icons" id="icon5_static" src="/static/icons/truster_over_12years-static.png">
 							<img class="img-fluid about_icons d-none" id="icon5_hover" src="/static/icons/truster_over_12years-hover.png">
 							<p class="icon_heading">Trusted Over<br>12 Years</p>
 						</div>
-						<div>
+						<div class="px-3">
 							<img class="img-fluid about_icons" id="icon6_static" src="/static/icons/makeinindia-static.png">
 							<img class="img-fluid about_icons d-none" id="icon6_hover" src="/static/icons/makeinindia-hover.png">
 							<p class="icon_heading">Make in<br>India</p>
@@ -450,69 +478,69 @@
 		<h1 class="heading text-center display-1 d-none d-md-block pt-md-4 pb-0"> 
 			Our Products
 		</h1>
-		<h1 class="heading text-center display-3 d-block d-md-none pt-md-4 pb-0"> 
+		<h1 class="heading text-center display-4 d-block d-md-none pt-md-4 pb-0"> 
 			Our Products
 		</h1>
 		<hr class="heading_underline">
 			<div class="row m-0 ">
 				<div class="d-flex w-100">
-					<div class="prod_col-7 p-0 prod_block" style="height: 120vh;">
+					<div class="prod_col-7 p-0 prod_block">
 						<img class="img-fluid h-100 w-100" src="/static/images/workstation.png">
 						<div class="overlay h-100 w-100 d-flex justify-content-center align-items-center">
 							<h1 class="prod_title display-4 d-none d-md-block text-center">
 								Workstations
 							</h1>
-							<h2 class="prod_title d-block d-md-none text-center">
+							<h3 class="prod_title d-block d-md-none text-center">
 								Workstations
-							</h2>
+							</h3>
 						</div>
 					</div>
-					<div class="prod_col-5 pl-2 pr-0" style="height: 120vh;">
-						<div class="col-12 p-0 mb-2 prod_block" style="height: 49.5%;">
+					<div class="prod_col-5 pl-2 pr-0">
+						<div class="col-12 p-0 mb-2 prod_block">
 							<img class="img-fluid h-100 w-100" src="/static/images/cabins.png">
 							<div class="overlay h-100 w-100 d-flex justify-content-center align-items-center">
 								<h1 class="prod_title display-4 d-none d-md-block text-center">
 									Cabins
 								</h1>
-								<h2 class="prod_title d-block d-md-none text-center">
+								<h3 class="prod_title d-block d-md-none text-center">
 									Cabins
-								</h2>
+								</h3>
 							</div>
 						</div>
-						<div class="col-12 p-0  prod_block" style="height: 49.5%;">
+						<div class="col-12 p-0  prod_block">
 							<img class="img-fluid h-100 w-100" src="/static/images/cafeteria.png">
 							<div class="overlay h-100 w-100 d-flex justify-content-center align-items-center">
 								<h1 class="prod_title display-4 d-none d-md-block text-center">
 									Cafeteria
 								</h1>
-								<h2 class="prod_title d-block d-md-none text-center">
+								<h3 class="prod_title d-block d-md-none text-center">
 									Cafeteria
-								</h2>
+								</h3>
 							</div>
 						</div>
 					</div>
 				</div>
 				<div class="row m-0 w-100 pt-2" >
-					<div class="col-6 px-0 prod_block" style="height: 60vh;">
+					<div class="prod_col-6 px-0 prod_block">
 						<img class="img-fluid h-100 w-100" src="/static/images/conference_room.png">
 						<div class="overlay h-100 w-100 d-flex justify-content-center align-items-center">
 							<h1 class="prod_title display-4 d-none d-md-block text-center">
 								Conference Rooms
 							</h1>
-							<h2 class="prod_title d-block d-md-none text-center">
+							<h3 class="prod_title d-block d-md-none text-center">
 								Conference Rooms
-							</h2>
+							</h3>
 						</div>
 					</div>
-					<div class="col-6 pl-2 pr-0 prod_block" style="height: 60vh;">
+					<div class="prod_col-6 ml-2 prod_block">
 						<img class="img-fluid h-100 w-100" src="/static/images/hostel_bed.png">
 						<div class="overlay h-100 w-100 d-flex justify-content-center align-items-center">
 							<h1 class="prod_title display-4 d-none d-md-block text-center">
 								Hostel Beds
 							</h1>
-							<h2 class="prod_title d-block d-md-none px-3 text-center">
+							<h3 class="prod_title d-block d-md-none px-3 text-center">
 								Hostel Beds
-							</h2>
+							</h3>
 						</div>
 					</div>
 				</div>
@@ -525,7 +553,7 @@
 		<h1 class="heading text-center display-1 d-none d-md-block pb-0"> 
 			Recent Projects
 		</h1>
-		<h1 class="heading text-center display-3 d-block d-md-none pb-0"> 
+		<h1 class="heading text-center display-4 d-block d-md-none pb-0"> 
 			Recent Projects
 		</h1>
 		<hr class="heading_underline my-2">
@@ -688,7 +716,7 @@
 		<h1 class="heading text-center display-1 d-none d-md-block pb-0"> 
 			Testimonials
 		</h1>
-		<h1 class="heading text-center display-3 d-block d-md-none pb-0"> 
+		<h1 class="heading text-center display-4 d-block d-md-none pb-0"> 
 			Testimonials
 		</h1>
 		<hr class="heading_underline my-2">
@@ -699,9 +727,12 @@
 						<div class="row m-0 w-100">
 							<div class="col-8 offset-2 p-0">
 								<div class="h-100 w-100 py-5 d-flex flex-column justify-content-center align-items-center">
-									<h1 class="testimonial_content text-center pt-4">
+									<h1 class="testimonial_content text-center pt-4 d-none d-md-block">
 										AFC is very professional and<br>up to their promise.
 									</h1>
+									<h3 class="testimonial_content text-center pt-4 d-block d-md-none">
+										AFC is very professional and<br>up to their promise.
+									</h3>
 									<hr class="heading_underline my-2">
 									<img class="img-fluid w-25 py-3" src="/static/images/india_mart_logo.png" >
 								</div>
@@ -711,10 +742,13 @@
 					<div class="carousel-item w-100 py-5">
 						<div class="row m-0 w-100">
 							<div class="col-8 offset-2">
-								<div class="h-100 w-100 py-5 d-flex flex-column justify-content-center align-items-center">
-									<h1 class="testimonial_content text-center pt-4">
+								<div class="h-100 w-100 py-5 d-flex flex-column justify-content-center align-items-center d-none d-md-block">
+									<h1 class="testimonial_content text-center pt-4 d-none d-md-block">
 										Tokopedia, Gurgaon Office
 									</h1>
+									<h3 class="testimonial_content text-center pt-4 d-block d-md-none">
+										Tokopedia, Gurgaon Office
+									</h3>
 									<hr class="heading_underline my-2">
 								</div>
 							</div>
@@ -724,9 +758,12 @@
 						<div class="row m-0 w-100">
 							<div class="col-8 offset-2 p-0">
 								<div class="h-100 w-100 py-5 d-flex flex-column justify-content-center align-items-center">
-									<h1 class="testimonial_content text-center pt-4">
+									<h1 class="testimonial_content text-center pt-4 d-none d-md-block">
 										India Mart, Bangalore
 									</h1>
+									<h3 class="testimonial_content text-center pt-4 d-block d-md-none">
+										India Mart, Bangalore
+									</h3>
 									<hr class="heading_underline my-2">
 								</div>
 							</div>
@@ -736,9 +773,12 @@
 						<div class="row m-0 w-100">
 							<div class="col-8 offset-2 p-0">
 								<div class="h-100 w-100 py-5 d-flex flex-column justify-content-center align-items-center">
-									<h1 class="testimonial_content text-center pt-4">
+									<h1 class="testimonial_content text-center pt-4 d-none d-md-block">
 										HCL, Noida
 									</h1>
+									<h3 class="testimonial_content text-center pt-4 d-block d-md-none">
+										HCL, Noida
+									</h3>
 									<hr class="heading_underline my-2">
 								</div>
 							</div>
@@ -748,9 +788,12 @@
 						<div class="row m-0 w-100">
 							<div class="col-8 offset-2 p-0">
 								<div class="h-100 w-100 py-5 d-flex flex-column justify-content-center align-items-center">
-									<h1 class="testimonial_content text-center pt-4">
+									<h1 class="testimonial_content text-center pt-4 d-none d-md-block">
 										ABC
 									</h1>
+									<h3 class="testimonial_content text-center pt-4 d-block d-md-none">
+										ABC
+									</h3>
 									<hr class="heading_underline my-2">
 								</div>
 							</div>
@@ -760,9 +803,12 @@
 						<div class="row m-0 w-100">
 							<div class="col-8 offset-2 p-0">
 								<div class="h-100 w-100 py-5 d-flex flex-column justify-content-center align-items-center">
-									<h1 class="testimonial_content text-center pt-4">
+									<h1 class="testimonial_content text-center pt-4 d-none d-md-block">
 										XYZ
 									</h1>
+									<h3 class="testimonial_content text-center pt-4 d-block d-md-none">
+										XYZ
+									</h3>
 									<hr class="heading_underline my-2">
 								</div>
 							</div>
@@ -771,10 +817,10 @@
 				</div>
 				<div class="h-50">
 					<a class="carousel-control-prev w-auto my-5" href="#testimonialCarousel" role="button" data-slide="prev">
-						<span class="ml-5">&#8249;</span>
+						<span class="ml-md-5">&#8249;</span>
 					</a>
 					<a class="carousel-control-next w-auto my-5" href="#testimonialCarousel" role="button" data-slide="next">
-						<span class="mr-5">&#8250;</span>
+						<span class="mr-md-5">&#8250;</span>
 					</a>
 				</div>
 			</div>
@@ -784,7 +830,7 @@
 		<h1 class="heading text-center display-1 d-none d-md-block pt-md-4 pb-0"> 
 			Our Clients
 		</h1>
-		<h1 class="heading text-center display-3 d-block d-md-none pt-md-4 pb-0"> 
+		<h1 class="heading text-center display-4 d-block d-md-none pt-md-4 pb-0"> 
 			Our Clients
 		</h1>
 		<hr class="heading_underline">
