@@ -1,0 +1,446 @@
+{% extends 'base.html' %}
+
+{% block css %}
+<style>
+	.btn_custom{
+		color:#ffffff;
+		padding: 9px 26px;
+		font-family: Proxima Nova Regular;
+		font-size: 32px;
+		background-image: linear-gradient(30deg, #e54e35, #e56e45);
+		transition: .5s ease;
+	}
+	.btn_custom:hover{
+		color:#ffffff;
+		padding: 10px 27px;
+		font-family: Proxima Nova Regular;
+		font-size: 35px;
+		background-image: linear-gradient(90deg, #e54e35, #e56e45);
+		box-shadow: 7px 7px 10px rgba(0,0,0,0.1);
+	}
+	/* Home Slider */
+		#home_slider{
+			background-image:url("{{ url_for('static', filename='images/banner_About.png') }}");
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: cover;
+			height: 100vh;
+		}
+		#home_slider .layer{
+			background-color: rgba(0,0,0,0.3);
+			height: 100vh;
+		}
+		.slider_heading{
+			font-family: Didot;
+			font-style: italic;
+			color:#ffffff;
+			letter-spacing: 1.2px;
+		}
+		#home_slider hr.heading_underline{
+			border-color: #e44e35;
+			border-width: 5px;
+			margin: -15px auto 25px auto;
+			width: 35%;
+		}
+	/* End */
+	/* About AFC */
+		#about_afc .content{
+			font-family: Proxima Nova Light;
+			color:#1a1a1a;
+			font-size: 22px;
+			letter-spacing: 1.2px;
+			line-height: 1.6;
+		}
+		.about_icons{
+			width: 85px;
+		}
+		.icon_heading{
+			font-family: Proxima Nova Regular;
+			font-size: 16px;
+		}
+		.icon_sub_heading{
+			font-family: Proxima Nova Light;
+			font-size: 14px;
+		}
+	/* End */
+	/* Mission_Vision */
+		#mission_vision{
+			background-image:url("{{ url_for('static', filename='images/mission_bg.png') }}");
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: cover;
+			height: 100%;
+		}
+		#mission_vision .layer{
+			background-color: rgba(0,0,0,0.3);
+			height: 100%;
+		}
+		#mission_vision hr.heading_underline{
+			border-color: #e44e35;
+			border-width: 5px;
+			margin: -5px auto 25px auto;
+			width: 35%;
+		}
+		.mission_content{
+			font-family: Proxima Nova Regular;
+			color:#ffffff;
+			letter-spacing: 1.2px;
+		}
+	/* End */
+
+	/* Our Team*/
+		.team_card{
+			background-color: #111111;
+			height: 55vh;
+		}
+		.card_footer{
+			position: absolute;
+			bottom: 0px;
+			left: 0px;
+			background: #f1f1f1;
+		}
+		.team_card hr.heading_underline{
+			border-color: #e44e35;
+			border-width: 4px;
+			margin: 0px auto 5px auto;
+			width: 50%;
+		}
+	/* End */
+
+	/**/
+
+	#our_products .prod_block{
+		position: relative;
+	}	
+
+	.infra1_col-7{
+		width: 54%;
+		height: 120vh;
+	}
+	.infra1_col-5{
+		width: 46%;
+		height:120vh;
+	}
+	.infra1_col-5 .col-12 {
+		height:59.5vh;
+	}
+	.infra2_col-7{
+		width: 54%;
+		height: 60vh;
+	}
+	.infra2_col-5{
+		width: 46%;
+		height: 60vh;
+	}
+	.infra_col-6{
+		width: 49vw;
+		height: 59vh;
+	}
+
+	.overlay{
+		position: absolute;
+		left: 0;
+		top: 0;
+		background-color: rgba(0,0,0,0.6);
+	}
+
+	.prod_title{
+		font-family: Proxima Nova Regular;
+		color:#ffffff;
+	}
+	.prod_title:after {
+		content: '';
+		height: 4px;
+		background: #e44e35; 
+		width: 50%;
+		margin: 0px auto;
+		display: block;
+	}
+	/* End */
+</style>
+{% endblock %}
+
+{% block content %}
+	<div id="home_slider">
+		<div class="layer">
+			<div class="d-flex flex-column justify-content-center align-items-center h-100">
+				<h1 class="slider_heading display-1 d-none d-md-block text-center pt-md-4 pb-0"> 
+					We believe in redefining<br>office furniture.
+				</h1>
+				<h1 class="slider_heading display-4 d-block d-md-none text-center pt-md-4 pb-0"> 
+					We believe in redefining<br>office furniture.
+				</h1>
+				<hr class="heading_underline my-2">
+			</div>
+		</div>
+	</div>
+	<div id="about_afc" class="py-4">
+		<h1 class="heading text-center display-1 d-none d-md-block pb-0"> 
+			About AFC
+		</h1>
+		<h1 class="heading text-center display-4 d-block d-md-none pb-0"> 
+			About AFC
+		</h1>
+		<hr class="heading_underline">
+		<div class="row m-0">
+			<div class="mx-md-5 px-3 text-center">
+				<p class="content">
+					AFC Furniture Solutions is the fastest growing brand in the office furniture manufacturing industry that started in 2008. AFC is an
+					end-to-end solution company with Green Manufacturing setup spread across 1.5 lakh sq ft. and capability to manufacture 10k
+					workstations and 8k chairs in a month. Manufacturing setup in Delhi-NCR region, team of 60+ passionate professionals and a
+					skilled workforce of 300+, AFC has a pan-India presence with branch offices in Mumbai and Delhi-NCR region. Having gained
+					experience of more than a decade in Design and Manufacturing, AFC boasts of the shortest delivery timeline and has been
+					successful in retaining more than 93% clients since inception. Product Portfolio - AFC can customise solutions as per client
+					requirements and specialise in manufacturing Workstations, Cabins, Seating Solutions, Lose Furniture, Storage, Educational,
+					Laboratories and more. The company takes pride in conveying that all their products and solutions are manufactured in India.
+				</p>
+				<div class="d-flex flex-wrap justify-content-around align-items-center py-4">
+					<div class="px-3">
+						<img class="img-fluid about_icons" id="icon1_static"  src="/static/icons/organization_structure-static.png">
+						<img class="img-fluid about_icons d-none" id="icon1_hover" src="/static/icons/organization_structure-hover.png">
+						<p class="icon_heading mb-0 mt-2">Organisation<br>Structure</p>
+						<p class="icon_sub_heading">Ensuring continuous<br>learning and upskilling</p>
+					</div>
+					<div class="px-3">
+						<img class="img-fluid about_icons" id="icon4_static" src="/static/icons/manufacturing-static.png">
+						<img class="img-fluid about_icons d-none" id="icon4_hover" src="/static/icons/manufacturing-hover.png">
+						<p class="icon_heading mt-2 mb-0">Manufacturing<br>	Setup</p>
+						<p class="icon_sub_heading">Spread across 1.5 lakh<br>sq. ft area</p>
+					</div>
+					<div class="px-3">
+						<img class="img-fluid about_icons" id="icon5_static" src="/static/icons/production_capability-static.png">
+						<img class="img-fluid about_icons d-none" id="icon5_hover" src="/static/icons/production_capability-hover.png">
+						<p class="icon_heading mt-2 mb-0">Production<br>Capabilities</p>
+						<p class="icon_sub_heading">Workstations : 10k month<br>Chairs : 8k month</p>
+					</div>
+					<div class="px-3">
+						<img class="img-fluid about_icons" id="ico2_static" src="/static/icons/customisation-static.png">
+						<img class="img-fluid about_icons d-none" id="ico2_hover" src="/static/icons/customisation-hover.png">
+						<p class="icon_heading mt-2 mb-0">Customisation<br>Capability</p>
+						<p class="icon_sub_heading">Solutions as per client's<br>requirement</p>
+					</div>
+					<div class="px-3">
+						<img class="img-fluid about_icons" id="icon6_static" src="/static/icons/makeinindia-static.png">
+						<img class="img-fluid about_icons d-none" id="icon6_hover" src="/static/icons/makeinindia-hover.png">
+						<p class="icon_heading mt-2 mb-0">Make in<br>India</p>
+						<p class="icon_sub_heading">Proud to manufacture<br>all solutions in India</p>
+					</div>
+					<div class="px-3">
+						<img class="img-fluid about_icons" id="icon3_static" src="/static/icons/PANIndia-static.png">
+						<img class="img-fluid about_icons d-none" id="icon3_hover" src="/static/icons/PANIndia-hover.png">
+						<p class="icon_heading mt-2 mb-0">Pan-India<br>Presence</p>
+						<p class="icon_sub_heading">Trusted over<br>12 years</p>
+					</div>
+					<div class="px-3">
+						<img class="img-fluid about_icons" id="icon7_static" src="/static/icons/environmentally_responsible-static.png">
+						<img class="img-fluid about_icons d-none" id="icon7_hover" src="/static/icons/environmentally_responsible-hover.png">
+						<p class="icon_heading mt-2 mb-0">Environmentally<br>Responsible</p>
+						<p class="icon_sub_heading">Green manufacturing<br>practices</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="mission_vision">
+		<div class="layer py-5">
+			<div class="d-flex flex-column justify-content-center align-items-center h-100 my-5 pb-5">
+				<h1 class="slider_heading display-2 d-none d-md-block text-center pt-md-4 pb-0"> 
+					Mission
+				</h1>
+				<h1 class="slider_heading d-block d-md-none text-center pt-md-4 pb-0"> 
+					Mission
+				</h1>
+				<hr class="heading_underline">
+				<h4 class="mission_content d-none d-md-block text-center pt-md-4 pb-0"> 
+					Bringing innovation & sustainability in manufacturing furniture solutions while building a community of<br>passionate individuals
+				</h4>
+				<h5 class="slider_heading d-block d-md-none text-center pt-md-4 pb-0"> 
+					Bringing innovation & sustainability in manufacturing furniture solutions while building a community of<br>passionate individuals
+				</h5>
+				<h1 class="slider_heading display-2 d-none d-md-block text-center pt-md-4 pb-0"> 
+					Vision
+				</h1>
+				<h1 class="slider_heading d-block d-md-none text-center pt-md-4 pb-0"> 
+					Vision
+				</h1>
+				<hr class="heading_underline">
+				<h4 class="mission_content d-none d-md-block text-center pt-md-4 pb-0"> 
+					Enabling people & organisations to deliver their best
+				</h4>
+				<h5 class="slider_heading d-block d-md-none text-center pt-md-4 pb-0"> 
+					Enabling people & organisations to deliver their best
+				</h5>
+			</div>
+		</div>
+	</div>
+	<div id="our_team" class="py-4">
+		<h1 class="heading text-center display-1 d-none d-md-block pb-0"> 
+			Our Team
+		</h1>
+		<h1 class="heading text-center display-4 d-block d-md-none pb-0"> 
+			Our Team
+		</h1>
+		<hr class="heading_underline">
+		<div class="container">
+			<div class="d-flex justify-content-center">
+				<div class="col-md-3 team_card mx-5">
+					<div class="card_footer w-100 p-2 text-center">
+						<h5>Manoj Tomar, Founder</h5>
+						<hr class="heading_underline">
+					</div>
+				</div>
+				<div class="col-md-3 team_card mx-5">
+					<div class="card_footer w-100 p-2 text-center">
+						<h5>Rajiv Kumar, Designation</h5>
+						<hr class="heading_underline">
+					</div>
+				</div>
+				<div class="col-md-3 team_card mx-5">
+					<div class="card_footer w-100 p-2 text-center">
+						<h5>Mani Kumar, Designation</h5>
+						<hr class="heading_underline">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="our_products">
+		<h1 class="heading text-center display-1 d-none d-md-block pt-md-4 pb-0"> 
+			Infrastructure
+		</h1>
+		<h1 class="heading text-center display-4 d-block d-md-none pt-md-4 pb-0"> 
+			Infrastructure
+		</h1>
+		<hr class="heading_underline">
+			<div class="row m-0 ">
+				<div class="d-flex w-100">
+					<div class="infra1_col-7 p-0 prod_block">
+						<img class="img-fluid h-100 w-100" src="/static/images/nano_tech.png">
+						<div class="overlay h-100 w-100 d-flex justify-content-center align-items-center">
+							<h1 class="prod_title display-4 d-none d-md-block text-center">
+								Nano Tech<br>Powder Coating
+							</h1>
+							<h3 class="prod_title d-block d-md-none text-center">
+								Nano Tech<br>Powder Coating
+							</h3>
+						</div>
+					</div>
+					<div class="infra1_col-5 pl-2 pr-0">
+						<div class="col-12 p-0 mb-2 prod_block">
+							<img class="img-fluid h-100 w-100" src="/static/images/laser.png">
+							<div class="overlay h-100 w-100 d-flex justify-content-center align-items-center">
+								<h1 class="prod_title display-4 d-none d-md-block text-center">
+									Laser
+								</h1>
+								<h3 class="prod_title d-block d-md-none text-center">
+									Laser
+								</h3>
+							</div>
+						</div>
+						<div class="col-12 p-0  prod_block">
+							<img class="img-fluid h-100 w-100" src="/static/images/cnc_bending.png">
+							<div class="overlay h-100 w-100 d-flex justify-content-center align-items-center">
+								<h1 class="prod_title display-4 d-none d-md-block text-center">
+									CNC Bending
+								</h1>
+								<h3 class="prod_title d-block d-md-none text-center">
+									CNC Bending
+								</h3>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row m-0 w-100 pt-2" >
+					<div class="infra_col-6 px-0 prod_block">
+						<img class="img-fluid h-100 w-100" src="/static/images/beam_saw.png">
+						<div class="overlay h-100 w-100 d-flex justify-content-center align-items-center">
+							<h1 class="prod_title display-4 d-none d-md-block text-center">
+								Beam Saw
+							</h1>
+							<h3 class="prod_title d-block d-md-none text-center">
+								Beam Saw
+							</h3>
+						</div>
+					</div>
+					<div class="infra_col-6 ml-2 prod_block">
+						<img class="img-fluid h-100 w-100" src="/static/images/PANELSAW.png">
+						<div class="overlay h-100 w-100 d-flex justify-content-center align-items-center">
+							<h1 class="prod_title display-4 d-none d-md-block text-center">
+								Panel Saw
+							</h1>
+							<h3 class="prod_title d-block d-md-none px-3 text-center">
+								Panel Saw
+							</h3>
+						</div>
+					</div>
+				</div>
+				<div class="d-flex w-100 pt-2">
+					<div class="infra2_col-5 prod_block ">
+						<img class="img-fluid h-100 w-100" src="/static/images/cnc_router.png">
+						<div class="overlay h-100 w-100 d-flex justify-content-center align-items-center">
+							<h1 class="prod_title display-4 d-none d-md-block text-center">
+								CNC Router
+							</h1>
+							<h3 class="prod_title d-block d-md-none text-center">
+								CNC Router
+							</h3>
+						</div>
+					</div>
+					<div class="infra2_col-7 ml-2 p-0 prod_block">
+						<img class="img-fluid h-100 w-100" src="/static/images/cnc_dril.png">
+						<div class="overlay h-100 w-100 d-flex justify-content-center align-items-center">
+							<h1 class="prod_title display-4 d-none d-md-block text-center">
+								CNC Drill
+							</h1>
+							<h3 class="prod_title d-block d-md-none text-center">
+								CNC Drill
+							</h3>
+						</div>
+					</div>
+					
+				</div>
+				<div class="row m-0 w-100 pt-2" >
+					<div class="infra_col-6 px-0 prod_block">
+						<img class="img-fluid h-100 w-100" src="/static/images/POSTFORMING.png">
+						<div class="overlay h-100 w-100 d-flex justify-content-center align-items-center">
+							<h1 class="prod_title display-4 d-none d-md-block text-center">
+								Postforming
+							</h1>
+							<h3 class="prod_title d-block d-md-none text-center">
+								Postforming
+							</h3>
+						</div>
+					</div>
+					<div class="infra_col-6 ml-2 prod_block">
+						<img class="img-fluid h-100 w-100" src="/static/images/edge_bending.png">
+						<div class="overlay h-100 w-100 d-flex justify-content-center align-items-center">
+							<h1 class="prod_title display-4 d-none d-md-block text-center">
+								Edgebending
+							</h1>
+							<h3 class="prod_title d-block d-md-none px-3 text-center">
+								Edgebending
+							</h3>
+						</div>
+					</div>
+				</div>
+			</div>
+		<div class="py-5 text-center">
+			<a href="#a" class="btn btn_custom">Explore More</a>
+		</div>
+	</div>
+{% endblock %}
+{% block js %}
+	<script>
+		$(document).ready(function(){
+			$('.about_icons').hover(function(){
+				var id=$(this).attr('id').split('_')[0];
+				$('#'+id+'_static').addClass('d-none');
+				$('#'+id+'_hover').removeClass('d-none');
+				}, function(){
+			    var id=$(this).attr('id').split('_')[0];
+				$('#'+id+'_hover').addClass('d-none');
+				$('#'+id+'_static').removeClass('d-none');
+			});
+		});
+	</script>	
+{% endblock %}
