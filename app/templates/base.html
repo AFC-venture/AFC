@@ -13,7 +13,11 @@
 	/* Font Faces */
 		@font-face {
 			font-family: Didot;
-			src: url({{ url_for('static', filename='fonts/Didot.ttf') }})
+			src: url({{ url_for('static', filename='fonts/Didot LT Std Italic.otf') }})
+		}
+		@font-face {
+			font-family: Didot Bold;
+			src: url({{ url_for('static', filename='fonts/Didot LT Std Bold.otf') }})
 		}
 		@font-face {
 			font-family: Proxima Nova Light;
@@ -32,11 +36,11 @@
 	/* NavBar */
 		.navbar{
 			background-color: rgba(0,0,0,0.3);
-			/*background-color: linear-gradient(90deg, #111111);*/
+			background-color: linear-gradient(90deg, #111111);
 		}
 		.navbar-toggler{
-			color:#ffffff;
-			border: 1px solid #ffffff;
+			color:#cccccc;
+			border: 1px solid #cccccc;
 		}
 		.navbar-brand .logo{
 			width: 140px;
@@ -173,6 +177,15 @@
 	.social_icon{
 		width: 50px;
 	}
+	.social_icons_mobile{
+		position: fixed;
+		bottom: 0%;
+		right: 0%;
+		z-index: 10;
+		background-color: #1a1a1a;
+		border-top-left-radius: 12px;
+		border-top-right-radius: 12px;
+	}
 </style>
 {% block css %}
 {% endblock %}
@@ -197,70 +210,23 @@
 					<a class="nav-link py-0" href="#">Products</a>
 				</li>
 				<li class="nav-item px-2">
-					<a class="nav-link py-0" href="#">Latest at AFC</a>
+					<a class="nav-link py-0" href="{{ url_for('projects') }}" id="projects">Projects</a>
 				</li>
 				<li class="nav-item px-2">
-					<a class="nav-link py-0" href="#">Clients</a>
+					<a class="nav-link py-0" href="{{ url_for('clients') }}" id="clients">Clients</a>
 				</li>
 				<li class="nav-item px-2">
-					<a class="nav-link py-0" href="#">Contact Us</a>
+					<a class="nav-link py-0" href="{{ url_for('latest') }}" id="latest">Latest at AFC</a>
+				</li>
+				<li class="nav-item px-2">
+					<a class="nav-link py-0" href="{{ url_for('contact_us') }}" id="contact_us">Contact Us</a>
 				</li>
 			</ul>
 		</div>
 	</nav>
 	{% block content %}
 	{% endblock %}
-	<div id="our_clients">
-		<h1 class="heading text-center display-1 d-none d-md-block pt-md-4 pb-0"> 
-			Our Clients
-		</h1>
-		<h1 class="heading text-center display-4 d-block d-md-none pt-md-4 pb-0"> 
-			Our Clients
-		</h1>
-		<hr class="heading_underline">
-		<div class="row m-0 py-4">
-			<div id="clientsCarousel" class="carousel slide w-100" data-ride="carousel">
-				<div class="carousel-inner w-100" role="listbox">
-					<div class="carousel-item active ">
-						<div class="col-md-3 p-0 mx-1 text-center">
-							<img class="img-fluid w-50" src="/static/icons/AIHP-loho.png" >
-						</div>
-					</div>
-					<div class="carousel-item">
-						<div class="col-md-3 p-0 mx-1 text-center">
-							<img class="img-fluid w-50" src="/static/icons/mahindra-logo.png" >
-						</div>
-					</div>
-					<div class="carousel-item" >
-						<div class="col-md-3 p-0 mx-1 text-center">
-							<img class="img-fluid w-50" src="/static/icons/amar-ujala-logo.png">
-						</div>
-					</div>
-					<div class="carousel-item">
-						<div class="col-md-3 p-0 mx-1 text-center">
-							<img class="img-fluid w-50" src="/static/icons/AIHP-loho.png" >
-						</div>
-					</div>
-					<div class="carousel-item">
-						<div class="col-md-3 p-0 mx-1 text-center">
-							<img class="img-fluid w-50" src="/static/icons/mahindra-logo.png" >
-						</div>
-					</div>
-					<div class="carousel-item">
-						<div class="col-md-3 p-0 mx-1 text-center">
-							<img class="img-fluid w-50" src="/static/icons/amar-ujala-logo.png">
-						</div>
-					</div>
-				</div>
-				<a class="carousel-control-prev w-auto" href="#clientsCarousel" role="button" data-slide="prev">
-					<span class="mx-2">&#8249;</span>
-				</a>
-				<a class="carousel-control-next w-auto" href="#clientsCarousel" role="button" data-slide="next">
-					<span class="mx-2">&#8250;</span>
-				</a>
-			</div>
-		</div>
-	</div>
+	
 	<div id="footer" class="py-4">
 		<div id="certifications">
 			<h1 class="heading text-center d-none d-md-block pt-md-4 pb-0"> 
@@ -315,7 +281,25 @@
 			</p>
 		</div>
 	</div>
-	<div class="social_icons d-flex flex-column align-items-center px-1">
+	<div class="social_icons d-none d-md-flex flex-column align-items-center px-1">
+		<a href="#" target="_blank" class="social_icon my-1">
+			<img class="img-fluid" id="iconc_static" src="/static/icons/call-static.png">
+			<img class="img-fluid d-none" id="iconc_hover" src="/static/icons/call-hover.png">
+		</a>
+		<a href="#" target="_blank" class="social_icon my-1">
+			<img class="img-fluid" id="icone_static" src="/static/icons/enquiry-static.png">
+			<img class="img-fluid d-none" id="icone_hover" src="/static/icons/enquiry-hover.png">
+		</a>
+		<a href="#" target="_blank" class="social_icon my-1">
+			<img class="img-fluid" id="iconp_static" src="/static/icons/partner-static.png">
+			<img class="img-fluid d-none" id="iconp_hover" src="/static/icons/partner-hover.png">
+		</a>
+		<a href="#" target="_blank" class="social_icon my-1">
+			<img class="img-fluid" id="iconw_static" src="/static/icons/whatsapp-static.png">
+			<img class="img-fluid d-none" id="iconw_hover" src="/static/icons/whatsapp-hover.png">
+		</a>
+	</div>
+	<div class="social_icons_mobile d-flex d-md-none w-100 justify-content-around align-items-center px-1">
 		<a href="#" target="_blank" class="social_icon my-1">
 			<img class="img-fluid" id="iconc_static" src="/static/icons/call-static.png">
 			<img class="img-fluid d-none" id="iconc_hover" src="/static/icons/call-hover.png">
@@ -345,6 +329,18 @@
 		} else if ( active=='about_afc'){
 			console.log($(".nav-link#about_afc"));
 			$(".nav-link#about_afc").parent().addClass("active");
+		} else if ( active=='projects'){
+			console.log($(".nav-link#projects"));
+			$(".nav-link#projects").parent().addClass("active");
+		} else if ( active=='clients'){
+			console.log($(".nav-link#clients"));
+			$(".nav-link#clients").parent().addClass("active");
+		} else if ( active=='contact_us'){
+			console.log($(".nav-link#contact_us"));
+			$(".nav-link#contact_us").parent().addClass("active");
+		} else if ( active=='latest'){
+			console.log($(".nav-link#latest"));
+			$(".nav-link#latest").parent().addClass("active");
 		} 
 
 		$('.social_icons .social_icon').hover(function(){

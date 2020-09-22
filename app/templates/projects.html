@@ -1,0 +1,180 @@
+{% extends 'base.html' %}
+
+{% block css %}
+<style>
+	.navbar{
+			background-image: linear-gradient(-180deg,#111111,#ffffff);
+			opacity: 0.7;
+		}
+	.slider_heading{
+			font-family: Didot;
+			font-style: italic;
+			color:#ffffff;
+			letter-spacing: 1.2px;
+		}
+	/* Home Slider */
+		#home_slider1{
+			background-image:url("{{ url_for('static', filename='images/India_Mart.png') }}");
+			background-repeat: no-repeat;
+			background-size: cover;
+			height: 100vh;
+		}
+		#home_slider2{
+			background-image:url("{{ url_for('static', filename='images/Concentrix.png') }}");
+			background-repeat: no-repeat;
+			background-size: cover;
+			height: 100vh;
+		}
+		#home_slider3{
+			background-image:url("{{ url_for('static', filename='images/Tokopedia.png') }}");
+			background-repeat: no-repeat;
+			background-size: cover;
+			height: 100vh;
+		}
+		.slider_layer{
+			background-color: rgba(0,0,0,0.6);
+			height: 100vh;
+		}
+	/* End */
+	#homeCarousel hr.heading_underline{
+		border-color: #e44e35;
+		border-width: 3px;
+		margin: -15px auto 25px auto;
+		width: 25%;
+	}
+	#homeCarousel hr.control_pointer{
+		border-color: #ffffff;
+		border-width: 3px;
+		margin: -15px auto 25px auto;
+		width: 150px;
+	}
+	.carousel-control-prev ,.carousel-control-next {
+		font-family: Didot;
+		font-style: italic;
+		font-weight: 900;
+		color:#ffffff;
+		opacity: 1;
+		font-size: 24px;
+	}
+	.num{
+		position: absolute;
+		bottom: 10%;
+		right: 7%;
+		font-size: 42px;
+		font-family: Proxima Nova Regular;
+		color: #ffffff; 
+	}
+	.project_images img{
+		height: 55vh;
+	}
+	.project_heading{
+		font-family: Proxima Nova Light;
+	}
+</style>
+{% endblock %}
+
+{% block content %}
+	<div class="row m-0">
+		<div id="homeCarousel" class="carousel slide w-100" data-ride="carousel">
+			<div class="carousel-inner w-100">
+				<div class="carousel-item w-100 active" id="home_slider1">
+					<div class="slider_layer w-100 h-100 py-5">
+						<div class="d-flex flex-column justify-content-center align-items-center h-100 w-100">
+							<h1 class="slider_heading display-1 d-none d-md-block text-center pt-md-4 pb-0"> 
+								Indiamart
+							</h1>
+							<h1 class="slider_heading display-4 d-block d-md-none text-center pt-md-4 pb-0"> 
+								Indiamart
+							</h1>
+							<hr class="heading_underline my-2">
+						</div>
+					</div>
+				</div>
+				<div class="carousel-item w-100" id="home_slider2">
+					<div class="slider_layer w-100 h-100 py-5">
+						<div class="d-flex flex-column justify-content-center align-items-center h-100 w-100">
+							<h1 class="slider_heading display-1 d-none d-md-block text-center pt-md-4 pb-0"> 
+								Concentrix
+							</h1>
+							<h1 class="slider_heading display-4 d-block d-md-none text-center pt-md-4 pb-0"> 
+								Concentrix
+							</h1>
+							<hr class="heading_underline my-2">
+						</div>
+					</div>
+				</div>
+				<div class="carousel-item w-100" id="home_slider3">
+					<div class="slider_layer w-100 h-100 py-5">
+						<div class="d-flex flex-column justify-content-center align-items-center h-100 w-100">
+							<h1 class="slider_heading display-1 d-none d-md-block text-center pt-md-4 pb-0"> 
+								Tokopedia
+							</h1>
+							<h1 class="slider_heading display-4 d-block d-md-none text-center pt-md-4 pb-0"> 
+								Tokopedia
+							</h1>
+							<hr class="heading_underline my-2">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="h-50">
+				<a class="carousel-control-prev d-flex w-25 my-5" href="#homeCarousel" role="button" data-slide="prev">
+					<span class="ml-md-5 d-none d-md-block">
+						PREV
+					</span>
+					<hr class="control_pointer my-2 mx-3 d-none d-md-block">
+				</a>
+				<a class="carousel-control-next d-flex w-25 my-5" href="#homeCarousel" role="button" data-slide="next">
+					<hr class="control_pointer my-2 mx-3 d-none d-md-block">
+					<span class="mr-md-5 d-none d-md-block">
+						NEXT
+					</span>
+				</a>
+				<div class="num"></div>
+			</div>
+		</div>
+	</div>
+	<div class="row m-0 my-5 pt-3">
+		<div class="col-md-6 py-5 px-4 project_images">
+			<img class="img-fluid w-100" src="/static/images/AIHP.png">
+			<h3 class="project_heading pt-2 pl-2">AIHP, Gurugram</h3>
+		</div>
+		<div class="col-md-6 py-5 px-4 project_images">
+			<img class="img-fluid w-100" src="/static/images/Air_india.png">
+			<h3 class="project_heading pt-2 pl-2">Air India</h3>
+		</div>
+		<div class="col-md-6 py-5 px-4 project_images">
+			<img class="img-fluid w-100" src="/static/images/XYZ.png">
+			<h3 class="project_heading pt-2 pl-2">XYZ, Location</h3>
+		</div>
+		<div class="col-md-6 py-5 px-4 project_images">
+			<img class="img-fluid w-100" src="/static/images/Ujjawan.png">
+			<h3 class="project_heading pt-2 pl-2">Ujjawan</h3>
+		</div>
+		<div class="col-md-6 py-5 px-4 project_images">
+			<img class="img-fluid w-100" src="/static/images/ABC.png">
+			<h3 class="project_heading pt-2 pl-2">ABC, Location</h3>
+		</div>
+		<div class="col-md-6 py-5 px-4 project_images">
+			<img class="img-fluid w-100" src="/static/images/Indiamart.png">
+			<h3 class="project_heading pt-2 pl-2">IndiaMart, Noida</h3>
+		</div>
+	</div>
+{% endblock %}
+
+
+
+{% block js %}
+	<script>
+		$(document).ready(function(){
+			var totalItems = $('.carousel-item').length;
+			var currentIndex = $('.carousel-item.active').index() + 1;
+			$('.num').html(''+currentIndex+' / '+totalItems+'');
+
+			$('#homeCarousel').on('slid.bs.carousel', function() {
+			    currentIndex = $('.carousel-item.active').index() + 1;
+			   $('.num').html(''+currentIndex+' / '+totalItems+'');
+			});
+		});
+	</script>	
+{% endblock %}

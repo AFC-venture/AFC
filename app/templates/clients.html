@@ -1,0 +1,330 @@
+{% extends 'base.html' %}
+
+{% block css %}
+<style>
+	/* Home Slider */
+		#home_slider .carousel-item .background_layer{
+			background-image:url("{{ url_for('static', filename='images/Testimonial.png') }}");
+			background-repeat: no-repeat;
+			background-size: 100% 100%;
+			height: 100vh;
+			width: 100%;
+		}
+		.slider_heading{
+			font-family: Didot;
+			font-style: italic;
+			color:#ffffff;
+			letter-spacing: 1.2px;
+		}
+		#home_slider hr.heading_underline{
+			border-color: #e44e35;
+			border-width: 3px;
+			margin: -15px auto 25px auto;
+			width: 30%;
+		}
+
+		#home_slider .carousel-control-next,
+		#home_slider .carousel-control-prev{
+			opacity: 1;
+		}
+		#home_slider .carousel-control-next span,
+		#home_slider .carousel-control-prev span{
+			font-size: 100px;
+			font-weight: 100;
+			color:#fafafa;
+			opacity: 1;
+		}
+	/* End */
+	#about_afc .content{
+		font-family: Proxima Nova Light;
+		color:#1a1a1a;
+		font-size: 21.7px;
+		line-height: 1.6;
+		text-align: justify;
+	}
+	.about_icons{
+		width: 90px;
+	}
+	.icon_heading{
+		font-family: Proxima Nova Regular;
+		font-size: 17px;
+	}
+	hr.heading_underline{
+		border-color: #e44e35;
+		border-width: 3px;
+		margin: 5px auto 25px auto;
+		width: 14%;
+	}
+
+	#it_ites,#gov_psu{
+		background-color: #f2f2f2;
+	}
+	.clients_logos{
+		width: 170px;
+		height: 75px;
+	}
+</style>
+{% endblock %}
+
+{% block content %}
+	<div id="home_slider" class="carousel slide" data-ride="carousel" data-interval="1500">
+		<div class="carousel-inner">
+			<div class="carousel-item active">
+				<div class="background_layer">
+			  		<div class="d-flex flex-column justify-content-center align-items-center h-100">
+						<h1 class="slider_heading d-none d-md-block text-center pt-md-4 pb-0">
+							Hatts off to the production team for their quality workmanship.
+						</h1>
+						<h5 class="slider_heading d-block d-md-none text-center pt-md-4 pb-0">
+							Hatts off to the production team for their quality workmanship.
+						</h5>
+						<hr class="heading_underline my-2">
+						<img class="img-fluid py-1" style="width:130px" src="/static/icons/AIHP-loho.png" >
+						<h1 class="slider_heading d-none d-md-block text-center pt-md-4 pb-0">
+							We loved their approach, consciouness, timely delivery with<br>excellent quality of material..
+						</h1>
+						<h5 class="slider_heading d-block d-md-none text-center pt-md-4 pb-0">
+							We loved their approach, consciouness, timely delivery with<br>excellent quality of material.
+						</h5>
+						<hr class="heading_underline my-2">
+						<img class="img-fluid py-1" style="width:130px" src="/static/images/india_mart_logo.png" >
+					</div>
+				</div>
+			</div>
+			<div class="carousel-item">
+				<div class="background_layer">
+			  		<div class="d-flex flex-column justify-content-center align-items-center h-100">
+						<h1 class="slider_heading d-none d-md-block text-center pt-md-4 pb-0">
+							Hatts off to the production team for their quality workmanship.
+						</h1>
+						<h5 class="slider_heading d-block d-md-none text-center pt-md-4 pb-0">
+							Hatts off to the production team for their quality workmanship.
+						</h5>
+						<hr class="heading_underline my-2">
+						<img class="img-fluid py-1" style="width:130px" src="/static/icons/AIHP-loho.png" >
+						<h1 class="slider_heading d-none d-md-block text-center pt-md-4 pb-0">
+							We loved their approach, consciouness, timely delivery with<br>excellent quality of material..
+						</h1>
+						<h5 class="slider_heading d-block d-md-none text-center pt-md-4 pb-0">
+							We loved their approach, consciouness, timely delivery with<br>excellent quality of material.
+						</h5>
+						<hr class="heading_underline my-2">
+						<img class="img-fluid py-1" style="width:130px" src="/static/images/india_mart_logo.png" >
+					</div>
+				</div>
+			</div>
+			<div class="carousel-item">
+				<div class="background_layer">
+			  		<div class="d-flex flex-column justify-content-center align-items-center h-100">
+						<h1 class="slider_heading d-none d-md-block text-center pt-md-4 pb-0">
+							Hatts off to the production team for their quality workmanship.
+						</h1>
+						<h5 class="slider_heading d-block d-md-none text-center pt-md-4 pb-0">
+							Hatts off to the production team for their quality workmanship.
+						</h5>
+						<hr class="heading_underline my-2">
+						<img class="img-fluid py-1" style="width:130px" src="/static/icons/AIHP-loho.png" >
+						<h1 class="slider_heading d-none d-md-block text-center pt-md-4 pb-0">
+							We loved their approach, consciouness, timely delivery with<br>excellent quality of material..
+						</h1>
+						<h5 class="slider_heading d-block d-md-none text-center pt-md-4 pb-0">
+							We loved their approach, consciouness, timely delivery with<br>excellent quality of material.
+						</h5>
+						<hr class="heading_underline my-2">
+						<img class="img-fluid py-1" style="width:130px" src="/static/images/india_mart_logo.png" >
+					</div>
+				</div>
+			</div>
+		</div>
+		<a class="carousel-control-prev" href="#home_slider" role="button" data-slide="prev">
+			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+			<span class="sr-only">Previous</span>
+		</a>
+		<a class="carousel-control-next" href="#home_slider" role="button" data-slide="next">
+			<span class="carousel-control-next-icon" aria-hidden="true"></span>
+			<span class="sr-only">Next</span>
+		</a>
+	</div>
+	<div id="about_afc" class="py-5">
+		<h1 class="heading text-center display-4 d-none d-md-block pb-0"> 
+			AFC believes...
+		</h1>
+		<h2 class="heading text-center d-block d-md-none pb-0"> 
+			AFC believes...
+		</h2>
+		<hr class="heading_underline">
+		<div class="row m-0">
+			<div class="mx-md-5 px-4 text-center">
+				<p class="content">
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+					proident, sunt in culpa qui officia deserunt mollit anim id est.
+				</p>
+				<div class="d-flex flex-wrap justify-content-around align-items-center px-5 pt-4">
+					<div class="px-3">
+						<img class="img-fluid about_icons" id="icon1_static"  src="/static/icons/bank-static.png">
+						<img class="img-fluid about_icons d-none" id="icon1_hover" src="/static/icons/bank-hover.png">
+						<p class="icon_heading">BFSI</p>
+					</div>
+					<div class="px-3">
+						<img class="img-fluid about_icons" id="icon2_static" src="/static/icons/IT-static.png">
+						<img class="img-fluid about_icons d-none" id="icon2_hover" src="/static/icons/IT-hover.png">
+						<p class="icon_heading">IT & ITes</p>
+					</div>
+					<div class="px-3">
+						<img class="img-fluid about_icons" id="icon3_static" src="/static/icons/education-static.png">
+						<img class="img-fluid about_icons d-none" id="icon3_hover" src="/static/icons/education-hover.png">
+						<p class="icon_heading">Educational</p>
+					</div>
+					<div class="px-3">
+						<img class="img-fluid about_icons" id="icon4_static" src="/static/icons/govt-static.png">
+						<img class="img-fluid about_icons d-none" id="icon4_hover" src="/static/icons/govt-hover.png">
+						<p class="icon_heading">Government<br>& PSUs</p>
+					</div>
+					<div class="px-3">
+						<img class="img-fluid about_icons" id="icon5_static" src="/static/icons/media-static.png">
+						<img class="img-fluid about_icons d-none" id="icon5_hover" src="/static/icons/media-hover.png">
+						<p class="icon_heading">Media, Telecom<br>& More</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="bsfi" class="py-5">
+		<h1 class="heading text-center display-4 d-none d-md-block pb-0"> 
+			BSFI
+		</h1>
+		<h2 class="heading text-center d-block d-md-none pb-0"> 
+			BSFI
+		</h2>
+		<hr class="heading_underline">
+		<div class="d-flex justify-content-around flex-wrap px-4">
+			<img class="img-fluid px-4 mx-3 my-5 clients_logos" src="/static/clients/Axis_Bank_logo_logotype.png" >
+			<img class="img-fluid px-4 mx-3 my-5 clients_logos" src="/static/clients/HDFC_Bank_logo.png" >
+			<img class="img-fluid px-4 mx-3 my-5 clients_logos" src="/static/clients/icici_bank_logo_symbol.png" >
+			<img class="img-fluid px-4 mx-3 my-5 clients_logos" src="/static/clients/ujjivan-small-finance-bank-logo-E826A63C90-seeklogo.com.png" >
+			<img class="img-fluid px-4 mx-3 my-5 clients_logos" src="/static/clients/Yes_Bank_logo.png" >
+			<img class="img-fluid px-4 mx-3 my-5 clients_logos" src="/static/clients/Yes_Bank_logo.png" >
+			<img class="img-fluid px-4 mx-3 my-5 clients_logos" src="/static/clients/indusind-bank1.png" >
+			<img class="img-fluid px-4 mx-3 my-5 clients_logos" src="/static/clients/utkarshbanklogo02.png" >
+			<img class="img-fluid px-4 mx-3 my-5 clients_logos" src="/static/clients/tata_power.png" >
+			<img class="img-fluid px-4 mx-3 my-5 clients_logos" src="/static/clients/Aavas-Financiers-Limited-IPO.png" >
+			<img class="img-fluid px-4 mx-3 my-5 clients_logos" src="/static/clients/indiabulls.png" >
+			<img class="img-fluid px-4 mx-3 my-5 clients_logos" src="/static/clients/IDFC_First_Bank_logo.png" >
+			<img class="img-fluid px-4 mx-3 my-5 clients_logos" src="/static/clients/FICC_Logo_(Converted).png" >
+			<img class="img-fluid px-4 mx-3 my-5 clients_logos" src="/static/clients/max-bupa-healthinsurance.png" >
+			<img class="img-fluid px-4 mx-3 my-5 clients_logos" src="/static/clients/au-small-finance-bank-limited-logo-0C665B8AE8-seeklogo.com.png" >
+			<img class="img-fluid px-4 mx-3 my-5 clients_logos" src="/static/clients/image244.png" >
+			<img class="img-fluid px-4 mx-3 my-5 clients_logos" src="/static/clients/muthoot-fincorp.png" >
+			<img class="img-fluid px-4 mx-3 my-5 clients_logos" src="/static/clients/1200px-Edelweiss_Group_logo.png" >
+			<img class="img-fluid px-4 mx-3 my-5 clients_logos" src="/static/clients/indusind-bank1.png" >
+			<img class="img-fluid px-4 mx-3 my-5 clients_logos" src="/static/clients/HDFC_Bank_logo.png" >
+			<img class="img-fluid px-4 mx-3 my-5 clients_logos" src="/static/clients/icici_bank_logo_symbol.png" >
+			<img class="img-fluid px-4 mx-3 my-5 clients_logos" src="/static/clients/ujjivan-small-finance-bank-logo-E826A63C90-seeklogo.com.png" >
+			<img class="img-fluid px-4 mx-3 my-5 clients_logos" src="/static/clients/Yes_Bank_logo.png" >
+		</div>
+	</div>
+	<div id="it_ites" class="py-5">
+		<h1 class="heading text-center display-4 d-none d-md-block pb-0"> 
+			IT & ITeS
+		</h1>
+		<h2 class="heading text-center d-block d-md-none pb-0"> 
+			IT & ITeS
+		</h2>
+		<hr class="heading_underline">
+		<div class="d-flex justify-content-around flex-wrap px-4">
+			<img class="img-fluid px-4 mx-3 my-5 clients_logos" src="/static/clients/advant-logo-inner.png" >
+			<img class="img-fluid px-4 mx-3 my-5 clients_logos" src="/static/clients/indiamart-logo-DA6C405983-seeklogo.com.png" >
+			<img class="img-fluid px-4 mx-3 my-5 clients_logos" src="/static/clients/R1 Logo® Blue 2935C.png" >
+			<img class="img-fluid px-4 mx-3 my-5 clients_logos" src="/static/clients/tech-mahindra.png" >
+			<img class="img-fluid px-4 mx-3 my-5 clients_logos" src="/static/clients/cogent-logo.png" >
+			<img class="img-fluid px-4 mx-3 my-5 clients_logos" src="/static/clients/capitalvia.png" >
+			<img class="img-fluid px-4 mx-3 my-5 clients_logos" src="/static/clients/Axis_Bank_logo_logotype.png" >
+			<img class="img-fluid px-4 mx-3 my-5 clients_logos" src="/static/clients/Yes_Bank_logo.png" >
+		</div>
+	</div>
+	<div id="educational" class="py-5">
+		<h1 class="heading text-center display-4 d-none d-md-block pb-0"> 
+			Educational
+		</h1>
+		<h2 class="heading text-center d-block d-md-none pb-0"> 
+			Educational
+		</h2>
+		<hr class="heading_underline">
+		<div class="d-flex justify-content-around flex-wrap px-4">
+			<img class="img-fluid px-4 mx-3 my-5 clients_logos" src="/static/clients/fiitjeelogo.png" >
+			<img class="img-fluid px-4 mx-3 my-5 clients_logos" src="/static/clients/Educomp_Logo.jpg" >
+			<img class="img-fluid px-4 mx-3 my-5 clients_logos" src="/static/clients/extramarks_owler_20200505_114209_original.png" >
+			<img class="img-fluid px-4 mx-3 my-5 clients_logos" src="/static/clients/Galgotias_University.png" >
+			<img class="img-fluid px-4 mx-3 my-5 clients_logos" src="/static/clients/arunachal-uni.png" >
+			<img class="img-fluid px-4 mx-3 my-5 clients_logos" src="/static/clients/indusind-bank1.png" >
+			<img class="img-fluid px-4 mx-3 my-5 clients_logos" src="/static/clients/Axis_Bank_logo_logotype.png" >
+ 		</div>
+	</div>
+	<div id="gov_psu" class="py-5">
+		<h1 class="heading text-center display-4 d-none d-md-block pb-0"> 
+			Government & PSU
+		</h1>
+		<h2 class="heading text-center d-block d-md-none pb-0"> 
+			Government & PSU
+		</h2>
+		<hr class="heading_underline">
+		<div class="d-flex justify-content-around flex-wrap px-4">
+			<img class="img-fluid px-4 mx-3 my-5 clients_logos" src="/static/clients/bhel-logo.png" >
+			<img class="img-fluid px-4 mx-3 my-5 clients_logos" src="/static/clients/nbcclogowhite.png" >
+			<img class="img-fluid px-4 mx-3 my-5 clients_logos" src="/static/clients/LIC-01.png" >
+			<img class="img-fluid px-4 mx-3 my-5 clients_logos" src="/static/clients/ujjivan-small-finance-bank-logo-E826A63C90-seeklogo.com.png" >
+		</div>
+	</div>
+	<div id="media" class="py-5">
+		<h1 class="heading text-center display-4 d-none d-md-block pb-0"> 
+			Media, Telecom & More
+		</h1>
+		<h2 class="heading text-center d-block d-md-none pb-0"> 
+			Media, Telecom & More
+		</h2>
+		<hr class="heading_underline">
+		<div class="d-flex justify-content-around flex-wrap px-4">
+			<img class="img-fluid px-4 mx-3 my-5 clients_logos" src="/static/clients/Aaj_tak_logo.png" >
+			<img class="img-fluid px-4 mx-3 my-5 clients_logos" src="/static/clients/1200px-Vodafone_2017_logo.svg.png" >
+			<img class="img-fluid px-4 mx-3 my-5 clients_logos" src="/static/clients/VSUN-1500px.png" >
+			<img class="img-fluid px-4 mx-3 my-5 clients_logos" src="/static/clients/RPG_Group_logo_White_1.png" >
+			<img class="img-fluid px-4 mx-3 my-5 clients_logos" src="/static/clients/oppo.png" >
+			<img class="img-fluid px-4 mx-3 my-5 clients_logos" src="/static/clients/tata_power.png" >
+			<img class="img-fluid px-4 mx-3 my-5 clients_logos" src="/static/clients/relaxo.png" >
+			<img class="img-fluid px-4 mx-3 my-5 clients_logos" src="/static/clients/apollo-logo.png" >
+			<img class="img-fluid px-4 mx-3 my-5 clients_logos" src="/static/clients/Axis_Bank_logo_logotype.png" >
+			<img class="img-fluid px-4 mx-3 my-5 clients_logos" src="/static/clients/HDFC_Bank_logo.png" >
+			<img class="img-fluid px-4 mx-3 my-5 clients_logos" src="/static/clients/icici_bank_logo_symbol.png" >
+			<img class="img-fluid px-4 mx-3 my-5 clients_logos" src="/static/clients/ujjivan-small-finance-bank-logo-E826A63C90-seeklogo.com.png" >
+			<img class="img-fluid px-4 mx-3 my-5 clients_logos" src="/static/clients/Yes_Bank_logo.png" >
+			<img class="img-fluid px-4 mx-3 my-5 clients_logos" src="/static/clients/indusind-bank1.png" >
+			<img class="img-fluid px-4 mx-3 my-5 clients_logos" src="/static/clients/Axis_Bank_logo_logotype.png" >
+			<img class="img-fluid px-4 mx-3 my-5 clients_logos" src="/static/clients/Axis_Bank_logo_logotype.png" >
+		</div>
+	</div>
+{% endblock %}
+
+
+{% block js %}
+	<script>
+		$(document).ready(function(){
+			$('.about_icons').hover(function(){
+				var id=$(this).attr('id').split('_')[0];
+				setTimeout(function(){
+					$('#'+id+'_static').addClass('d-none');
+					$('#'+id+'_hover').removeClass('d-none');
+					},250);
+				}, function(){
+					var id=$(this).attr('id').split('_')[0];
+				setTimeout(function(){
+					$('#'+id+'_hover').addClass('d-none');
+					$('#'+id+'_static').removeClass('d-none');
+					},250);
+			});
+		});
+	</script>
+{% endblock %}

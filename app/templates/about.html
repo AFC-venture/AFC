@@ -4,17 +4,17 @@
 <style>
 	.btn_custom{
 		color:#ffffff;
-		padding: 9px 26px;
+		padding: 8px 25px;
 		font-family: Proxima Nova Regular;
-		font-size: 32px;
+		font-size: 29px;
 		background-image: linear-gradient(30deg, #e54e35, #e56e45);
 		transition: .5s ease;
 	}
 	.btn_custom:hover{
 		color:#ffffff;
-		padding: 10px 27px;
+		padding: 9px 26px;
 		font-family: Proxima Nova Regular;
-		font-size: 35px;
+		font-size: 31px;
 		background-image: linear-gradient(90deg, #e54e35, #e56e45);
 		box-shadow: 7px 7px 10px rgba(0,0,0,0.1);
 	}
@@ -38,7 +38,7 @@
 		}
 		#home_slider hr.heading_underline{
 			border-color: #e44e35;
-			border-width: 5px;
+			border-width: 3px;
 			margin: -15px auto 25px auto;
 			width: 35%;
 		}
@@ -52,7 +52,7 @@
 			line-height: 1.6;
 		}
 		.about_icons{
-			width: 85px;
+			width: 95px;
 		}
 		.icon_heading{
 			font-family: Proxima Nova Regular;
@@ -75,11 +75,13 @@
 			background-color: rgba(0,0,0,0.3);
 			height: 100%;
 		}
-		#mission_vision hr.heading_underline{
-			border-color: #e44e35;
-			border-width: 5px;
-			margin: -5px auto 25px auto;
-			width: 35%;
+		#mission_vision .slider_heading:after {
+			content: '';
+			height: 3px;
+			background: #e44e35; 
+			width: 75%;
+			margin: 0px auto;
+			display: block;
 		}
 		.mission_content{
 			font-family: Proxima Nova Regular;
@@ -101,7 +103,7 @@
 		}
 		.team_card hr.heading_underline{
 			border-color: #e44e35;
-			border-width: 4px;
+			border-width: 3px;
 			margin: 0px auto 5px auto;
 			width: 50%;
 		}
@@ -150,13 +152,40 @@
 	}
 	.prod_title:after {
 		content: '';
-		height: 4px;
+		height: 2.5px;
 		background: #e44e35; 
 		width: 50%;
 		margin: 0px auto;
 		display: block;
 	}
 	/* End */
+	@media (max-width: 768px) {
+			
+		.infra1_col-7{
+			width: 54%;
+			height: 60vh;
+		}
+		.infra1_col-5{
+			width: 46%;
+			height:60vh;
+		}
+		.infra1_col-5 .col-12 {
+			height:29.4vh;
+		}
+		.infra2_col-7{
+			width: 54%;
+			height: 30vh;
+		}
+		.infra2_col-5{
+			width: 46%;
+			height: 30vh;
+		}
+		.infra_col-6{
+			width: 48.7vw;
+			height: 29.5vh;
+		}
+
+		}
 </style>
 {% endblock %}
 
@@ -174,11 +203,11 @@
 			</div>
 		</div>
 	</div>
-	<div id="about_afc" class="py-4">
-		<h1 class="heading text-center display-1 d-none d-md-block pb-0"> 
+	<div id="about_afc" class="py-5">
+		<h1 class="heading text-center display-3 d-none d-md-block pb-0"> 
 			About AFC
 		</h1>
-		<h1 class="heading text-center display-4 d-block d-md-none pb-0"> 
+		<h1 class="heading text-center d-block d-md-none pb-0"> 
 			About AFC
 		</h1>
 		<hr class="heading_underline">
@@ -195,43 +224,43 @@
 					Laboratories and more. The company takes pride in conveying that all their products and solutions are manufactured in India.
 				</p>
 				<div class="d-flex flex-wrap justify-content-around align-items-center py-4">
-					<div class="px-3">
+					<div class="px-md-3 px-5">
 						<img class="img-fluid about_icons" id="icon1_static"  src="/static/icons/organization_structure-static.png">
 						<img class="img-fluid about_icons d-none" id="icon1_hover" src="/static/icons/organization_structure-hover.png">
 						<p class="icon_heading mb-0 mt-2">Organisation<br>Structure</p>
 						<p class="icon_sub_heading">Ensuring continuous<br>learning and upskilling</p>
 					</div>
-					<div class="px-3">
+					<div class="px-md-3 px-5">
 						<img class="img-fluid about_icons" id="icon4_static" src="/static/icons/manufacturing-static.png">
 						<img class="img-fluid about_icons d-none" id="icon4_hover" src="/static/icons/manufacturing-hover.png">
 						<p class="icon_heading mt-2 mb-0">Manufacturing<br>	Setup</p>
 						<p class="icon_sub_heading">Spread across 1.5 lakh<br>sq. ft area</p>
 					</div>
-					<div class="px-3">
+					<div class="px-md-3 px-5">
 						<img class="img-fluid about_icons" id="icon5_static" src="/static/icons/production_capability-static.png">
 						<img class="img-fluid about_icons d-none" id="icon5_hover" src="/static/icons/production_capability-hover.png">
 						<p class="icon_heading mt-2 mb-0">Production<br>Capabilities</p>
 						<p class="icon_sub_heading">Workstations : 10k month<br>Chairs : 8k month</p>
 					</div>
-					<div class="px-3">
+					<div class="px-md-3 px-5">
 						<img class="img-fluid about_icons" id="ico2_static" src="/static/icons/customisation-static.png">
 						<img class="img-fluid about_icons d-none" id="ico2_hover" src="/static/icons/customisation-hover.png">
 						<p class="icon_heading mt-2 mb-0">Customisation<br>Capability</p>
 						<p class="icon_sub_heading">Solutions as per client's<br>requirement</p>
 					</div>
-					<div class="px-3">
+					<div class="px-md-3 px-5">
 						<img class="img-fluid about_icons" id="icon6_static" src="/static/icons/makeinindia-static.png">
 						<img class="img-fluid about_icons d-none" id="icon6_hover" src="/static/icons/makeinindia-hover.png">
 						<p class="icon_heading mt-2 mb-0">Make in<br>India</p>
 						<p class="icon_sub_heading">Proud to manufacture<br>all solutions in India</p>
 					</div>
-					<div class="px-3">
+					<div class="px-md-3 px-5">
 						<img class="img-fluid about_icons" id="icon3_static" src="/static/icons/PANIndia-static.png">
 						<img class="img-fluid about_icons d-none" id="icon3_hover" src="/static/icons/PANIndia-hover.png">
 						<p class="icon_heading mt-2 mb-0">Pan-India<br>Presence</p>
 						<p class="icon_sub_heading">Trusted over<br>12 years</p>
 					</div>
-					<div class="px-3">
+					<div class="px-md-3 px-5">
 						<img class="img-fluid about_icons" id="icon7_static" src="/static/icons/environmentally_responsible-static.png">
 						<img class="img-fluid about_icons d-none" id="icon7_hover" src="/static/icons/environmentally_responsible-hover.png">
 						<p class="icon_heading mt-2 mb-0">Environmentally<br>Responsible</p>
@@ -243,18 +272,17 @@
 	</div>
 	<div id="mission_vision">
 		<div class="layer py-5">
-			<div class="d-flex flex-column justify-content-center align-items-center h-100 my-5 pb-5">
+			<div class="d-flex flex-column justify-content-center align-items-center h-100 my-5 pb-5 px-5">
 				<h1 class="slider_heading display-2 d-none d-md-block text-center pt-md-4 pb-0"> 
 					Mission
 				</h1>
 				<h1 class="slider_heading d-block d-md-none text-center pt-md-4 pb-0"> 
 					Mission
 				</h1>
-				<hr class="heading_underline">
 				<h4 class="mission_content d-none d-md-block text-center pt-md-4 pb-0"> 
 					Bringing innovation & sustainability in manufacturing furniture solutions while building a community of<br>passionate individuals
 				</h4>
-				<h5 class="slider_heading d-block d-md-none text-center pt-md-4 pb-0"> 
+				<h5 class="mission_content d-block d-md-none text-center pt-md-4 pb-0"> 
 					Bringing innovation & sustainability in manufacturing furniture solutions while building a community of<br>passionate individuals
 				</h5>
 				<h1 class="slider_heading display-2 d-none d-md-block text-center pt-md-4 pb-0"> 
@@ -263,39 +291,38 @@
 				<h1 class="slider_heading d-block d-md-none text-center pt-md-4 pb-0"> 
 					Vision
 				</h1>
-				<hr class="heading_underline">
 				<h4 class="mission_content d-none d-md-block text-center pt-md-4 pb-0"> 
 					Enabling people & organisations to deliver their best
 				</h4>
-				<h5 class="slider_heading d-block d-md-none text-center pt-md-4 pb-0"> 
+				<h5 class="mission_content d-block d-md-none text-center pt-md-4 pb-0"> 
 					Enabling people & organisations to deliver their best
 				</h5>
 			</div>
 		</div>
 	</div>
 	<div id="our_team" class="py-4">
-		<h1 class="heading text-center display-1 d-none d-md-block pb-0"> 
+		<h1 class="heading text-center display-3 d-none d-md-block pb-0"> 
 			Our Team
 		</h1>
-		<h1 class="heading text-center display-4 d-block d-md-none pb-0"> 
+		<h1 class="heading text-center d-block d-md-none pb-0"> 
 			Our Team
 		</h1>
 		<hr class="heading_underline">
 		<div class="container">
-			<div class="d-flex justify-content-center">
-				<div class="col-md-3 team_card mx-5">
+			<div class="d-flex justify-content-center row m-0">
+				<div class="col-md-3 team_card mx-4 my-3">
 					<div class="card_footer w-100 p-2 text-center">
 						<h5>Manoj Tomar, Founder</h5>
 						<hr class="heading_underline">
 					</div>
 				</div>
-				<div class="col-md-3 team_card mx-5">
+				<div class="col-md-3 team_card mx-4 my-3">
 					<div class="card_footer w-100 p-2 text-center">
 						<h5>Rajiv Kumar, Designation</h5>
 						<hr class="heading_underline">
 					</div>
 				</div>
-				<div class="col-md-3 team_card mx-5">
+				<div class="col-md-3 team_card mx-4 my-3">
 					<div class="card_footer w-100 p-2 text-center">
 						<h5>Mani Kumar, Designation</h5>
 						<hr class="heading_underline">
@@ -305,10 +332,10 @@
 		</div>
 	</div>
 	<div id="our_products">
-		<h1 class="heading text-center display-1 d-none d-md-block pt-md-4 pb-0"> 
+		<h1 class="heading text-center display-3 d-none d-md-block pt-md-4 pb-0"> 
 			Infrastructure
 		</h1>
-		<h1 class="heading text-center display-4 d-block d-md-none pt-md-4 pb-0"> 
+		<h1 class="heading text-center d-block d-md-none pt-md-4 pb-0"> 
 			Infrastructure
 		</h1>
 		<hr class="heading_underline">
@@ -320,9 +347,9 @@
 							<h1 class="prod_title display-4 d-none d-md-block text-center">
 								Nano Tech<br>Powder Coating
 							</h1>
-							<h3 class="prod_title d-block d-md-none text-center">
+							<h4 class="prod_title d-block d-md-none text-center">
 								Nano Tech<br>Powder Coating
-							</h3>
+							</h4>
 						</div>
 					</div>
 					<div class="infra1_col-5 pl-2 pr-0">
@@ -332,9 +359,9 @@
 								<h1 class="prod_title display-4 d-none d-md-block text-center">
 									Laser
 								</h1>
-								<h3 class="prod_title d-block d-md-none text-center">
+								<h4 class="prod_title d-block d-md-none text-center">
 									Laser
-								</h3>
+								</h4>
 							</div>
 						</div>
 						<div class="col-12 p-0  prod_block">
@@ -343,9 +370,9 @@
 								<h1 class="prod_title display-4 d-none d-md-block text-center">
 									CNC Bending
 								</h1>
-								<h3 class="prod_title d-block d-md-none text-center">
+								<h4 class="prod_title d-block d-md-none text-center">
 									CNC Bending
-								</h3>
+								</h4>
 							</div>
 						</div>
 					</div>
@@ -357,9 +384,9 @@
 							<h1 class="prod_title display-4 d-none d-md-block text-center">
 								Beam Saw
 							</h1>
-							<h3 class="prod_title d-block d-md-none text-center">
+							<h4 class="prod_title d-block d-md-none text-center">
 								Beam Saw
-							</h3>
+							</h4>
 						</div>
 					</div>
 					<div class="infra_col-6 ml-2 prod_block">
@@ -368,9 +395,9 @@
 							<h1 class="prod_title display-4 d-none d-md-block text-center">
 								Panel Saw
 							</h1>
-							<h3 class="prod_title d-block d-md-none px-3 text-center">
+							<h4 class="prod_title d-block d-md-none px-3 text-center">
 								Panel Saw
-							</h3>
+							</h4>
 						</div>
 					</div>
 				</div>
@@ -381,9 +408,9 @@
 							<h1 class="prod_title display-4 d-none d-md-block text-center">
 								CNC Router
 							</h1>
-							<h3 class="prod_title d-block d-md-none text-center">
+							<h4 class="prod_title d-block d-md-none text-center">
 								CNC Router
-							</h3>
+							</h4>
 						</div>
 					</div>
 					<div class="infra2_col-7 ml-2 p-0 prod_block">
@@ -392,9 +419,9 @@
 							<h1 class="prod_title display-4 d-none d-md-block text-center">
 								CNC Drill
 							</h1>
-							<h3 class="prod_title d-block d-md-none text-center">
+							<h4 class="prod_title d-block d-md-none text-center">
 								CNC Drill
-							</h3>
+							</h4>
 						</div>
 					</div>
 					
@@ -406,9 +433,9 @@
 							<h1 class="prod_title display-4 d-none d-md-block text-center">
 								Postforming
 							</h1>
-							<h3 class="prod_title d-block d-md-none text-center">
+							<h4 class="prod_title d-block d-md-none text-center">
 								Postforming
-							</h3>
+							</h4>
 						</div>
 					</div>
 					<div class="infra_col-6 ml-2 prod_block">
@@ -417,15 +444,66 @@
 							<h1 class="prod_title display-4 d-none d-md-block text-center">
 								Edgebending
 							</h1>
-							<h3 class="prod_title d-block d-md-none px-3 text-center">
+							<h4 class="prod_title d-block d-md-none text-center">
 								Edgebending
-							</h3>
+							</h4>
 						</div>
 					</div>
 				</div>
 			</div>
 		<div class="py-5 text-center">
-			<a href="#a" class="btn btn_custom">Explore More</a>
+			<a href="#" class="btn btn_custom">Explore More</a>
+		</div>
+	</div>
+	<div id="our_clients">
+		<h1 class="heading text-center display-3 d-none d-md-block pt-md-4 pb-0"> 
+			Our Clients
+		</h1>
+		<h1 class="heading text-center d-block d-md-none pt-md-4 pb-0"> 
+			Our Clients
+		</h1>
+		<hr class="heading_underline">
+		<div class="row m-0 py-4">
+			<div id="clientsCarousel" class="carousel slide w-100" data-ride="carousel">
+				<div class="carousel-inner w-100" role="listbox">
+					<div class="carousel-item active ">
+						<div class="col-md-3 p-0 mx-1 text-center">
+							<img class="img-fluid w-50" src="/static/icons/AIHP-loho.png" >
+						</div>
+					</div>
+					<div class="carousel-item">
+						<div class="col-md-3 p-0 mx-1 text-center">
+							<img class="img-fluid w-50" src="/static/icons/mahindra-logo.png" >
+						</div>
+					</div>
+					<div class="carousel-item" >
+						<div class="col-md-3 p-0 mx-1 text-center">
+							<img class="img-fluid w-50" src="/static/icons/amar-ujala-logo.png">
+						</div>
+					</div>
+					<div class="carousel-item">
+						<div class="col-md-3 p-0 mx-1 text-center">
+							<img class="img-fluid w-50" src="/static/icons/AIHP-loho.png" >
+						</div>
+					</div>
+					<div class="carousel-item">
+						<div class="col-md-3 p-0 mx-1 text-center">
+							<img class="img-fluid w-50" src="/static/icons/mahindra-logo.png" >
+						</div>
+					</div>
+					<div class="carousel-item">
+						<div class="col-md-3 p-0 mx-1 text-center">
+							<img class="img-fluid w-50" src="/static/icons/amar-ujala-logo.png">
+						</div>
+					</div>
+				</div>
+				<a class="carousel-control-prev w-auto" href="#clientsCarousel" role="button" data-slide="prev">
+					<span class="mx-2">&#8249;</span>
+				</a>
+				<a class="carousel-control-next w-auto" href="#clientsCarousel" role="button" data-slide="next">
+					<span class="mx-2">&#8250;</span>
+				</a>
+			</div>
 		</div>
 	</div>
 {% endblock %}

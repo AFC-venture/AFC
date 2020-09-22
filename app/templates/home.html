@@ -17,17 +17,17 @@
 	}
 	.btn_custom{
 		color:#ffffff;
-		padding: 9px 26px;
+		padding: 8px 25px;
 		font-family: Proxima Nova Regular;
-		font-size: 32px;
+		font-size: 29px;
 		background-image: linear-gradient(30deg, #e54e35, #e56e45);
 		transition: .5s ease;
 	}
 	.btn_custom:hover{
 		color:#ffffff;
-		padding: 10px 27px;
+		padding: 9px 26px;
 		font-family: Proxima Nova Regular;
-		font-size: 35px;
+		font-size: 31px;
 		background-image: linear-gradient(90deg, #e54e35, #e56e45);
 		box-shadow: 7px 7px 10px rgba(0,0,0,0.1);
 	}
@@ -44,9 +44,9 @@
 		#about_afc .content{
 			font-family: Proxima Nova Light;
 			color:#1a1a1a;
-			font-size: 22px;
-			letter-spacing: 1.2px;
-			line-height: 1.6;
+			font-size: 21.8px;
+			line-height: 1.7;
+			text-align: justify;
 		}
 		.about_icons{
 			width: 90px;
@@ -196,8 +196,11 @@
 		opacity: 1;
 	}
 	#testimonialCarousel .carousel-item .col-8{
-		background-color: #111;
-		height: 70vh;
+		background-image: url("{{ url_for('static', filename='images/Testimonial.png') }}");
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center;
+		height: 80vh;
 	}
 	.testimonial_content{
 		font-family: Didot;
@@ -234,16 +237,16 @@
 		</div>
 	</div>
 	
-	<div id="about_afc" class="py-4">
-		<h1 class="heading text-center display-1 d-none d-md-block pb-0"> 
+	<div id="about_afc" class="py-5">
+		<h1 class="heading text-center display-3 d-none d-md-block pb-0"> 
 			About AFC
 		</h1>
-		<h1 class="heading text-center display-4 d-block d-md-none pb-0"> 
+		<h1 class="heading text-center d-block d-md-none pb-0"> 
 			About AFC
 		</h1>
 		<hr class="heading_underline">
 		<div class="row m-0">
-			<div class="mx-md-5 px-3 text-center">
+			<div class="mx-md-5 px-4 text-center">
 					<p class="content">
 						AFC Furniture Solutions is the fastest growing brand in the office furniture manufacturing industry that started in 2008. AFC is an
 						end-to-end solution company with Green Manufacturing setup spread across 1.5 lakh sq ft. and capability to manufacture 10k
@@ -291,10 +294,10 @@
 		</div>
 	</div>
 	<div id="our_products">
-		<h1 class="heading text-center display-1 d-none d-md-block pt-md-4 pb-0"> 
+		<h1 class="heading text-center display-3 d-none d-md-block pt-md-4 pb-0"> 
 			Our Products
 		</h1>
-		<h1 class="heading text-center display-4 d-block d-md-none pt-md-4 pb-0"> 
+		<h1 class="heading text-center d-block d-md-none pt-md-4 pb-0"> 
 			Our Products
 		</h1>
 		<hr class="heading_underline">
@@ -366,10 +369,10 @@
 		</div>
 	</div>
 	<div id="our_projects">
-		<h1 class="heading text-center display-1 d-none d-md-block pb-0"> 
+		<h1 class="heading text-center display-3 d-none d-md-block pb-0"> 
 			Recent Projects
 		</h1>
-		<h1 class="heading text-center display-4 d-block d-md-none pb-0"> 
+		<h1 class="heading text-center d-block d-md-none pb-0"> 
 			Recent Projects
 		</h1>
 		<hr class="heading_underline my-2">
@@ -529,14 +532,14 @@
 		</div>
 	</div>
 	<div id="testimonials">
-		<h1 class="heading text-center display-1 d-none d-md-block pb-0"> 
+		<h1 class="heading text-center display-3 d-none d-md-block pb-0"> 
 			Testimonials
 		</h1>
-		<h1 class="heading text-center display-4 d-block d-md-none pb-0"> 
+		<h1 class="heading text-center d-block d-md-none pb-0"> 
 			Testimonials
 		</h1>
 		<hr class="heading_underline my-2">
-		<div class="row m-0 py-3">
+		<div class="row m-0">
 			<div id="testimonialCarousel" class="carousel slide w-100" data-ride="carousel">
 				<div class="carousel-inner w-100">
 					<div class="carousel-item w-100 active py-5">
@@ -642,6 +645,57 @@
 			</div>
 		</div>
 	</div>
+	<div id="our_clients">
+		<h1 class="heading text-center display-3 d-none d-md-block pt-md-4 pb-0"> 
+			Our Clients
+		</h1>
+		<h1 class="heading text-center d-block d-md-none pt-md-4 pb-0"> 
+			Our Clients
+		</h1>
+		<hr class="heading_underline">
+		<div class="row m-0 py-4">
+			<div id="clientsCarousel" class="carousel slide w-100" data-ride="carousel">
+				<div class="carousel-inner w-100" role="listbox">
+					<div class="carousel-item active ">
+						<div class="col-md-3 p-0 mx-1 text-center">
+							<img class="img-fluid w-50" src="/static/icons/AIHP-loho.png" >
+						</div>
+					</div>
+					<div class="carousel-item">
+						<div class="col-md-3 p-0 mx-1 text-center">
+							<img class="img-fluid w-50" src="/static/icons/mahindra-logo.png" >
+						</div>
+					</div>
+					<div class="carousel-item" >
+						<div class="col-md-3 p-0 mx-1 text-center">
+							<img class="img-fluid w-50" src="/static/icons/amar-ujala-logo.png">
+						</div>
+					</div>
+					<div class="carousel-item">
+						<div class="col-md-3 p-0 mx-1 text-center">
+							<img class="img-fluid w-50" src="/static/icons/AIHP-loho.png" >
+						</div>
+					</div>
+					<div class="carousel-item">
+						<div class="col-md-3 p-0 mx-1 text-center">
+							<img class="img-fluid w-50" src="/static/icons/mahindra-logo.png" >
+						</div>
+					</div>
+					<div class="carousel-item">
+						<div class="col-md-3 p-0 mx-1 text-center">
+							<img class="img-fluid w-50" src="/static/icons/amar-ujala-logo.png">
+						</div>
+					</div>
+				</div>
+				<a class="carousel-control-prev w-auto" href="#clientsCarousel" role="button" data-slide="prev">
+					<span class="mx-2">&#8249;</span>
+				</a>
+				<a class="carousel-control-next w-auto" href="#clientsCarousel" role="button" data-slide="next">
+					<span class="mx-2">&#8250;</span>
+				</a>
+			</div>
+		</div>
+	</div>
 {% endblock %}
 
 {% block js %}
@@ -649,12 +703,16 @@
 		$(document).ready(function(){
 			$('.about_icons').hover(function(){
 				var id=$(this).attr('id').split('_')[0];
-				$('#'+id+'_static').addClass('d-none');
-				$('#'+id+'_hover').removeClass('d-none');
+				setTimeout(function(){
+					$('#'+id+'_static').addClass('d-none');
+					$('#'+id+'_hover').removeClass('d-none');
+					},500);
 				}, function(){
-			    var id=$(this).attr('id').split('_')[0];
-				$('#'+id+'_hover').addClass('d-none');
-				$('#'+id+'_static').removeClass('d-none');
+					var id=$(this).attr('id').split('_')[0];
+				setTimeout(function(){
+					$('#'+id+'_hover').addClass('d-none');
+					$('#'+id+'_static').removeClass('d-none');
+					},500);
 			});
 			$('#projectCarousel1').carousel({
 				interval: 10000
