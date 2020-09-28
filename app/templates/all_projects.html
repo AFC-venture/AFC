@@ -2,6 +2,36 @@
 
 {% block css %}
 <style>
+	/* NavBar */
+		.navbar{
+			/*background-color: rgba(0,0,0,0.3);*/
+			background-image: linear-gradient(180deg,rgba(204,204,204,0.8),rgba(204,204,204,0));
+		}
+		.navbar .logo{
+			width: 140px;
+		}
+		.navbar-toggler{
+			color:#666666;
+			border: 1px solid #666666;
+		}
+		.nav-item a{
+			font-family: Proxima Nova Light;
+			font-size: 21px;
+			color: #666666;
+			letter-spacing: 1.5px;
+		}
+		.nav-item.active a{
+			font-family: Proxima Nova Bold;
+			font-size: 22px;
+			color: #1a1a1a;
+		}
+		.nav-item.active a:after {
+			content: '';
+			height: 2px;
+			background: #e44e35; 
+			display:block;
+		}
+	/* End */
 	.slider_heading{
 			font-family: Didot;
 			font-style: italic;
@@ -92,68 +122,30 @@
 {% endblock %}
 
 {% block content %}
-	<div class="row m-0">
-		<div id="homeCarousel" class="carousel slide w-100" data-ride="carousel">
-			<div class="carousel-inner w-100">
-				<div class="carousel-item w-100 active" id="home_slider1">
-					<div class="slider_layer w-100 h-100 py-5">
-						<div class="d-flex flex-column justify-content-center align-items-center h-100 w-100">
-							<h1 class="slider_heading display-1 d-none d-md-block text-center pt-md-4 pb-0"> 
-								Indiamart
-							</h1>
-							<h1 class="slider_heading display-4 d-block d-md-none text-center pt-md-4 pb-0"> 
-								Indiamart
-							</h1>
-							<hr class="heading_underline my-2">
-						</div>
-					</div>
-				</div>
-				<div class="carousel-item w-100" id="home_slider2">
-					<div class="slider_layer w-100 h-100 py-5">
-						<div class="d-flex flex-column justify-content-center align-items-center h-100 w-100">
-							<h1 class="slider_heading display-1 d-none d-md-block text-center pt-md-4 pb-0"> 
-								Concentrix
-							</h1>
-							<h1 class="slider_heading display-4 d-block d-md-none text-center pt-md-4 pb-0"> 
-								Concentrix
-							</h1>
-							<hr class="heading_underline my-2">
-						</div>
-					</div>
-				</div>
-				<div class="carousel-item w-100" id="home_slider3">
-					<div class="slider_layer w-100 h-100 py-5">
-						<div class="d-flex flex-column justify-content-center align-items-center h-100 w-100">
-							<h1 class="slider_heading display-1 d-none d-md-block text-center pt-md-4 pb-0"> 
-								Tokopedia
-							</h1>
-							<h1 class="slider_heading display-4 d-block d-md-none text-center pt-md-4 pb-0"> 
-								Tokopedia
-							</h1>
-							<hr class="heading_underline my-2">
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="h-50">
-				<a class="carousel-control-prev d-flex w-25 my-5" href="#homeCarousel" role="button" data-slide="prev">
-					<span class="ml-md-5 d-none d-md-block">
-						PREV
-					</span>
-					<hr class="control_pointer my-2 mx-3 d-none d-md-block">
-				</a>
-				<a class="carousel-control-next d-flex w-25 my-5" href="#homeCarousel" role="button" data-slide="next">
-					<hr class="control_pointer my-2 mx-3 d-none d-md-block">
-					<span class="mr-md-5 d-none d-md-block">
-						NEXT
-					</span>
-				</a>
-				<div class="num"></div>
-			</div>
-			<div class="viewall_link text-center">
-				<a href="{{ url_for('all_projects') }}">VIEW ALL</a>
-				<hr class="heading_underline">
-			</div>
+	<div class="row m-0 my-5 pt-5">
+		<div class="col-md-6 mt-4 pt-4 px-4 project_images">
+			<img class="img-fluid w-100" src="/static/images/AIHP.png">
+			<h3 class="project_heading pt-2 pl-2">AIHP, Gurugram</h3>
+		</div>
+		<div class="col-md-6 mt-4 pt-4 px-4 project_images">
+			<img class="img-fluid w-100" src="/static/images/Air_india.png">
+			<h3 class="project_heading pt-2 pl-2">Air India</h3>
+		</div>
+		<div class="col-md-6 pt-4 px-4 project_images">
+			<img class="img-fluid w-100" src="/static/images/XYZ.png">
+			<h3 class="project_heading pt-2 pl-2">XYZ, Location</h3>
+		</div>
+		<div class="col-md-6 pt-4 px-4 project_images">
+			<img class="img-fluid w-100" src="/static/images/Ujjawan.png">
+			<h3 class="project_heading pt-2 pl-2">Ujjawan</h3>
+		</div>
+		<div class="col-md-6 pt-4 px-4 project_images">
+			<img class="img-fluid w-100" src="/static/images/ABC.png">
+			<h3 class="project_heading pt-2 pl-2">ABC, Location</h3>
+		</div>
+		<div class="col-md-6 pt-4 px-4 project_images">
+			<img class="img-fluid w-100" src="/static/images/Indiamart.png">
+			<h3 class="project_heading pt-2 pl-2">IndiaMart, Noida</h3>
 		</div>
 	</div>
 {% endblock %}

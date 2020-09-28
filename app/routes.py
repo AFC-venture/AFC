@@ -2,7 +2,7 @@ from app import app
 from flask import render_template, request,url_for
 
 @app.route('/')
-def home():
+def home():		
 	return render_template('home.html')
 
 @app.route('/about_afc')
@@ -12,6 +12,10 @@ def about_afc():
 @app.route('/projects')
 def projects():
 	return render_template('projects.html')
+
+@app.route('/all_projects')
+def all_projects():
+	return render_template('all_projects.html')
 
 @app.route('/clients')
 def clients():

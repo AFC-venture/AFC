@@ -9,46 +9,48 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 	<script src="https://kit.fontawesome.com/32ee507fe4.js" crossorigin="anonymous"></script>
+	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 <style>
 	/* Font Faces */
 		@font-face {
 			font-family: Didot;
-			src: url({{ url_for('static', filename='fonts/Didot LT Std Italic.otf') }})
+			src: url("{{ url_for('static', filename='fonts/Didot LT Std Italic.otf') }}")
 		}
 		@font-face {
 			font-family: Didot Bold;
-			src: url({{ url_for('static', filename='fonts/Didot LT Std Bold.otf') }})
+			src: url("{{ url_for('static', filename='fonts/Didot LT Std Bold.otf') }}")
 		}
 		@font-face {
 			font-family: Proxima Nova Light;
-			src: url({{ url_for('static', filename='fonts/FontsFree-Net-Proxima-Nova-Light.otf') }})
+			src: url("{{ url_for('static', filename='fonts/FontsFree-Net-Proxima-Nova-Light.otf') }}")
 		}
 		@font-face {
 			font-family: Proxima Nova Bold;
-			src: url({{ url_for('static', filename='fonts/FontsFree-Net-Proxima-Nova-Sbold.otf') }})
+			src: url("{{ url_for('static', filename='fonts/FontsFree-Net-Proxima-Nova-Sbold.otf') }}")
 		}
 		@font-face {
 			font-family: Proxima Nova Regular;
-			src: url({{ url_for('static', filename='fonts/ProximaNova-Regular.otf') }})
+			src: url("{{ url_for('static', filename='fonts/ProximaNova-Regular.otf') }}")
 		}
 	/* End */
 
 	/* NavBar */
 		.navbar{
-			background-color: rgba(0,0,0,0.3);
-			background-color: linear-gradient(90deg, #111111);
+			/*background-color: rgba(0,0,0,0.3);*/
+			background-image: linear-gradient(180deg,rgba(0,0,0,0.8), rgba(0,0,0,0));
+		}
+		.navbar .logo{
+			width: 140px;
 		}
 		.navbar-toggler{
 			color:#cccccc;
 			border: 1px solid #cccccc;
 		}
-		.navbar-brand .logo{
-			width: 140px;
-		}
 		.nav-item a{
 			font-family: Proxima Nova Light;
 			font-size: 21px;
 			color: #cccccc;
+			letter-spacing: 1.5px;
 		}
 		.nav-item.active a{
 			font-family: Proxima Nova Bold;
@@ -71,8 +73,8 @@
 	hr.heading_underline{
 		border-color: #e44e35;
 		border-width: 3px;
-		margin: -15px auto 25px auto;
-		width: 234px;
+		margin: 10px auto 25px auto;
+		width: 10%;
 	}
 	.submit_btn_custom{
 		color:#ffffff;
@@ -191,9 +193,9 @@
 {% endblock %}
 </head>
 <body>
-	<nav class="navbar navbar-expand-lg py-2 fixed-top">
-		<a class="navbar-brand py-0" href="#">
-			<img class="img-fluid logo" src="/static/icons/AFC_logo1.png" >
+	<nav class="navbar navbar-expand-lg py-0 fixed-top">
+		<a class="navbar-brand" href="#">
+			<img class="img-fluid logo" src="" >
 		</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			<i class="fa fa-bars" aria-hidden="true"></i>
@@ -322,25 +324,40 @@
 	$(document).ready(function(){
 		var actives=window.location.href.split('/');
 		var active=actives[actives.length-1].split('.')[0];
+		if (active.includes("#")){
+			active=active.split("#")[0];
+		}
 		$('.nav-item.active').removeClass('active');
 		console.log(active);
+		logo_white="/static/icons/AFC_1.png";
+		logo_black="/static/icons/AFC_2.png";
 		if ( active=='home' || active==''){
 			$(".nav-link#home").parent().addClass("active");
+			$(".navbar .logo").attr("src",logo_white);
 		} else if ( active=='about_afc'){
 			console.log($(".nav-link#about_afc"));
 			$(".nav-link#about_afc").parent().addClass("active");
+			$(".navbar .logo").attr("src",logo_white);
 		} else if ( active=='projects'){
 			console.log($(".nav-link#projects"));
 			$(".nav-link#projects").parent().addClass("active");
+			$(".navbar .logo").attr("src",logo_white);
+		}else if (active=='all_projects'){
+			console.log($(".nav-link#projects"));
+			$(".nav-link#projects").parent().addClass("active");
+			$(".navbar .logo").attr("src",logo_black);
 		} else if ( active=='clients'){
 			console.log($(".nav-link#clients"));
 			$(".nav-link#clients").parent().addClass("active");
+			$(".navbar .logo").attr("src",logo_white);
 		} else if ( active=='contact_us'){
 			console.log($(".nav-link#contact_us"));
 			$(".nav-link#contact_us").parent().addClass("active");
+			$(".navbar .logo").attr("src",logo_white);
 		} else if ( active=='latest'){
 			console.log($(".nav-link#latest"));
 			$(".nav-link#latest").parent().addClass("active");
+			$(".navbar .logo").attr("src",logo_white);
 		} 
 
 		$('.social_icons .social_icon').hover(function(){
@@ -375,6 +392,10 @@
 			});
 	});
 
+</script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+	AOS.init();
 </script>
 {% block js %}
 {% endblock %}
