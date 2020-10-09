@@ -236,20 +236,75 @@
 		font-style: italic;
 		color:#ffffff;
 	}
+		#our_products .prod_block{
+		position: relative;
+	}	
+	.prod_col-6{
+		width: 49vw;
+		height: 80vh;
+	}
+	.prod_col-3{
+		width: 25vw;
+		height: 80vh;
+	}
+	.prod_col-3 .col-12{
+		height: 39.5vh;
+	}
+
+	.overlay{
+		position: absolute;
+		left: 0;
+		top: 0;
+		background-color: rgba(0,0,0,0.6);
+	}
+
+	/*Zoom Effect*/
+	/* [1] The container */
+	.img-hover-zoom {
+	  overflow: hidden; /* [1.2] Hide the overflowing of child elements */
+	}
+
+	/* [2] Transition property for smooth transformation of images */
+	.img-hover-zoom img {
+	  transition: transform 1s ease;
+	}
+
+	/* [3] Finally, transforming the image when container gets hovered */
+	.img-hover-zoom:hover img {
+	  transform: scale(1.1);
+	}
+	.img-hover-zoom:hover .overlay {
+	  background-color: rgba(0,0,0,0.4);
+	}
+	/*End*/
+
+	.prod_title{
+		font-family: Proxima Nova Light;
+		color:#ffffff;
+	}
+	.prod_title:after {
+		content: '';
+		height: 4px;
+		background: #e44e35; 
+		width: 50%;
+		margin: 0px auto;
+		display: block;
+	}
+
+
 	@media (max-width: 768px) {
-			.prod_col-7{
-				height: 60vh;
-			}
-			.prod_col-5{
-				height:60vh;
-			}
-			.prod_col-5 .col-12{
-				height:29.2vh;
-			}
 			.prod_col-6{
-				width: 48.75vw;
-				height: 30vh;
+				width: 49vw;
+				height: 40vh;
 			}
+			.prod_col-3{
+				width: 25vw;
+				height: 40vh;
+			}
+			.prod_col-3 .col-12{
+				height: 19.5vh;
+			}
+			
 	}
 </style>
 {% endblock %}
@@ -332,7 +387,7 @@
 		<hr class="heading_underline" data-aos-once="true" data-aos="fade-up" data-aos-duration="1500">
 			<div class="row m-0 ">
 				<div class="d-flex w-100" data-aos-once="true" data-aos="fade-up" data-aos-duration="1500">
-					<div class="prod_col-7 p-0 prod_block img-hover-zoom">
+					<div class="prod_col-6 p-0 prod_block img-hover-zoom">
 						<img class="img-fluid h-100 w-100" src="/static/images/workstation.png">
 						<div class="overlay h-100 w-100 d-flex justify-content-center align-items-center">
 							<h1 class="prod_title d-none d-md-block text-center">
@@ -343,58 +398,58 @@
 							</h3>
 						</div>
 					</div>
-					<div class="prod_col-5 pl-2 pr-0">
+					<div class="prod_col-3 pl-2 pr-0">
 						<div class="col-12 p-0 mb-2 prod_block img-hover-zoom">
-							<img class="img-fluid h-100 w-100" src="/static/images/cabins.png">
+							<img class="img-fluid h-100 w-100" src="/static/images/tables.png">
 							<div class="overlay h-100 w-100 d-flex justify-content-center align-items-center">
 								<h1 class="prod_title d-none d-md-block text-center">
-									Cabins
+									Tables
 								</h1>
 								<h3 class="prod_title d-block d-md-none text-center">
-									Cabins
+									Tables
 								</h3>
 							</div>
 						</div>
 						<div class="col-12 p-0  prod_block img-hover-zoom">
-							<img class="img-fluid h-100 w-100" src="/static/images/cafeteria.png">
+							<img class="img-fluid h-100 w-100" src="/static/images/storage.png">
 							<div class="overlay h-100 w-100 d-flex justify-content-center align-items-center">
 								<h1 class="prod_title d-none d-md-block text-center">
-									Cafeteria
+									Storage
 								</h1>
 								<h3 class="prod_title d-block d-md-none text-center">
-									Cafeteria
+									Storage
 								</h3>
 							</div>
 						</div>
 					</div>
-				</div>
-				<div class="row m-0 w-100 pt-2"  data-aos-once="true" data-aos="fade-in" data-aos-duration="1500">
-					<div class="prod_col-6 px-0 prod_block img-hover-zoom">
-						<img class="img-fluid h-100 w-100" src="/static/images/conference_room.png">
-						<div class="overlay h-100 w-100 d-flex justify-content-center align-items-center">
-							<h1 class="prod_title d-none d-md-block text-center">
-								Conference Rooms
-							</h1>
-							<h3 class="prod_title d-block d-md-none text-center">
-								Conference Rooms
-							</h3>
+					<div class="prod_col-3 pl-2 pr-0">
+						<div class="col-12 p-0 mb-2 prod_block img-hover-zoom">
+							<img class="img-fluid h-100 w-100" src="/static/images/seating.png">
+							<div class="overlay h-100 w-100 d-flex justify-content-center align-items-center">
+								<h1 class="prod_title d-none d-md-block text-center">
+									Seating
+								</h1>
+								<h3 class="prod_title d-block d-md-none text-center">
+									Seating
+								</h3>
+							</div>
 						</div>
-					</div>
-					<div class="prod_col-6 ml-2 prod_block img-hover-zoom">
-						<img class="img-fluid h-100 w-100" src="/static/images/hostel_bed.png">
-						<div class="overlay h-100 w-100 d-flex justify-content-center align-items-center">
-							<h1 class="prod_title d-none d-md-block text-center">
-								Hostel Beds
-							</h1>
-							<h3 class="prod_title d-block d-md-none px-3 text-center">
-								Hostel Beds
-							</h3>
+						<div class="col-12 p-0 mb-2 prod_block img-hover-zoom">
+							<img class="img-fluid h-100 w-100" src="/static/images/educational.png">
+							<div class="overlay h-100 w-100 d-flex justify-content-center align-items-center">
+								<h1 class="prod_title d-none d-md-block text-center">
+									Educational
+								</h1>
+								<h3 class="prod_title d-block d-md-none text-center">
+									Educational
+								</h3>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		<div class="py-5 text-center">
-			<a href="#a" class="btn btn_custom">Explore Our Products</a>
+			<a href="#" class="btn btn_custom">Contact Us</a>
 		</div>
 	</div>
 	<div id="our_projects">

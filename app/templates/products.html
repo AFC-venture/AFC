@@ -115,7 +115,7 @@
 	}
 	.prod_title:after {
 		content: '';
-		height: 4px;
+		height: 3px;
 		background: #e44e35; 
 		width: 50%;
 		margin: 0px auto;
@@ -139,6 +139,20 @@
 		font-size: 25px;
 		background-image: linear-gradient(90deg, #e54e35, #e56e45);
 		box-shadow: 7px 7px 10px rgba(0,0,0,0.1);
+	}
+	@media (max-width: 768px) {
+			.prod_col-6{
+				width: 49vw;
+				height: 40vh;
+			}
+			.prod_col-3{
+				width: 25vw;
+				height: 40vh;
+			}
+			.prod_col-3 .col-12{
+				height: 19.5vh;
+			}
+			
 	}
 </style>
 {% endblock %}
@@ -191,9 +205,9 @@
 							<h1 class="prod_title d-none d-md-block text-center">
 								Workstations
 							</h1>
-							<h3 class="prod_title d-block d-md-none text-center">
+							<h6 class="prod_title d-block d-md-none text-center">
 								Workstations
-							</h3>
+							</h6>
 						</div>
 					</div>
 					<div class="prod_col-3 pl-2 pr-0">
@@ -203,9 +217,9 @@
 								<h1 class="prod_title d-none d-md-block text-center">
 									Tables
 								</h1>
-								<h3 class="prod_title d-block d-md-none text-center">
+								<h6 class="prod_title d-block d-md-none text-center">
 									Tables
-								</h3>
+								</h6>
 							</div>
 						</div>
 						<div class="col-12 p-0  prod_block img-hover-zoom">
@@ -214,9 +228,9 @@
 								<h1 class="prod_title d-none d-md-block text-center">
 									Storage
 								</h1>
-								<h3 class="prod_title d-block d-md-none text-center">
+								<h6 class="prod_title d-block d-md-none text-center">
 									Storage
-								</h3>
+								</h6>
 							</div>
 						</div>
 					</div>
@@ -227,9 +241,9 @@
 								<h1 class="prod_title d-none d-md-block text-center">
 									Seating
 								</h1>
-								<h3 class="prod_title d-block d-md-none text-center">
+								<h6 class="prod_title d-block d-md-none text-center">
 									Seating
-								</h3>
+								</h6>
 							</div>
 						</div>
 						<div class="col-12 p-0 mb-2 prod_block img-hover-zoom">
@@ -238,9 +252,9 @@
 								<h1 class="prod_title d-none d-md-block text-center">
 									Educational
 								</h1>
-								<h3 class="prod_title d-block d-md-none text-center">
+								<h6 class="prod_title d-block d-md-none text-center">
 									Educational
-								</h3>
+								</h6>
 							</div>
 						</div>
 					</div>
