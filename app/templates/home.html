@@ -8,6 +8,14 @@
 			color:#ffffff;
 			letter-spacing: 1.2px;
 		}
+	.slider_heading:after {
+			content: '';
+			height: 3px;
+			background: #e44e35; 
+			width: 64%;
+			margin:20px 18%;
+			display: block;
+		}
 	
 	#testimonialCarousel hr.heading_underline{
 		border-color: #e44e35;
@@ -50,6 +58,7 @@
 		}
 		.about_icons{
 			width: 90px;
+			transition: 0.5s;
 		}
 		.icon_heading{
 			font-family: Proxima Nova Regular;
@@ -73,7 +82,7 @@
 		height:59.4vh;
 	}
 	.prod_col-6{
-		width: 49.15vw;
+		width: 49vw;
 		height: 60vh;
 	}
 
@@ -83,6 +92,26 @@
 		top: 0;
 		background-color: rgba(0,0,0,0.6);
 	}
+
+	/*Zoom Effect*/
+	/* [1] The container */
+	.img-hover-zoom {
+	  overflow: hidden; /* [1.2] Hide the overflowing of child elements */
+	}
+
+	/* [2] Transition property for smooth transformation of images */
+	.img-hover-zoom img {
+	  transition: transform 1s ease;
+	}
+
+	/* [3] Finally, transforming the image when container gets hovered */
+	.img-hover-zoom:hover img {
+	  transform: scale(1.1);
+	}
+	.img-hover-zoom:hover .overlay {
+	  background-color: rgba(0,0,0,0.4);
+	}
+	/*End*/
 
 	.prod_title{
 		font-family: Proxima Nova Light;
@@ -198,7 +227,7 @@
 	#testimonialCarousel .carousel-item .col-8{
 		background-image: url("{{ url_for('static', filename='images/Testimonial.png') }}");
 		background-repeat: no-repeat;
-		background-size: cover;
+		background-size: 100% 100%;
 		background-position: center;
 		height: 80vh;
 	}
@@ -238,16 +267,16 @@
 	</div>
 	
 	<div id="about_afc" class="py-5">
-		<h1 class="heading text-center display-4 d-none d-md-block mb-0"> 
+		<h1 class="heading text-center display-4 d-none d-md-block mb-0" data-aos-once="true" data-aos="fade-up" data-aos-duration="1500"> 
 			About AFC
 		</h1>
-		<h1 class="heading text-center d-block d-md-none mb-0"> 
+		<h1 class="heading text-center d-block d-md-none mb-0" data-aos-once="true" data-aos="fade-up" data-aos-duration="1500"> 
 			About AFC
 		</h1>
-		<hr class="heading_underline">
+		<hr class="heading_underline" data-aos-once="true" data-aos="fade-up" data-aos-duration="1500">
 		<div class="row m-0">
 			<div class="mx-md-5 px-4 text-center">
-					<p class="content" data-aos-once="true" data-aos="fade-in" data-aos-duration="1500">
+					<p class="content" data-aos-once="true" data-aos="fade-up" data-aos-duration="1500">
 						AFC Furniture Solutions is the fastest growing brand in the office furniture manufacturing industry that started in 2008. AFC is an
 						end-to-end solution company with Green Manufacturing setup spread across 1.5 lakh sq ft. and capability to manufacture 10k
 						workstations and 8k chairs in a month. Manufacturing setup in Delhi-NCR region, team of 60+ passionate professionals and a
@@ -257,7 +286,7 @@
 						requirements and specialise in manufacturing Workstations, Cabins, Seating Solutions, Lose Furniture, Storage, Educational,
 						Laboratories and more. The company takes pride in conveying that all their products and solutions are manufactured in India.
 					</p>
-					<div class="d-flex flex-wrap justify-content-around align-items-center px-5 py-4" data-aos-once="true" data-aos="fade-in" data-aos-duration="1500">
+					<div class="d-flex flex-wrap justify-content-around align-items-center px-5 py-4" data-aos-once="true" data-aos="fade-up" data-aos-duration="1500">
 						<div class="px-3">
 							<img class="img-fluid about_icons" id="icon1_static"  src="/static/icons/warehouse-static.png">
 							<img class="img-fluid about_icons d-none" id="icon1_hover" src="/static/icons/warehouse-hover.png">
@@ -294,19 +323,19 @@
 		</div>
 	</div>
 	<div id="our_products">
-		<h1 class="heading text-center display-4 d-none d-md-block pt-md-4 pb-0"> 
+		<h1 class="heading text-center display-4 d-none d-md-block pt-md-4 pb-0" data-aos-once="true" data-aos="fade-up" data-aos-duration="1500"> 
 			Our Products
 		</h1>
-		<h1 class="heading text-center d-block d-md-none pt-md-4 pb-0"> 
+		<h1 class="heading text-center d-block d-md-none pt-md-4 pb-0" data-aos-once="true" data-aos="fade-up" data-aos-duration="1500"> 
 			Our Products
 		</h1>
-		<hr class="heading_underline">
+		<hr class="heading_underline" data-aos-once="true" data-aos="fade-up" data-aos-duration="1500">
 			<div class="row m-0 ">
-				<div class="d-flex w-100" data-aos-once="true" data-aos="fade-in" data-aos-duration="1500">
-					<div class="prod_col-7 p-0 prod_block">
+				<div class="d-flex w-100" data-aos-once="true" data-aos="fade-up" data-aos-duration="1500">
+					<div class="prod_col-7 p-0 prod_block img-hover-zoom">
 						<img class="img-fluid h-100 w-100" src="/static/images/workstation.png">
 						<div class="overlay h-100 w-100 d-flex justify-content-center align-items-center">
-							<h1 class="prod_title display-4 d-none d-md-block text-center">
+							<h1 class="prod_title d-none d-md-block text-center">
 								Workstations
 							</h1>
 							<h3 class="prod_title d-block d-md-none text-center">
@@ -315,10 +344,10 @@
 						</div>
 					</div>
 					<div class="prod_col-5 pl-2 pr-0">
-						<div class="col-12 p-0 mb-2 prod_block">
+						<div class="col-12 p-0 mb-2 prod_block img-hover-zoom">
 							<img class="img-fluid h-100 w-100" src="/static/images/cabins.png">
 							<div class="overlay h-100 w-100 d-flex justify-content-center align-items-center">
-								<h1 class="prod_title display-4 d-none d-md-block text-center">
+								<h1 class="prod_title d-none d-md-block text-center">
 									Cabins
 								</h1>
 								<h3 class="prod_title d-block d-md-none text-center">
@@ -326,10 +355,10 @@
 								</h3>
 							</div>
 						</div>
-						<div class="col-12 p-0  prod_block">
+						<div class="col-12 p-0  prod_block img-hover-zoom">
 							<img class="img-fluid h-100 w-100" src="/static/images/cafeteria.png">
 							<div class="overlay h-100 w-100 d-flex justify-content-center align-items-center">
-								<h1 class="prod_title display-4 d-none d-md-block text-center">
+								<h1 class="prod_title d-none d-md-block text-center">
 									Cafeteria
 								</h1>
 								<h3 class="prod_title d-block d-md-none text-center">
@@ -340,10 +369,10 @@
 					</div>
 				</div>
 				<div class="row m-0 w-100 pt-2"  data-aos-once="true" data-aos="fade-in" data-aos-duration="1500">
-					<div class="prod_col-6 px-0 prod_block">
+					<div class="prod_col-6 px-0 prod_block img-hover-zoom">
 						<img class="img-fluid h-100 w-100" src="/static/images/conference_room.png">
 						<div class="overlay h-100 w-100 d-flex justify-content-center align-items-center">
-							<h1 class="prod_title display-4 d-none d-md-block text-center">
+							<h1 class="prod_title d-none d-md-block text-center">
 								Conference Rooms
 							</h1>
 							<h3 class="prod_title d-block d-md-none text-center">
@@ -351,10 +380,10 @@
 							</h3>
 						</div>
 					</div>
-					<div class="prod_col-6 ml-2 prod_block">
+					<div class="prod_col-6 ml-2 prod_block img-hover-zoom">
 						<img class="img-fluid h-100 w-100" src="/static/images/hostel_bed.png">
 						<div class="overlay h-100 w-100 d-flex justify-content-center align-items-center">
-							<h1 class="prod_title display-4 d-none d-md-block text-center">
+							<h1 class="prod_title d-none d-md-block text-center">
 								Hostel Beds
 							</h1>
 							<h3 class="prod_title d-block d-md-none px-3 text-center">
@@ -369,14 +398,14 @@
 		</div>
 	</div>
 	<div id="our_projects">
-		<h1 class="heading text-center display-4 d-none d-md-block pb-0"> 
+		<h1 class="heading text-center display-4 d-none d-md-block pb-0" data-aos-once="true" data-aos="fade-up" data-aos-duration="1500"> 
 			Recent Projects
 		</h1>
-		<h1 class="heading text-center d-block d-md-none pb-0"> 
+		<h1 class="heading text-center d-block d-md-none pb-0" data-aos-once="true" data-aos="fade-up" data-aos-duration="1500"> 
 			Recent Projects
 		</h1>
-		<hr class="heading_underline my-2">
-		<div class="row m-0 py-3" data-aos-once="true" data-aos="fade-in" data-aos-duration="1500">
+		<hr class="heading_underline my-2" data-aos-once="true" data-aos="fade-up" data-aos-duration="1500"> 
+		<div class="row m-0 py-3" data-aos-once="true" data-aos="fade-up" data-aos-duration="1500">
 			<div id="projectCarousel1" class="carousel slide w-100" data-ride="carousel">
 				<div class="carousel-inner w-100" role="listbox">
 					<div class="carousel-item active ">
@@ -532,14 +561,14 @@
 		</div>
 	</div>
 	<div id="testimonials">
-		<h1 class="heading text-center display-4 d-none d-md-block pb-0"> 
+		<h1 class="heading text-center display-4 d-none d-md-block pb-0" data-aos-once="true" data-aos="fade-up" data-aos-duration="1500"> 
 			Testimonials
 		</h1>
-		<h1 class="heading text-center d-block d-md-none pb-0"> 
+		<h1 class="heading text-center d-block d-md-none pb-0" data-aos-once="true" data-aos="fade-up" data-aos-duration="1500"> 
 			Testimonials
 		</h1>
-		<hr class="heading_underline my-2">
-		<div class="row m-0" data-aos-once="true" data-aos="fade-in" data-aos-duration="1500">
+		<hr class="heading_underline my-2" data-aos-once="true" data-aos="fade-up" data-aos-duration="1500">
+		<div class="row m-0" data-aos-once="true" data-aos="fade-up" data-aos-duration="1500">
 			<div id="testimonialCarousel" class="carousel slide w-100" data-ride="carousel">
 				<div class="carousel-inner w-100">
 					<div class="carousel-item w-100 active py-5">
@@ -646,14 +675,14 @@
 		</div>
 	</div>
 	<div id="our_clients">
-		<h1 class="heading text-center display-4 d-none d-md-block pt-md-4 pb-0"> 
+		<h1 class="heading text-center display-4 d-none d-md-block pt-md-4 pb-0" data-aos-once="true" data-aos="fade-up" data-aos-duration="1500"> 
 			Our Clients
 		</h1>
-		<h1 class="heading text-center d-block d-md-none pt-md-4 pb-0"> 
+		<h1 class="heading text-center d-block d-md-none pt-md-4 pb-0" data-aos-once="true" data-aos="fade-up" data-aos-duration="1500"> 
 			Our Clients
 		</h1>
-		<hr class="heading_underline">
-		<div class="row m-0 py-4" data-aos-once="true" data-aos="fade-in" data-aos-duration="1500">
+		<hr class="heading_underline" data-aos-once="true" data-aos="fade-up" data-aos-duration="1500">
+		<div class="row m-0 py-4" data-aos-once="true" data-aos="fade-up" data-aos-duration="1500">
 			<div id="clientsCarousel" class="carousel slide w-100" data-ride="carousel">
 				<div class="carousel-inner w-100" role="listbox">
 					<div class="carousel-item active ">
@@ -706,13 +735,13 @@
 				setTimeout(function(){
 					$('#'+id+'_static').addClass('d-none');
 					$('#'+id+'_hover').removeClass('d-none');
-					},500);
+					},100);
 				}, function(){
 					var id=$(this).attr('id').split('_')[0];
 				setTimeout(function(){
 					$('#'+id+'_hover').addClass('d-none');
 					$('#'+id+'_static').removeClass('d-none');
-					},500);
+					},100);
 			});
 			$('#projectCarousel1').carousel({
 				interval: 10000
@@ -742,7 +771,28 @@
 					next.children(':first-child').clone().appendTo($(this));
 				  }
 			});
+			
+		$('#clientsCarousel').carousel({
+				interval: 10000
+			})
 
+			$('#clientsCarousel.carousel .carousel-item').each(function(){
+				var minPerSlide = 4;
+				var next = $(this).next();
+				if (!next.length) {
+				next = $(this).siblings(':first');
+				}
+				next.children(':first-child').clone().appendTo($(this));
+				
+				for (var i=0;i<minPerSlide;i++) {
+					next=next.next();
+					if (!next.length) {
+						next = $(this).siblings(':first');
+					}
+					
+					next.children(':first-child').clone().appendTo($(this));
+				  }
+			});
 			
 		});
 

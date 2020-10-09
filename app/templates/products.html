@@ -1,0 +1,260 @@
+{% extends 'base.html' %}
+
+{% block css %}
+<style>
+	/* NavBar */
+		.navbar{
+			background-color: rgba(26,26,26,0.7);
+			background-image: none;
+		}
+		.navbar .logo{
+			width: 140px;
+		}
+		.navbar-toggler{
+			color:#cccccc;
+			border: 1px solid #cccccc;
+		}
+		.nav-item a{
+			font-family: Proxima Nova Light;
+			font-size: 21px;
+			color: #cccccc;
+			letter-spacing: 1.5px;
+		}
+		.nav-item.active a{
+			font-family: Proxima Nova Bold;
+			font-size: 22px;
+			color: #ffffff;
+		}
+		.nav-item.active a:after {
+			content: '';
+			height: 3px;
+			background: #e44e35; 
+			display:block;
+		}
+	/* End */
+	/* Home Slider */
+		#home_slider{
+			background-image:url("{{ url_for('static', filename='images/banner_products.png') }}");
+			background-repeat: no-repeat;
+			background-size: 100% 100%;
+			height: 100vh;
+		}
+		.home_overlay{
+			background-color: rgba(0,0,0,0.5);
+			height: 100vh;
+		}
+		.slider_heading{
+			font-family: Didot;
+			font-style: italic;
+			color:#ffffff;
+			letter-spacing: 1.2px;
+		}
+		.slider_heading:after {
+			content: '';
+			height: 3px;
+			background: #e44e35; 
+			width: 64%;
+			margin:20px 18%;
+			display: block;
+		}
+	/* End */
+	/* About AFC */
+		#about_afc .content{
+			font-family: Proxima Nova Light;
+			color:#1a1a1a;
+			font-size: 21px;
+			line-height: 1.7;
+			text-align: justify;
+		}
+	/* End */
+	#our_products .prod_block{
+		position: relative;
+	}	
+	.prod_col-6{
+		width: 49vw;
+		height: 80vh;
+	}
+	.prod_col-3{
+		width: 25vw;
+		height: 80vh;
+	}
+	.prod_col-3 .col-12{
+		height: 39.5vh;
+	}
+
+	.overlay{
+		position: absolute;
+		left: 0;
+		top: 0;
+		background-color: rgba(0,0,0,0.6);
+	}
+
+	/*Zoom Effect*/
+	/* [1] The container */
+	.img-hover-zoom {
+	  overflow: hidden; /* [1.2] Hide the overflowing of child elements */
+	}
+
+	/* [2] Transition property for smooth transformation of images */
+	.img-hover-zoom img {
+	  transition: transform 1s ease;
+	}
+
+	/* [3] Finally, transforming the image when container gets hovered */
+	.img-hover-zoom:hover img {
+	  transform: scale(1.1);
+	}
+	.img-hover-zoom:hover .overlay {
+	  background-color: rgba(0,0,0,0.4);
+	}
+	/*End*/
+
+	.prod_title{
+		font-family: Proxima Nova Light;
+		color:#ffffff;
+	}
+	.prod_title:after {
+		content: '';
+		height: 4px;
+		background: #e44e35; 
+		width: 50%;
+		margin: 0px auto;
+		display: block;
+	}
+
+
+
+	.btn_custom{
+		color:#ffffff;
+		padding: 6px 25px;
+		font-family: Proxima Nova Regular;
+		font-size: 24px;
+		background-image: linear-gradient(30deg, #e54e35, #e56e45);
+		transition: .5s ease;
+	}
+	.btn_custom:hover{
+		color:#ffffff;
+		padding: 7px 26px;
+		font-family: Proxima Nova Regular;
+		font-size: 25px;
+		background-image: linear-gradient(90deg, #e54e35, #e56e45);
+		box-shadow: 7px 7px 10px rgba(0,0,0,0.1);
+	}
+</style>
+{% endblock %}
+
+{% block content %}
+	<div id="home_slider">
+		<div class="d-flex justify-content-center align-items-center h-100 home_overlay">
+			<h1 class="slider_heading display-1 d-none d-md-block text-center pt-md-4 pb-0"> 
+				Products that define<br>your workspace
+			</h1>
+			<h1 class="slider_heading display-4 d-block d-md-none text-center pt-md-4 pb-0"> 
+				Products that define<br>your workspace
+			</h1>
+		</div>
+	</div>
+	<div id="about_afc" class="py-2">
+		<h1 class="heading text-center display-4 d-none d-md-block mb-0" data-aos-once="true" data-aos="fade-up" data-aos-duration="1500"> 
+			Promise of AFC
+		</h1>
+		<h1 class="heading text-center d-block d-md-none mb-0" data-aos-once="true" data-aos="fade-up" data-aos-duration="1500"> 
+			Promise of AFC
+		</h1>
+		<hr class="heading_underline" data-aos-once="true" data-aos="fade-up" data-aos-duration="1500">
+		<div class="row m-0">
+			<div class="mx-md-5 px-4 text-center">
+					<p class="content" data-aos-once="true" data-aos="fade-up" data-aos-duration="1500">
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+					</p>
+			</div>
+		</div>
+	</div>
+	<div id="our_products">
+		<h1 class="heading text-center display-4 d-none d-md-block pt-md-4 pb-0" data-aos-once="true" data-aos="fade-up" data-aos-duration="1500"> 
+			Our Products
+		</h1>
+		<h1 class="heading text-center d-block d-md-none pt-md-4 pb-0" data-aos-once="true" data-aos="fade-up" data-aos-duration="1500"> 
+			Our Products
+		</h1>
+		<hr class="heading_underline" data-aos-once="true" data-aos="fade-up" data-aos-duration="1500">
+			<div class="row m-0 ">
+				<div class="d-flex w-100" data-aos-once="true" data-aos="fade-up" data-aos-duration="1500">
+					<div class="prod_col-6 p-0 prod_block img-hover-zoom">
+						<img class="img-fluid h-100 w-100" src="/static/images/workstation.png">
+						<div class="overlay h-100 w-100 d-flex justify-content-center align-items-center">
+							<h1 class="prod_title d-none d-md-block text-center">
+								Workstations
+							</h1>
+							<h3 class="prod_title d-block d-md-none text-center">
+								Workstations
+							</h3>
+						</div>
+					</div>
+					<div class="prod_col-3 pl-2 pr-0">
+						<div class="col-12 p-0 mb-2 prod_block img-hover-zoom">
+							<img class="img-fluid h-100 w-100" src="/static/images/tables.png">
+							<div class="overlay h-100 w-100 d-flex justify-content-center align-items-center">
+								<h1 class="prod_title d-none d-md-block text-center">
+									Tables
+								</h1>
+								<h3 class="prod_title d-block d-md-none text-center">
+									Tables
+								</h3>
+							</div>
+						</div>
+						<div class="col-12 p-0  prod_block img-hover-zoom">
+							<img class="img-fluid h-100 w-100" src="/static/images/storage.png">
+							<div class="overlay h-100 w-100 d-flex justify-content-center align-items-center">
+								<h1 class="prod_title d-none d-md-block text-center">
+									Storage
+								</h1>
+								<h3 class="prod_title d-block d-md-none text-center">
+									Storage
+								</h3>
+							</div>
+						</div>
+					</div>
+					<div class="prod_col-3 pl-2 pr-0">
+						<div class="col-12 p-0 mb-2 prod_block img-hover-zoom">
+							<img class="img-fluid h-100 w-100" src="/static/images/seating.png">
+							<div class="overlay h-100 w-100 d-flex justify-content-center align-items-center">
+								<h1 class="prod_title d-none d-md-block text-center">
+									Seating
+								</h1>
+								<h3 class="prod_title d-block d-md-none text-center">
+									Seating
+								</h3>
+							</div>
+						</div>
+						<div class="col-12 p-0 mb-2 prod_block img-hover-zoom">
+							<img class="img-fluid h-100 w-100" src="/static/images/educational.png">
+							<div class="overlay h-100 w-100 d-flex justify-content-center align-items-center">
+								<h1 class="prod_title d-none d-md-block text-center">
+									Educational
+								</h1>
+								<h3 class="prod_title d-block d-md-none text-center">
+									Educational
+								</h3>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		<div class="py-5 text-center">
+			<a href="#" class="btn btn_custom">Contact Us</a>
+		</div>
+	</div>
+{% endblock %}
+
+{% block js %}
+	<script>
+		$(document).ready(function(){
+		});
+	</script>	
+{% endblock %}

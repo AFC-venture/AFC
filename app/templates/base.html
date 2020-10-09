@@ -4,12 +4,16 @@
 	<title>AFC</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<!-- CSS only -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" crossorigin="anonymous">
+
+	<!-- JS, Popper.js, and jQuery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" crossorigin="anonymous"></script>
 	<script src="https://kit.fontawesome.com/32ee507fe4.js" crossorigin="anonymous"></script>
 	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
 <style>
 	/* Font Faces */
 		@font-face {
@@ -33,11 +37,13 @@
 			src: url("{{ url_for('static', filename='fonts/ProximaNova-Regular.otf') }}")
 		}
 	/* End */
-
+	a:hover{
+		text-decoration: none;
+	}
 	/* NavBar */
 		.navbar{
-			/*background-color: rgba(0,0,0,0.3);*/
-			background-image: linear-gradient(180deg,rgba(0,0,0,0.8), rgba(0,0,0,0));
+			background-color: rgba(26,26,26,0.7);
+			background-image: none;
 		}
 		.navbar .logo{
 			width: 140px;
@@ -46,7 +52,7 @@
 			color:#cccccc;
 			border: 1px solid #cccccc;
 		}
-		.nav-item a{
+		.nav-item a,.nav-item a:hover{
 			font-family: Proxima Nova Light;
 			font-size: 21px;
 			color: #cccccc;
@@ -59,9 +65,36 @@
 		}
 		.nav-item.active a:after {
 			content: '';
-			height: 2px;
+			height: 3px;
 			background: #e44e35; 
 			display:block;
+			width: 74%;
+			margin:0px 13%;
+		}
+		.dropdown-menu{
+			position: absolute;
+			top:7.5vh;
+			margin-left:-22vw;
+			width: 55vw;
+			background-color: rgba(26,26,26,0.7);
+			border-radius: 0px
+		}
+		.dropdown-item_heading{
+			font-family: Proxima Nova Bold;
+			font-size: 18px !important;
+			color: #ffffff;
+		}
+		.dropdown-item{
+			font-family: Proxima Nova Regular !important;
+			background-color: transparent;
+			font-size: 14px !important;
+			color: #cccccc;
+		}
+		.dropdown-item:hover{
+			font-family: Proxima Nova Regular !important;
+			background-color: transparent;
+			font-size: 14px !important;
+			color: #ffffff !important;
 		}
 	/* End */
 	.heading{
@@ -171,13 +204,16 @@
 		bottom: 0.5%;
 		/*transform: translateY(50%);*/
 		right: 0%;
-		z-index: 10;
+		z-index: 9999;
 		background-color: #1a1a1a;
 		border-top-left-radius: 12px;
 		border-bottom-left-radius: 12px;
 	}
-	.social_icon{
+	.social_icon img{
 		width: 50px;
+	}
+	.social_icon_hover img{
+		width: 55px;
 	}
 	.social_icons_mobile{
 		position: fixed;
@@ -187,6 +223,12 @@
 		background-color: #1a1a1a;
 		border-top-left-radius: 12px;
 		border-top-right-radius: 12px;
+	}
+	.social_label,.social_label:hover{
+		font-family: Proxima Nova Regular;
+		color:#ffffff;
+		font-size: 17px;
+		text-decoration: none!important;
 	}
 </style>
 {% block css %}
@@ -208,9 +250,58 @@
 				<li class="nav-item px-2">
 					<a class="nav-link py-0" href="{{ url_for('about_afc') }}" id="about_afc">About Us</a>
 				</li>
-				<li class="nav-item px-2">
-					<a class="nav-link py-0" href="#">Products</a>
+				<li class="nav-item pl-2">
+					<a class="nav-link py-0" href="{{ url_for('products') }}" id="products">Products</a>
 				</li>
+				<li class="nav-item pr-2">
+					<div class="dropdown">
+						<a class="btn btn-lg p-0" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					    <i class="fa fa-angle-down" aria-hidden="true"></i> 
+					  	</a>
+					  	<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+					  		<div class="d-flex">
+					  			<div style="width: 20%;">
+					  				<p class="px-4 mb-1 dropdown-item_heading">Workstations</p>
+					  				<a class="dropdown-item" href="#">Desk Based</a>
+					    			<a class="dropdown-item" href="#">Panel Based</a>
+					    			<a class="dropdown-item" href="#">Height Adjustable</a>
+					  			</div>
+					  			<div style="width: 20%;">
+					  				<p class="px-4  mb-1 dropdown-item_heading">Tables</p>
+					  				<a class="dropdown-item" href="#">Cabin Table</a>
+					    			<a class="dropdown-item" href="#">Meeting Table</a>
+					    			<a class="dropdown-item" href="#">Cafe Table</a>
+					    			<a class="dropdown-item" href="#">Training Table</a>
+					  			</div>
+					  			<div style="width: 20%;">
+					  				<p class="px-4  mb-1 dropdown-item_heading">Storages</p>
+					  				<a class="dropdown-item" href="#">Choice</a>
+					    			<a class="dropdown-item" href="#">Essential</a>
+					    			<a class="dropdown-item" href="#">Compactors</a>
+					    			<a class="dropdown-item" href="#">Lockers</a>
+					  			</div>
+					  			<div style="width: 20%;">
+					  				<p class="px-4  mb-1 dropdown-item_heading">Seating</p>
+					  				<a class="dropdown-item" href="#">Mesh Chairs</a>
+					    			<a class="dropdown-item" href="#">Executive Chairs</a>
+					    			<a class="dropdown-item" href="#">Cafe Chairs</a>
+					    			<a class="dropdown-item" href="#">Training Chairs</a>
+					    			<a class="dropdown-item" href="#">Public Chairs</a>
+					    			<a class="dropdown-item" href="#">Soft Chairs</a>
+					  			</div>
+					  			<div style="width: 20%;">
+					  				<p class="px-4  mb-1 dropdown-item_heading">Educational</p>
+					  				<a class="dropdown-item" href="#">Classroom</a>
+					    			<a class="dropdown-item" href="#">Library</a>
+					    			<a class="dropdown-item" href="#">Hostel</a>
+					    			<a class="dropdown-item" href="#">Lab</a>
+					    			<a class="dropdown-item" href="#">Auditorium</a>
+					  			</div>
+					  		</div>
+					  	</div>
+					</div>
+				</li>
+
 				<li class="nav-item px-2">
 					<a class="nav-link py-0" href="{{ url_for('projects') }}" id="projects">Projects</a>
 				</li>
@@ -283,23 +374,57 @@
 			</p>
 		</div>
 	</div>
-	<div class="social_icons d-none d-md-flex flex-column align-items-center px-1">
+	<!-- <div class="social_icons d-none d-md-flex flex-column align-items-center px-1">
 		<a href="#" target="_blank" class="social_icon my-1">
 			<img class="img-fluid" id="iconc_static" src="/static/icons/call-static.png">
-			<img class="img-fluid d-none" id="iconc_hover" src="/static/icons/call-hover.png">
+			<img class="img-fluid d-none" id="iconc_hover" src="/static/icons/call-hover1.png">
 		</a>
 		<a href="#" target="_blank" class="social_icon my-1">
 			<img class="img-fluid" id="icone_static" src="/static/icons/enquiry-static.png">
-			<img class="img-fluid d-none" id="icone_hover" src="/static/icons/enquiry-hover.png">
+			<img class="img-fluid d-none" id="icone_hover" src="/static/icons/enquiry-hover1.png">
 		</a>
 		<a href="#" target="_blank" class="social_icon my-1">
 			<img class="img-fluid" id="iconp_static" src="/static/icons/partner-static.png">
-			<img class="img-fluid d-none" id="iconp_hover" src="/static/icons/partner-hover.png">
+			<img class="img-fluid d-none" id="iconp_hover" src="/static/icons/partner-hover1.png">
 		</a>
 		<a href="#" target="_blank" class="social_icon my-1">
 			<img class="img-fluid" id="iconw_static" src="/static/icons/whatsapp-static.png">
-			<img class="img-fluid d-none" id="iconw_hover" src="/static/icons/whatsapp-hover.png">
+			<img class="img-fluid d-none" id="iconw_hover" src="/static/icons/whatsapp-hover1.png">
 		</a>
+	</div> -->
+	<div class="social_icons">
+		<div class="social_static d-none d-md-flex flex-column align-items-start px-1">
+			<a href="#" target="_blank" class="social_icon my-1">
+				<img class="img-fluid" id="iconc_static" src="/static/icons/call-static.png">
+			</a>
+			<a href="#" target="_blank" class="social_icon my-1">
+				<img class="img-fluid" id="icone_static" src="/static/icons/enquiry-static.png">
+			</a>
+			<a href="#" target="_blank" class="social_icon my-1">
+				<img class="img-fluid" id="iconp_static" src="/static/icons/partner-static.png">
+			</a>
+			<a href="#" target="_blank" class="social_icon my-1">
+				<img class="img-fluid" id="iconw_static" src="/static/icons/whatsapp-static.png">
+			</a>
+		</div>
+		<div class="social_hover d-none flex-column align-items-start pl-1 pr-3">
+			<a href="#" target="_blank" class="social_icon_hover d-flex my-1 mx-0">
+				<img class="img-fluid px-0" id="iconc_hover" src="/static/icons/call-hover1.png"> 
+				<p class="social_label mb-0 py-3"> Call Us</p>
+			</a>
+			<a href="#" target="_blank" class="social_icon_hover d-flex my-1 mx-0">
+				<img class="img-fluid px-0" id="icone_hover" src="/static/icons/enquiry-hover1.png">
+				<p class="social_label mb-0 py-3"> Enquiry</p>
+			</a>
+			<a href="#" target="_blank" class="social_icon_hover d-flex mx-0 my-1">
+				<img class="img-fluid px-0" id="iconp_hover" src="/static/icons/partner-hover1.png">
+				<p class="social_label mb-0 py-2"> Partner<br>with Us</p>
+			</a>
+			<a href="#" target="_blank" class="social_icon_hover d-flex my-1 mx-0">
+				<img class="img-fluid px-0" id="iconw_hover" src="/static/icons/whatsapp-hover1.png">
+				<p class="social_label mb-0 py-3"> WhatsApp</p>
+			</a>
+		</div>
 	</div>
 	<div class="social_icons_mobile d-flex d-md-none w-100 justify-content-around align-items-center px-1">
 		<a href="#" target="_blank" class="social_icon my-1">
@@ -322,6 +447,26 @@
 </body>
 <script>
 	$(document).ready(function(){
+		// $('.social_icons .social_icon').hover(function(){
+		// 	var id=$(this).find('img').attr('id').split('_')[0];
+		// 	$('#'+id+'_static').addClass('d-none');
+		// 	$('#'+id+'_hover').removeClass('d-none');
+		// }, function(){
+		//     var id=$(this).find('img').attr('id').split('_')[0];
+		// 	$('#'+id+'_hover').addClass('d-none');
+		// 	$('#'+id+'_static').removeClass('d-none');
+		// });
+		$('.social_icons').hover(function(){
+			$('.social_icons .social_hover').addClass('d-md-flex');
+			$('.social_icons .social_static').removeClass("d-md-flex");
+		}, function(){
+			$('.social_icons .social_static').addClass('d-md-flex');
+			$('.social_icons .social_hover').removeClass("d-md-flex");
+		});
+
+
+
+
 		var actives=window.location.href.split('/');
 		var active=actives[actives.length-1].split('.')[0];
 		if (active.includes("#")){
@@ -329,7 +474,7 @@
 		}
 		$('.nav-item.active').removeClass('active');
 		console.log(active);
-		logo_white="/static/icons/AFC_1.png";
+		logo_white="/static/icons/AFC_logo1.png";
 		logo_black="/static/icons/AFC_2.png";
 		if ( active=='home' || active==''){
 			$(".nav-link#home").parent().addClass("active");
@@ -346,6 +491,10 @@
 			console.log($(".nav-link#projects"));
 			$(".nav-link#projects").parent().addClass("active");
 			$(".navbar .logo").attr("src",logo_black);
+		}else if (active=='projects_gallery'){
+			console.log($(".nav-link#projects"));
+			$(".nav-link#projects").parent().addClass("active");
+			$(".navbar .logo").attr("src",logo_white);
 		} else if ( active=='clients'){
 			console.log($(".nav-link#clients"));
 			$(".nav-link#clients").parent().addClass("active");
@@ -358,38 +507,16 @@
 			console.log($(".nav-link#latest"));
 			$(".nav-link#latest").parent().addClass("active");
 			$(".navbar .logo").attr("src",logo_white);
+		} else if ( active=='products'){
+			console.log($(".nav-link#products"));
+			$(".nav-link#products").parent().addClass("active");
+			$(".nav-link#products").parent().addClass("active");
+			$(".navbar .logo").attr("src",logo_white);
 		} 
 
-		$('.social_icons .social_icon').hover(function(){
-			var id=$(this).find('img').attr('id').split('_')[0];
-			$('#'+id+'_static').addClass('d-none');
-			$('#'+id+'_hover').removeClass('d-none');
-		}, function(){
-		    var id=$(this).find('img').attr('id').split('_')[0];
-			$('#'+id+'_hover').addClass('d-none');
-			$('#'+id+'_static').removeClass('d-none');
-		});
-		$('#clientsCarousel').carousel({
-				interval: 10000
-			})
+		
 
-			$('#clientsCarousel.carousel .carousel-item').each(function(){
-				var minPerSlide = 4;
-				var next = $(this).next();
-				if (!next.length) {
-				next = $(this).siblings(':first');
-				}
-				next.children(':first-child').clone().appendTo($(this));
-				
-				for (var i=0;i<minPerSlide;i++) {
-					next=next.next();
-					if (!next.length) {
-						next = $(this).siblings(':first');
-					}
-					
-					next.children(':first-child').clone().appendTo($(this));
-				  }
-			});
+
 	});
 
 </script>

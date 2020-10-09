@@ -9,9 +9,17 @@ def home():
 def about_afc():
 	return render_template('about.html')
 
+@app.route('/products')
+def products():
+	return render_template('products.html')
+
 @app.route('/projects')
 def projects():
 	return render_template('projects.html')
+
+@app.route('/projects_gallery')
+def projects_gallery():
+	return render_template('projects_gallery.html')
 
 @app.route('/all_projects')
 def all_projects():
@@ -28,3 +36,4 @@ def contact_us():
 @app.route('/latest')
 def latest():
 	return render_template('latest.html')
+
