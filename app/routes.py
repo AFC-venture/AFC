@@ -1,5 +1,23 @@
-from app import app
-from flask import render_template, request,url_for
+from app import app,db
+from app.models import *
+from flask import render_template, request, url_for, jsonify
+
+
+@app.route("/get_products_data",methods=['GET'])
+def get_products_data():
+	categories=ProductCategory.query.all()
+	cates=[]
+	for category in categories:
+		cate={}
+		cate['cat_name']=category.name
+		cate['sub_cates']=[]
+		for sub_category in category.sub_category.all():
+			sub_cate={}
+			sub_cate['name']=sub_category.name
+			sub_cate['link']=url_for('products_sub_category',sub_category=sub_category.name)
+			cate['sub_cates'].append(sub_cate)
+		cates.append(cate)
+	return jsonify({'categories':cates})
 
 @app.route('/')
 def home():		
@@ -12,6 +30,30 @@ def about_afc():
 @app.route('/products')
 def products():
 	return render_template('products.html')
+
+@app.route('/desk_based_desc')
+def desk_based_desc():
+	return render_template('desk_based_desc.html')
+
+@app.route('/products/<string:sub_category>')
+def products_sub_category(sub_category):
+	sub_category=ProductSubCategory.query.filter_by(name=sub_category).first()
+	if sub_category.item.first().name==sub_category.name:
+		cat_type=2
+		sub_category=sub_category.category_obj
+	else:
+		cat_type=1
+	return render_template('products_sub_category.html',type=cat_type,sub_category=sub_category)
+
+@app.route('/products/<string:sub_category>/details')
+def products_sub_category_details(sub_category):
+	sub_category=ProductSubCategory.query.filter_by(name=sub_category).first()
+	if sub_category.item.first().name==sub_category.name:
+		cat_type=2
+		sub_category=sub_category.category_obj
+	else:
+		cat_type=1
+	return render_template('products_sub_category.html',type=cat_type,sub_category=sub_category)
 
 @app.route('/projects')
 def projects():

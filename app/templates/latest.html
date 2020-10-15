@@ -3,25 +3,25 @@
 {% block css %}
 <style>
 	#home_slider{
-			background-image:url("{{ url_for('static', filename='images/latest_bg.png') }}");
-			background-repeat: no-repeat;
-			background-size: cover;
-			height: 100vh;
-		}
+		background-image:url("{{ url_for('static', filename='images/latest_bg.png') }}");
+		background-repeat: no-repeat;
+		background-size: cover;
+		height: 100vh;
+	}
 	.slider_heading{
-			font-family: Didot;
-			font-style: italic;
-			color:#1a1a1a;
-			letter-spacing: 1.2px;
-		}
-	.slider_heading:after {
-			content: '';
-			height: 3px;
-			background: #e44e35; 
-			width: 32%;
-			margin:20px 4%;
-			display: block;
-		}
+		font-family: Didot;
+		font-style: italic;
+		color:#1a1a1a;
+		letter-spacing: 1.2px;
+	}
+	.slider_heading:after{
+		content: '';
+		height: 3px;
+		background: #e44e35; 
+		width: 32%;
+		margin:20px 4%;
+		display: block;
+	}
 	.new_content{
 		font-size: 20px;
 		font-family: Proxima Nova Regular;
@@ -34,7 +34,6 @@
 		font-family: Proxima Nova Light;
 		color:#1a1a1a;
 	}
-
 	.fri_col-7{
 		width: 60vw;
 		height: 60vh;
@@ -46,17 +45,16 @@
 	.fri_col-6{
 		height: 60vh;
 	}
-
 	@media (max-width: 768px) {
-			.fri_col-7{
-				height: 30vh;
-			}
-			.fri_col-5{
-				height:30vh;
-			}
-			.fri_col-6{
-				height: 30vh;
-			}
+		.fri_col-7{
+			height: 30vh;
+		}
+		.fri_col-5{
+			height:30vh;
+		}
+		.fri_col-6{
+			height: 30vh;
+		}
 	}
 </style>
 {% endblock %}
@@ -102,7 +100,7 @@
 				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 			</div>
-			<div class="col-md-3 mx-4 mx-md-0 px-0">
+			<div class="col-md-3 mx-4 mx-md-0 px-0" >
 				<img class="img-fluid new_image" src="/static/images/whats_new2.png" >
 			</div>
 		</div>
@@ -137,6 +135,7 @@
 				<img class="img-fluid h-100 w-100" src="/static/images/friday_4.png">
 			</div>
 		</div>
+	</div>
 	<div id="whats_new" class="py-5">
 		<h1 class="heading text-center display-4 d-none d-md-block pb-0" data-aos-once="true" data-aos="fade-up" data-aos-duration="1500"> 
 			Social Media
@@ -178,3 +177,4 @@
 		</div>
 	</div>
 {% endblock %}
+

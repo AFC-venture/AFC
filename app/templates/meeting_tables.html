@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block css %}
+<style>
+	.cat_image{
+		height: 55vh;
+		width: 380px;
+	}
+	.cat_title{
+			font-family: Didot;
+			font-style: italic;
+			color:#1a1a1a;
+			
+		}
+	.cat_block hr{
+		background: #e44e35; 
+		width: 0%;
+		height: 1.5px;
+		transition: width 0.3s ease 0s, left 0.3s ease 0s;
+	}
+	
+</style>
+{% endblock %}
+
+{% block content %}
+	<div class="mt-5 py-5">
+		<h1 class="pt-3 heading text-center display-4 d-none d-md-block pb-0" data-aos-once="true" data-aos="fade-up" data-aos-duration="1500"> 
+			Meeting Tables
+		</h1>
+		<h1 class="pt-3 heading text-center d-block d-md-none pb-0" data-aos-once="true" data-aos="fade-up" data-aos-duration="1500"> 
+			Meeting Tables
+		</h1>
+		<hr class="heading_underline my-2" data-aos-once="true" data-aos="fade-up" data-aos-duration="1500"> 
+		<div class="d-flex justify-content-around m-0 h-100 py-3"data-aos-once="true" data-aos="fade-up" data-aos-duration="1500">
+			<a href="{{ url_for('meeting_tables_desc') }}" class="cat_block text-center mx-md-5">
+				<img class="img-fluid cat_image" src="/static/images/board_room.png">
+				<h1 class="cat_title pt-3 text-center mb-0">
+					Board Room Tables
+				</h1>
+				<hr class="my-1">
+			</a>
+			<a href="{{ url_for('meeting_tables_desc') }}" class="cat_block text-center mx-md-5">
+				<img class="img-fluid cat_image" src="/static/images/meeting.png">
+				<h1 class="cat_title pt-3 text-center mb-0">
+					Meeting Tables
+				</h1>
+				<hr class="my-1">
+			</a>
+			<a href="{{ url_for('meeting_tables_desc') }}" class="cat_block text-center mx-md-5">
+				<img class="img-fluid cat_image" src="/static/images/discussion.png">
+				<h1 class="cat_title pt-3 text-center mb-0">
+					Discussion Tables
+				</h1>
+				<hr class="my-1">
+			</a>
+		</div>
+	</div>
+{% endblock %}
+
+{% block js %}
+	<script>
+		$(document).ready(function(){
+			$('.cat_block').hover(function(){
+				$(this).find('hr').css('width','30%');
+			}, function(){
+				$(this).find('hr').css('width','0%');
+			});
+		});
+	</script>	
+{% endblock %}

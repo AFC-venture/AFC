@@ -1,0 +1,5 @@
+Workstations|Desk Based[Nexus-Edge-Sleek],Panel Based[Privacy 30-Privacy 50-Privacy 60],Height Adjustable[HAT Desk]
+Tables|Cabin Tables[Premium Series-Executive Series],Meeting Tables[Board Room Tables-Meeting Tables-Discussion Tables],Cafe Tables[MEZ Series],Training Tables[Trig Series]
+Storage|Choice,Essential,Compactors,Lockers
+Seating|Mesh Chairs,Executive Chairs,Cafe Chairs,Training Chairs,Public Chairs,Soft Chairs
+Educational|Classroom,Library,Hostel,Lab,Auditorium

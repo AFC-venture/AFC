@@ -1,0 +1,160 @@
+{% extends 'base.html' %}
+
+{% block css %}
+<style>
+	.cat_image1{
+		height: 60vh;
+		width: 720px;
+	}
+	.cat_image{
+		height: 60vh;
+		width: 460px;
+	}
+	.cat_image2{
+		height: 50vh;
+		width: 320px;
+	}
+	.cat_title{
+			font-family: Didot;
+			font-style: italic;
+			color:#1a1a1a;
+			
+		}
+	.cat_block hr{
+		background: #e44e35; 
+		width: 0%;
+		height: 1.5px;
+		transition: width 0.3s ease 0s, left 0.3s ease 0s;
+	}
+	.car_cat_block hr{
+		background: #e44e35; 
+		width: 0%;
+		height: 1.5px;
+		transition: width 0.3s ease 0s, left 0.3s ease 0s;
+	}
+	.car_cat_block hr.active{
+		background: #e44e35; 
+		width: 20%;
+		height: 1.5px;
+		transition: width 0.3s ease 0s, left 0.3s ease 0s;
+	}
+	#subcategoryCarousel .carousel-control-next,
+	#subcategoryCarousel .carousel-control-prev{
+		opacity: 1;
+	}
+	#subcategoryCarousel .carousel-control-next span,
+	#subcategoryCarousel .carousel-control-prev span{
+		font-size: 100px;
+		font-weight: 100;
+		opacity: 1;
+		color:black;
+	}
+</style>
+{% endblock %}
+
+{% block content %}
+	<div class="mt-5 py-5">
+		<h1 class="pt-3 heading text-center display-4 d-none d-md-block pb-0" data-aos-once="true" data-aos="fade-up" data-aos-duration="1500"> 
+			{{ sub_category.name }}
+		</h1>
+		<h1 class="pt-3 heading text-center d-block d-md-none pb-0" data-aos-once="true" data-aos="fade-up" data-aos-duration="1500"> 
+			{{ sub_category.name }}
+		</h1>
+		<hr class="heading_underline my-2" data-aos-once="true" data-aos="fade-up" data-aos-duration="1500"> 
+		<div class="d-flex flex-wrap justify-content-around m-0 h-100 py-3"data-aos-once="true" data-aos="fade-up" data-aos-duration="1500">
+			{% if type==1 %}
+				{% if sub_category.item.count() <3 %}
+					{% for item in sub_category.item.all() %}
+						<a href="{{ url_for('desk_based_desc')}}" class="cat_block text-center mx-3 px-md-0">
+							<img class="img-fluid cat_image1" src="/static/{{item.image}}">
+							<h1 class="cat_title pt-3 text-center mb-0">
+								{{ item.name }}
+							</h1>
+							<hr class="my-1">
+						</a>
+					{% endfor %}
+				{% else %}
+					{% for item in sub_category.item.all() %}
+						<a href="{{ url_for('desk_based_desc')}}" class="cat_block text-center mx-3 px-md-0">
+							<img class="img-fluid cat_image" src="/static/{{item.image}}">
+							<h1 class="cat_title pt-3 text-center mb-0">
+								{{ item.name }}
+							</h1>
+							<hr class="my-1">
+						</a>
+					{% endfor %}
+				{% endif %}
+			{% else %}
+				{% if sub_category.sub_category %}
+					<div id="subcategoryCarousel" class="carousel slide w-100" data-ride="carousel">
+						<div class="carousel-inner w-100" role="listbox">
+							{% for item in sub_category.sub_category.all() %}
+								<div class="carousel-item">
+									<div class="col-md-4 text-center" style="background-color: white;">
+										<a href="{{ url_for('desk_based_desc')}}" class="car_cat_block text-center px-5">
+											<img class="img-fluid cat_image2" src="/static/{{item.item.first().image}}">
+											<h1 class="cat_title pt-3 text-center mb-0">
+												{{ item.name }}
+											</h1>
+											<hr class="my-1">
+										</a>
+									</div>
+								</div>
+							{% endfor %}
+						</div>
+						<a class="carousel-control-prev w-auto mb-5" href="#subcategoryCarousel" role="button" data-slide="prev">
+							<span class="mx-2 mb-3">&#8249;</span>
+						</a>
+						<a class="carousel-control-next w-auto mb-5" href="#subcategoryCarousel" role="button" data-slide="next">
+							<span class="mx-2 mb-3">&#8250;</span>
+						</a>
+					</div>
+				{% endif %}
+			{% endif %}
+		</div>
+	</div>
+{% endblock %}
+
+{% block js %}
+	<script>
+		$(document).ready(function(){
+			$('.cat_block').hover(function(){
+				$(this).find("hr").css('width','20%');
+			}, function(){
+				$(this).find("hr").css('width','0%');
+			});
+
+			var actives=window.location.href.split('/');
+			var active=actives[actives.length-1].split("%20");
+			var carousel_items = $(".carousel-item");
+			for ( var i=0; i<carousel_items.length;i++){
+				if ($(carousel_items[i]).find("h1").text().trim()==active.join(' ')){
+					$(carousel_items[i]).addClass('active');
+					$(".carousel-item.active").find("hr").addClass('active');
+				}
+			}
+			
+			$('#subcategoryCarousel').carousel({
+				interval: 10000,
+			})
+			$('#subcategoryCarousel.carousel .carousel-item').each(function(){
+				var minPerSlide = 3;
+				var next = $(this).next();
+				if (!next.length) {
+				next = $(this).siblings(':first');
+				}
+				next.children(':first-child').clone().appendTo($(this));
+				
+				for (var i=0;i<minPerSlide;i++) {
+					next=next.next();
+					if (!next.length) {
+						next = $(this).siblings(':first');
+					}
+					
+					next.children(':first-child').clone().appendTo($(this));
+				  }
+			});
+			
+		});
+	</script>	
+{% endblock %}

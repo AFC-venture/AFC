@@ -99,6 +99,26 @@
 			margin:20px 18%;
 			display: block;
 		}
+		#mobile_gallery{
+			height: 70vh;
+		}
+		#mobile_gallery .carousel-control-next,
+		#mobile_gallery .carousel-control-prev{
+			position: absolute;
+			margin-top:-50%;
+			opacity: 1;
+		}
+		#mobile_gallery .carousel-control-next span,
+		#mobile_gallery .carousel-control-prev span{
+			font-size: 100px;
+			font-weight: 100;
+			color:#1a1a1a;
+			opacity: 1;
+		}
+		#mobile_gallery .gallery_image{
+			width: 60vw;
+			height: 55vh;
+		}
     </style>
 {% endblock %}
 
@@ -120,7 +140,47 @@
 			</div>
 		</div>
 	</div>
-	<div id="gallery" class="py-5">
+	<div id="mobile_gallery" class="carousel slide d-block d-md-none" data-ride="carousel" data-interval="1500">
+		<div class="carousel-inner">
+			<div class="carousel-item active">
+			  		<div class="d-flex flex-column text-center align-items-center w-100">
+						<img class="img-fluid gallery_image py-5" src="/static/images/Ujjawan.png" alt="Img 1" />
+						<h3 class="gallery_image">WORKSTATION</h3>
+					</div>
+			</div>
+			<div class="carousel-item">
+			  		<div class="d-flex flex-column text-center align-items-center w-100">
+						<img class="img-fluid gallery_image py-5" src="/static/images/India_Mart.png" alt="Img 1" />
+						<h3 class="gallery_image">TABLES</h3>
+					</div>
+			</div>
+			<div class="carousel-item">
+			  		<div class="d-flex flex-column text-center align-items-center w-100">
+						<img class="img-fluid gallery_image py-5" src="/static/images/Air_india.png" alt="Img 1" />
+						<h3 class="gallery_image">STORAGE</h3>
+					</div>
+			</div>
+			<div class="carousel-item">
+			  		<div class="d-flex flex-column text-center align-items-center w-100">
+						<img class="img-fluid gallery_image py-5" src="/static/images/ABC.png" alt="Img 1" />
+						<h3 class="gallery_image">SEATING</h3>
+					</div>
+			</div>
+			<div class="carousel-item">
+			  		<div class="d-flex flex-column text-center align-items-center w-100">
+						<img class="img-fluid gallery_image py-5" src="/static/images/XYZ.png" alt="Img 1" />
+						<h3 class="gallery_image">EDUCATIONAL</h3>
+					</div>
+			</div>
+		</div>
+		<a class="carousel-control-prev" href="#mobile_gallery" role="button" data-slide="prev">
+			<span class="mx-2">&#8249;</span>
+		</a>
+		<a class="carousel-control-next" href="#mobile_gallery" role="button" data-slide="next">
+			<span class="mx-2">&#8250;</span>
+		</a>
+	</div>
+	<div id="gallery" class="py-5 d-none d-md-block">
 		<h1 class="heading text-center display-4 d-none d-md-block pb-0" data-aos-once="true" data-aos="fade-up" data-aos-duration="1500"> 
 			Gallery
 		</h1>

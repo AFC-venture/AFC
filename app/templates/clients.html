@@ -73,7 +73,7 @@
 	.icons_nav{
 		position: sticky;
 		top: 10%;
-		z-index: 9999;
+		z-index: 3;
 		background-color: #ffffff;
 	}
 	.sequezed .about_icons{
@@ -84,10 +84,16 @@
 	}
 	@media (max-width: 768px) {
 		.about_icons{
+			width: 35px;
+		}
+		.sequezed .about_icons{
 			width: 30px;
 		}
-		.icon_heading,.icon_heading:hover{
+		.sequezed .icon_heading,.squezeed .icon_heading:hover{
 			font-size: 7px;
+		}
+		.icon_heading,.icon_heading:hover{
+			font-size: 8px;
 		}
 		.icons_nav{
 			position: sticky;
@@ -355,12 +361,13 @@
 
 {% block js %}
 	<script>
+		$(".icons_nav").css('top',$(".navbar")[0].offsetHeight);
 			window.onscroll = function() {myFunction()};
 			function myFunction() {
 				if (document.body.scrollTop > 950 || document.documentElement.scrollTop > 950) {
-					$(".icons_nav").addClass("sequezed");
+					$(".icons_nav").addClass("sequezed",250);
 			} else {
-				$(".icons_nav").removeClass("sequezed");
+				$(".icons_nav").removeClass("sequezed",250);
 			  }
 			}
 		$(document).ready(function(){
