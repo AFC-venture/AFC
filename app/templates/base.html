@@ -105,14 +105,23 @@
 			width: 34%;
 			margin:0px 8%;
 		}
-		.dropdown-item.active .dropdown-item{
+		.dropdown-item.active 
+		.nav_prod_category{
+			width: 20%;
+		}
+		.nav_prod_category.active .dropdown-item_heading:after {
+			content: '';
+			height: 3px;
+			background: #e44e35; 
+			display:block;
+			width: 34%;
+			margin:0px 8%;
+		}
+		.nav_prod_category.active .dropdown-item{
 			font-family: Proxima Nova Regular !important;
 			background-color: transparent;
 			font-size: 14px !important;
 			color: #ffffff !important;
-		}
-		.nav_prod_category{
-			width: 20%;
 		}
 	/* End */
 	.heading{
@@ -217,6 +226,10 @@
 		color:#1a1a1a;
 		font-size: 20px;
 	}
+	.form-control{
+		font-family: Proxima Nova Light;
+		color:#1a1a1a;
+	}
 	.social_icons{
 		position: fixed;
 		bottom: 0.5%;
@@ -230,7 +243,7 @@
 	.social_icon img{
 		width: 50px;
 	}
-	.social_icon_hover img{
+	.social_icon div img{
 		width: 55px;
 		height: 60px;
 	}
@@ -303,7 +316,7 @@
 </head>
 <body>
 	<nav class="navbar navbar-expand-lg py-0 fixed-top">
-		<a class="navbar-brand" href="#">
+		<a class="navbar-brand" href="{{ url_for('home') }}">
 			<img class="img-fluid logo" src="/static/icons/AFC_logo1.png" >
 		</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -396,92 +409,100 @@
 			<p class="footer_content footer_icons d-flex justify-content-center flex-wrap pb-0">
 				Connect With Us On:
 				<a href="#" target="_blank" class="footer_icon my-0 mx-1">
-					<img class="img-fluid" id="iconc_static" src="/static/icons/linkedin-static.png">
-					<img class="img-fluid d-none" id="iconc_hover" src="/static/icons/linkedin-hover.png">
+					<img class="img-fluid" id="iconli_static" src="/static/icons/linkedin-static.png">
+					<img class="img-fluid d-none" id="iconli_hover" src="/static/icons/linkedin-hover.png">
 				</a>
 				<a href="#" target="_blank" class="footer_icon my-0 mx-1">
-					<img class="img-fluid" id="icone_static" src="/static/icons/insta-static.png">
-					<img class="img-fluid d-none" id="icone_hover" src="/static/icons/insta-hover.png">
+					<img class="img-fluid" id="iconin_static" src="/static/icons/insta-static.png">
+					<img class="img-fluid d-none" id="iconin_hover" src="/static/icons/insta-hover.png">
 				</a>
 				<a href="#" target="_blank" class="footer_icon my-0 mx-1">
-					<img class="img-fluid" id="iconp_static" src="/static/icons/twitter-static.png">
-					<img class="img-fluid d-none" id="iconp_hover" src="/static/icons/twitter-hover.png">
+					<img class="img-fluid" id="icontw_static" src="/static/icons/twitter-static.png">
+					<img class="img-fluid d-none" id="icontw_hover" src="/static/icons/twitter-hover.png">
 				</a>
 				<a href="#" target="_blank" class="footer_icon my-0 mx-1">
-					<img class="img-fluid" id="iconw_static" src="/static/icons/fb-static.png">
-					<img class="img-fluid d-none" id="iconw_hover" src="/static/icons/fb-hover.png">
+					<img class="img-fluid" id="iconfb_static" src="/static/icons/fb-static.png">
+					<img class="img-fluid d-none" id="iconfb_hover" src="/static/icons/fb-hover.png">
 				</a>
 			</p>
 		</div>
 	</div>
-	<!-- <div class="social_icons d-none d-md-flex flex-column align-items-center px-1">
+	<div class="social_icons d-none d-md-flex flex-column align-items-center px-1">
 		<a href="#" target="_blank" class="social_icon my-1">
-			<img class="img-fluid" id="iconc_static" src="/static/icons/call-static.png">
-			<img class="img-fluid d-none" id="iconc_hover" src="/static/icons/call-hover1.png">
+			<img class="img-fluid" id="pciconc_static" src="/static/icons/call-static.png">
+			<div class="d-none" id="pciconc_hover">
+				<img class="img-fluid px-0" src="/static/icons/call-hover1.png"> 
+				<p class="social_label mb-0 py-3 px-2"> Call Us</p>
+			</div>
 		</a>
 		<a href="#" target="_blank" class="social_icon my-1">
-			<img class="img-fluid" id="icone_static" src="/static/icons/enquiry-static.png">
-			<img class="img-fluid d-none" id="icone_hover" src="/static/icons/enquiry-hover1.png">
+			<img class="img-fluid" id="pcicone_static" src="/static/icons/enquiry-static.png">
+			<div class="d-none" id="pcicone_hover">
+				<img class="img-fluid px-0" src="/static/icons/enquiry-hover1.png">
+				<p class="social_label mb-0 py-3 px-2"> Enquiry</p>
+			</div>
 		</a>
 		<a href="#" target="_blank" class="social_icon my-1">
-			<img class="img-fluid" id="iconp_static" src="/static/icons/partner-static.png">
-			<img class="img-fluid d-none" id="iconp_hover" src="/static/icons/partner-hover1.png">
+			<img class="img-fluid" id="pciconp_static" src="/static/icons/partner-static.png">
+			<div class="d-none" id="pciconp_hover">
+				<img class="img-fluid px-0" src="/static/icons/partner-hover1.png">
+				<p class="social_label mb-0 py-2 px-2"> Partner<br>with Us</p>
+			</div>
 		</a>
 		<a href="#" target="_blank" class="social_icon my-1">
-			<img class="img-fluid" id="iconw_static" src="/static/icons/whatsapp-static.png">
-			<img class="img-fluid d-none" id="iconw_hover" src="/static/icons/whatsapp-hover1.png">
+			<img class="img-fluid" id="pciconw_static" src="/static/icons/whatsapp-static.png">
+			<div class="d-none" id="pciconw_hover">
+				<img class="img-fluid px-0" src="/static/icons/whatsapp-hover1.png">
+				<p class="social_label mb-0 py-3 px-2"> WhatsApp</p>
+			</div>
 		</a>
-	</div> -->
-	<div class="social_icons">
-		<div class="social_static d-none d-md-flex flex-column align-items-start px-1">
+	</div>
+	<!-- <div class="social_icons">
+		<div class=" d-none d-md-flex flex-column align-items-start px-1">
 			<a href="#" target="_blank" class="social_icon my-1">
 				<img class="img-fluid" id="iconc_static" src="/static/icons/call-static.png">
+			</a>
+			<a href="#" target="_blank" class="social_icon_hover d-flex my-1 mx-0">
+				
 			</a>
 			<a href="#" target="_blank" class="social_icon my-1">
 				<img class="img-fluid" id="icone_static" src="/static/icons/enquiry-static.png">
 			</a>
+			<a href="#" target="_blank" class="social_icon_hover d-flex my-1 mx-0">
+				
+			</a>
 			<a href="#" target="_blank" class="social_icon my-1">
 				<img class="img-fluid" id="iconp_static" src="/static/icons/partner-static.png">
+			</a>
+			<a href="#" target="_blank" class="social_icon_hover d-flex mx-0 my-1">
+				
 			</a>
 			<a href="#" target="_blank" class="social_icon my-1">
 				<img class="img-fluid" id="iconw_static" src="/static/icons/whatsapp-static.png">
 			</a>
+			<a href="#" target="_blank" class="social_icon_hover d-flex my-1 mx-0">
+				
+			</a>
 		</div>
 		<div class="social_hover d-none flex-column align-items-start pl-1 pr-3">
-			<a href="#" target="_blank" class="social_icon_hover d-flex my-1 mx-0">
-				<img class="img-fluid px-0" id="iconc_hover" src="/static/icons/call-hover1.png"> 
-				<p class="social_label mb-0 py-3"> Call Us</p>
-			</a>
-			<a href="#" target="_blank" class="social_icon_hover d-flex my-1 mx-0">
-				<img class="img-fluid px-0" id="icone_hover" src="/static/icons/enquiry-hover1.png">
-				<p class="social_label mb-0 py-3"> Enquiry</p>
-			</a>
-			<a href="#" target="_blank" class="social_icon_hover d-flex mx-0 my-1">
-				<img class="img-fluid px-0" id="iconp_hover" src="/static/icons/partner-hover1.png">
-				<p class="social_label mb-0 py-2"> Partner<br>with Us</p>
-			</a>
-			<a href="#" target="_blank" class="social_icon_hover d-flex my-1 mx-0">
-				<img class="img-fluid px-0" id="iconw_hover" src="/static/icons/whatsapp-hover1.png">
-				<p class="social_label mb-0 py-3"> WhatsApp</p>
-			</a>
 		</div>
-	</div>
+	</div> -->
 	<div class="social_icons_mobile d-flex d-md-none w-100 justify-content-around align-items-center px-1">
 		<a href="#" target="_blank" class="social_icon my-1">
-			<img class="img-fluid" id="iconc_static" src="/static/icons/call-static.png">
-			<img class="img-fluid d-none" id="iconc_hover" src="/static/icons/call-hover.png">
+			<img class="img-fluid" id="phoneiconc_static" src="/static/icons/call-static.png">
+			<img class="img-fluid d-none" id="phoneiconc_hover" src="/static/icons/call-hover.png">
 		</a>
 		<a href="#" target="_blank" class="social_icon my-1">
-			<img class="img-fluid" id="icone_static" src="/static/icons/enquiry-static.png">
-			<img class="img-fluid d-none" id="icone_hover" src="/static/icons/enquiry-hover.png">
+			<img class="img-fluid" id="phoneicone_static" src="/static/icons/enquiry-static.png">
+			<img class="img-fluid d-none" id="phoneicone_hover" src="/static/icons/enquiry-hover.png">
 		</a>
 		<a href="#" target="_blank" class="social_icon my-1">
-			<img class="img-fluid" id="iconp_static" src="/static/icons/partner-static.png">
-			<img class="img-fluid d-none" id="iconp_hover" src="/static/icons/partner-hover.png">
+			<img class="img-fluid" id="phoneiconp_static" src="/static/icons/partner-static.png">
+			<img class="img-fluid d-none" id="phoneiconp_hover" src="/static/icons/partner-hover.png">
 		</a>
 		<a href="#" target="_blank" class="social_icon my-1">
-			<img class="img-fluid" id="iconw_static" src="/static/icons/whatsapp-static.png">
-			<img class="img-fluid d-none" id="iconw_hover" src="/static/icons/whatsapp-hover.png">
+			<img class="img-fluid" id="phoneiconw_static" src="/static/icons/whatsapp-static.png">
+			<img class="img-fluid d-none" id="phoneiconw_hover" src="/static/icons/whatsapp-hover.png">
 		</a>
 	</div>
 </body>
@@ -498,11 +519,44 @@
 					  		var heading = $("<p class='px-4 mb-1 dropdown-item_heading'>"+response['categories'][i]['cat_name']+"</p>");
 					  		$(category).append(heading);
 					  		for (var j=0;j<response['categories'][i]['sub_cates'].length;j++){
-					  			var sub_category = $("<a class='dropdown-item'>"+response['categories'][i]['sub_cates'][j]['name']+"</a>");
+					  			var sub_category = $("<a class='dropdown-item' id="+response['categories'][i]['sub_cates'][j]['name'].split(" ").join('_')+">"+response['categories'][i]['sub_cates'][j]['name']+"</a>");
 					  			$(sub_category).attr('href',response['categories'][i]['sub_cates'][j]['link']);
 					  			$(category).append(sub_category);
 					  		}
 							$("#products_categories").append(category);
+							var actives=window.location.href.split('/');
+							var active=actives[3].split('.')[0];
+							if (actives[4]){
+								var active_prod=actives[4].split("%20").join('_');
+							}
+							if (active.includes("#")){
+								active=active.split("#")[0];
+							}
+							console.log(active,active_prod);
+							$('.nav-item.active').removeClass('active');
+							if ( active=='home' || active==''){
+								$(".nav-link#home").parent().addClass("active");
+							} else if ( active=='about_afc'){
+								$(".nav-link#about_afc").parent().addClass("active");
+							} else if ( active=='projects'){
+								$(".nav-link#projects").parent().addClass("active");
+							}else if (active=='all_projects'){
+								$(".nav-link#projects").parent().addClass("active");
+							}else if (active=='projects_gallery'){
+								$(".nav-link#projects").parent().addClass("active");
+							} else if ( active=='clients'){
+								$(".nav-link#clients").parent().addClass("active");
+							} else if ( active=='contact_us'){
+								$(".nav-link#contact_us").parent().addClass("active");
+							} else if ( active=='latest'){
+								$(".nav-link#latest").parent().addClass("active");
+							} else if ( active=='products'){
+								$(".nav-link#products").parent().addClass("active");
+								if (active_prod!="products"){
+									console.log($(".dropdown-item#"+active_prod));
+									$(".dropdown-item#"+active_prod).parent().addClass("active");
+								}
+							} 
 						}
 					}
 				});
@@ -521,37 +575,35 @@
 				$('#'+id+'_static').removeClass('d-none');
 				},100);
 			});
-		// $('.social_icons .social_icon').hover(function(){
-		// 	var id=$(this).find('img').attr('id').split('_')[0];
-		// 	$('#'+id+'_static').addClass('d-none');
-		// 	$('#'+id+'_hover').removeClass('d-none');
-		// }, function(){
-		//     var id=$(this).find('img').attr('id').split('_')[0];
-		// 	$('#'+id+'_hover').addClass('d-none');
-		// 	$('#'+id+'_static').removeClass('d-none');
-		// });
-		$('.social_icons').hover(function(){
-			$('.social_icons .social_hover').addClass('d-md-flex', 250, "swing");
-			$('.social_icons .social_static').removeClass("d-md-flex", 250, "swing");
-		}, function(){
-			$('.social_icons .social_static').addClass('d-md-flex', 250, "swing");
-			$('.social_icons .social_hover').removeClass("d-md-flex", 250, "swing");
-		});
 
-		// $('#dropdownMenuButton').hover(function(){
-		// 	$(".dropdown-menu").addClass('show');
-		// });
-		// $('#dropdownMenuButton').mouseout(function(){
-		// 	console.log('out');
-		// 	$('.dropdown-menu').removeClass('show');
+		$('.social_icons .social_icon').hover(function(){
+			var id=$(this).find('img').attr('id').split('_')[0];
+			$('#'+id+'_static').addClass('d-none');
+			$('#'+id+'_hover').removeClass('d-none');
+			$('#'+id+'_hover').addClass('d-flex');
+		}, function(){
+			var id=$(this).find('img').attr('id').split('_')[0];
+			$('#'+id+'_hover').addClass('d-none');
+			$('#'+id+'_hover').removeClass('d-flex');
+			$('#'+id+'_static').removeClass('d-none');
+		});
+		// $('.social_icons').hover(function(){
+		// 	$('.social_icons .social_hover').addClass('d-md-flex', 250, "swing");
+		// 	$('.social_icons .social_static').removeClass("d-md-flex", 250, "swing");
+		// }, function(){
+		// 	$('.social_icons .social_static').addClass('d-md-flex', 250, "swing");
+		// 	$('.social_icons .social_hover').removeClass("d-md-flex", 250, "swing");
 		// });
 
 		var actives=window.location.href.split('/');
 		var active=actives[3].split('.')[0];
+		if (actives[4]){
+			var active_prod=actives[4].split("%20").join('_');
+		}
 		if (active.includes("#")){
 			active=active.split("#")[0];
 		}
-		console.log(active)
+		console.log(active,active_prod);
 		$('.nav-item.active').removeClass('active');
 		if ( active=='home' || active==''){
 			$(".nav-link#home").parent().addClass("active");
@@ -571,6 +623,10 @@
 			$(".nav-link#latest").parent().addClass("active");
 		} else if ( active=='products'){
 			$(".nav-link#products").parent().addClass("active");
+			if (active_prod!="products"){
+				console.log($(".dropdown-item#"+active_prod));
+				$(".dropdown-item#"+active_prod).parent().addClass("active");
+			}
 		} 
 	});
 

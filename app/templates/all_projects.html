@@ -88,33 +88,64 @@
 	.project_heading{
 		font-family: Proxima Nova Light;
 	}
+	/*Zoom Effect*/
+	/* [1] The container */
+	.img-hover-zoom {
+	  overflow: hidden; /* [1.2] Hide the overflowing of child elements */
+	}
+
+	/* [2] Transition property for smooth transformation of images */
+	.img-hover-zoom img {
+	  transition: transform 1s ease;
+	}
+
+	/* [3] Finally, transforming the image when container gets hovered */
+	.img-hover-zoom:hover img {
+	  transform: scale(1.1);
+	}
+	.img-hover-zoom:hover .overlay {
+	  background-color: rgba(0,0,0,0.4);
+	}
+	/*End*/
 </style>
 {% endblock %}
 
 {% block content %}
 	<div class="row m-0 my-5 pt-5">
-		<div class="col-md-6 mt-4 pt-4 px-4 project_images" data-aos-once="true" data-aos="fade-up" data-aos-duration="1500">
+		<div class="col-md-5 mt-4 p-0 mx-auto project_images img-hover-zoom" data-aos-once="true" data-aos="fade-up" data-aos-duration="1500">
 			<img class="img-fluid w-100" src="/static/images/AIHP.png">
+		</div>
+		<div class="col-md-5 mt-4 p-0 mx-auto project_images img-hover-zoom" data-aos-once="true" data-aos="fade-up" data-aos-duration="1500">
+			<img class="img-fluid w-100" src="/static/images/Air_india.png">
+		</div>
+		<div class="col-md-5 mx-auto project_images" data-aos-once="true" data-aos="fade-up" data-aos-duration="1500">
 			<h3 class="project_heading pt-2 pl-2">AIHP, Gurugram</h3>
 		</div>
-		<div class="col-md-6 mt-4 pt-4 px-4 project_images" data-aos-once="true" data-aos="fade-up" data-aos-duration="1500">
-			<img class="img-fluid w-100" src="/static/images/Air_india.png">
+		<div class="col-md-5 mx-auto project_images" data-aos-once="true" data-aos="fade-up" data-aos-duration="1500">
 			<h3 class="project_heading pt-2 pl-2">Air India</h3>
 		</div>
-		<div class="col-md-6 pt-4 px-4 project_images" data-aos-once="true" data-aos="fade-up" data-aos-duration="1500">
+		<div class="col-md-5 mt-4 p-0 mx-auto project_images img-hover-zoom" data-aos-once="true" data-aos="fade-up" data-aos-duration="1500">
 			<img class="img-fluid w-100" src="/static/images/XYZ.png">
+		</div>
+		<div class="col-md-5 mt-4 p-0 mx-auto project_images img-hover-zoom" data-aos-once="true" data-aos="fade-up" data-aos-duration="1500">
+			<img class="img-fluid w-100" src="/static/images/ABC.png">
+		</div>
+		<div class="col-md-5 mx-auto project_images" data-aos-once="true" data-aos="fade-up" data-aos-duration="1500">
 			<h3 class="project_heading pt-2 pl-2">XYZ, Location</h3>
 		</div>
-		<div class="col-md-6 pt-4 px-4 project_images" data-aos-once="true" data-aos="fade-up" data-aos-duration="1500">
-			<img class="img-fluid w-100" src="/static/images/Ujjawan.png">
-			<h3 class="project_heading pt-2 pl-2">Ujjawan</h3>
-		</div>
-		<div class="col-md-6 pt-4 px-4 project_images" data-aos-once="true" data-aos="fade-up" data-aos-duration="1500">
-			<img class="img-fluid w-100" src="/static/images/ABC.png">
+		<div class="col-md-5 mx-auto project_images" data-aos-once="true" data-aos="fade-up" data-aos-duration="1500">
 			<h3 class="project_heading pt-2 pl-2">ABC, Location</h3>
 		</div>
-		<div class="col-md-6 pt-4 px-4 project_images" data-aos-once="true" data-aos="fade-up" data-aos-duration="1500">
+		<div class="col-md-5 mt-4 p-0 mx-auto project_images img-hover-zoom" data-aos-once="true" data-aos="fade-up" data-aos-duration="1500">
+			<img class="img-fluid w-100" src="/static/images/Ujjawan.png">
+		</div>
+		<div class="col-md-5 mt-4 p-0 mx-auto project_images img-hover-zoom" data-aos-once="true" data-aos="fade-up" data-aos-duration="1500">
 			<img class="img-fluid w-100" src="/static/images/Indiamart.png">
+		</div>
+		<div class="col-md-5 mx-auto project_images" data-aos-once="true" data-aos="fade-up" data-aos-duration="1500">
+			<h3 class="project_heading pt-2 pl-2">Ujjawan</h3>
+		</div>
+		<div class="col-md-5 mx-auto project_images" data-aos-once="true" data-aos="fade-up" data-aos-duration="1500">
 			<h3 class="project_heading pt-2 pl-2">IndiaMart, Noida</h3>
 		</div>
 	</div>

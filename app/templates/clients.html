@@ -49,6 +49,7 @@
 	}
 	.about_icons{
 		width: 90px;
+		transition: width 0.3s ease 0s, left 0.3s ease 0s;
 	}
 	.icon_heading,.icon_heading:hover{
 		font-family: Proxima Nova Regular;
@@ -365,9 +366,9 @@
 			window.onscroll = function() {myFunction()};
 			function myFunction() {
 				if (document.body.scrollTop > 950 || document.documentElement.scrollTop > 950) {
-					$(".icons_nav").addClass("sequezed",250);
+					$(".icons_nav .about_icons").css("width",'60px');
 			} else {
-				$(".icons_nav").removeClass("sequezed",250);
+				$(".icons_nav .about_icons").css("width",'60px');
 			  }
 			}
 		$(document).ready(function(){
