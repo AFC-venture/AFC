@@ -65,7 +65,7 @@
 			{% if type==1 %}
 				{% if sub_category.item.count() <3 %}
 					{% for item in sub_category.item.all() %}
-						<a href="{{ url_for('desk_based_desc')}}" class="cat_block text-center mx-3 px-md-0">
+						<a href="{{ url_for('products_sub_category_details',sub_category=sub_category.name, item=item.name)}}" class="cat_block text-center mx-3 px-md-0">
 							<img class="img-fluid cat_image1" src="/static/{{item.image}}">
 							<h1 class="cat_title pt-3 text-center mb-0">
 								{{ item.name }}
@@ -75,7 +75,7 @@
 					{% endfor %}
 				{% else %}
 					{% for item in sub_category.item.all() %}
-						<a href="{{ url_for('desk_based_desc')}}" class="cat_block text-center mx-3 px-md-0">
+						<a href="{{ url_for('products_sub_category_details',sub_category=sub_category.name, item=item.name)}}" class="cat_block text-center mx-3 px-md-0">
 							<img class="img-fluid cat_image" src="/static/{{item.image}}">
 							<h1 class="cat_title pt-3 text-center mb-0">
 								{{ item.name }}
@@ -91,7 +91,7 @@
 							{% for item in sub_category.sub_category.all() %}
 								<div class="carousel-item">
 									<div class="col-md-4 text-center" style="background-color: white;">
-										<a href="{{ url_for('desk_based_desc')}}" class="car_cat_block text-center px-5">
+										<a href="{{ url_for('products_sub_category_details',sub_category=sub_category.name, item=item.name)}}" class="car_cat_block text-center px-5">
 											<img class="img-fluid cat_image2" src="/static/{{item.item.first().image}}">
 											<h1 class="cat_title pt-3 text-center mb-0">
 												{{ item.name }}

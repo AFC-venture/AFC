@@ -47,13 +47,20 @@ def products_sub_category(sub_category):
 
 @app.route('/products/<string:sub_category>/details')
 def products_sub_category_details(sub_category):
-	sub_category=ProductSubCategory.query.filter_by(name=sub_category).first()
-	if sub_category.item.first().name==sub_category.name:
-		cat_type=2
-		sub_category=sub_category.category_obj
-	else:
-		cat_type=1
-	return render_template('products_sub_category.html',type=cat_type,sub_category=sub_category)
+	sel_item=ProductSubCategoryItems.query.filter_by(name=request.args['item']).first()
+	try:
+		sub_cat=ProductSubCategory.query.filter_by(name=sub_category).first()
+		l_items=sub_cat.item.all()
+	except:
+		sub_cat=ProductCategory.query.filter_by(name=sub_category).first()
+		l_items=[]
+		for cat in sub_cat.sub_category.all():
+			l_items.append(cat.item.first())
+	l_items.remove(sel_item)
+	items=[sel_item]+l_items
+	items=list(enumerate(items))
+	print(sel_item,items)
+	return render_template('products_sub_category_details.html',items=items,length=len(items))
 
 @app.route('/projects')
 def projects():

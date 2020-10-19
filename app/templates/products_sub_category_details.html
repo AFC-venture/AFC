@@ -39,10 +39,8 @@
 		background-image: linear-gradient(90deg, #e54e35, #e56e45);
 		box-shadow: 7px 7px 10px rgba(0,0,0,0.1);
 	}
-	.scroll_down_privacy_50,.scroll_down_privacy_50:hover,
-	.scroll_up_privacy_30,.scroll_up_privacy_30:hover,
-	.scroll_down_privacy_60,.scroll_down_privacy_60:hover,
-	.scroll_up_privacy_50,.scroll_up_privacy_50:hover{
+	.scroll_down,.scroll_down:hover,
+	.scroll_up,.scroll_up:hover{
 		font-family: Proxima Nova Regular;
 		font-size: 22px;
 		color:black;
@@ -53,100 +51,81 @@
 
 {% block content %}
 	<div class="mt-5 py-5 px-5">
-		<div class="row m-0 categ_block">
-			<div class="col-md-6"  data-aos-once="false" data-aos="fade-up" data-aos-duration="1500">
-				<h1 class="pt-3 categ_heading d-none d-md-block pb-0"> 
-					Premium Series
-				</h1>
-				<h1 class="pt-3 categ_heading d-block d-md-none pb-0"> 
-					Premium Series
-				</h1>
-				<hr class="cat_heading_underline my-2"> 
-				<div class="categ_content pr-5">
-				 	<p>
-				 		Lorem ipsum dolor sit amet, consectetuer adipiscing
-						elit, sed diam nonummy nibh euismod tincidunt ut
-						laoreet dolore magna aliquam erat volutpat. Ut
-					</p>
-					<ul>
-						<li>Lorem ipsum dolor sit amet</li>
-						<li>Lorem ipsum dolor sit amet</li>
-						<li>Lorem ipsum dolor sit amet</li>
-						<li>Lorem ipsum dolor sit amet</li>
-						<li>Lorem ipsum dolor sit amet</li>
-					</ul>
-					<p>
-						Lorem ipsum dolor sit amet, consectetuer adipiscing
-						elit, sed diam nonummy nibh
-					</p>
+		{% for id,item in items %}
+			{% if id%2==0 %}
+				<div class="row m-0 categ_block" id="item_{{id}}">
+					<div class="col-md-6"  data-aos-once="false" data-aos="fade-up" data-aos-duration="1500">
+						<h1 class="pt-3 categ_heading d-none d-md-block pb-0"> 
+							{{ item.name }}
+						</h1>
+						<h1 class="pt-3 categ_heading d-block d-md-none pb-0"> 
+							{{ item.name }}
+						</h1>
+						<hr class="cat_heading_underline my-2"> 
+						<div class="categ_content pr-5">
+						 	{{ item.description|safe }}
+						</div>
+						<div class="py-2">
+							<a href="#" class="btn btn_custom">Contact Us</a>
+						</div>
+					</div>
+					<div class="col-md-6 px-5"  data-aos-once="false" data-aos="fade-up" data-aos-duration="1500">
+						<img class="img-fluid categ_image" src="/static/{{ item.image }}">
+					</div>
 				</div>
-				<div class="py-2">
-					<a href="#" class="btn btn_custom">Contact Us</a>
+			{% else %}
+				<div class="row m-0 categ_block" id="item_{{id}}">
+					<div class="col-md-6 px-5"  data-aos-once="false" data-aos="fade-up" data-aos-duration="1500">
+						<img class="img-fluid categ_image" src="/static/{{ item.image }}">
+					</div>
+					<div class="col-md-6"  data-aos-once="false" data-aos="fade-up" data-aos-duration="1500">
+						<h1 class="pt-3 categ_heading d-none d-md-block pb-0"> 
+							{{ item.name }}
+						</h1>
+						<h1 class="pt-3 categ_heading d-block d-md-none pb-0"> 
+							{{ item.name }}
+						</h1>
+						<hr class="cat_heading_underline my-2"> 
+						<div class="categ_content pr-5">
+						 	{{ item.description|safe }}
+						</div>
+						<div class="py-2">
+							<a href="#" class="btn btn_custom">Contact Us</a>
+						</div>
+					</div>
 				</div>
-			</div>
-			<div class="col-md-6 px-5"  data-aos-once="false" data-aos="fade-up" data-aos-duration="1500">
-				<img class="img-fluid categ_image" src="/static/images/premium_series.png">
-			</div>
-		</div>
+			{% endif %}
 		<div class="mx-auto text-center my-1">
-			<a class="scroll_down_privacy_50 my-0">Scroll for Executive Series <i class="fa fa-angle-down"></i></a><br>
-			<a class="scroll_up_privacy_30 my-0">Scroll for Premium Series <i class="fa fa-angle-up"></i></a></a>
+			{% if id < length-1 %}
+				<a class="scroll_down my-0" id="scroll_down_{{id+1}}">Scroll for {{items[id+1][1].name}}<i class="fa fa-angle-down"></i></a><br>
+				<a class="scroll_up my-0" id="scroll_up_{{id}}">Scroll for {{items[id][1].name}} <i class="fa fa-angle-up"></i></a></a>
+			{%endif %}
 		</div>
-		<div class="row m-0 categ_block">
-			<div class="col-md-6 px-5"  data-aos-once="false" data-aos="fade-up" data-aos-duration="1500">
-				<img class="img-fluid categ_image" src="/static/images/executive_series.png">
-			</div>
-			<div class="col-md-6"  data-aos-once="false" data-aos="fade-up" data-aos-duration="1500">
-				<h1 class="pt-3 categ_heading d-none d-md-block pb-0"> 
-					Executive Series
-				</h1>
-				<h1 class="pt-3 categ_heading d-block d-md-none pb-0"> 
-					Executive Series
-				</h1>
-				<hr class="cat_heading_underline my-2"> 
-				<div class="categ_content pr-5">
-				 	<p>
-				 		Lorem ipsum dolor sit amet, consectetuer adipiscing
-						elit, sed diam nonummy nibh euismod tincidunt ut
-						laoreet dolore magna aliquam erat volutpat. Ut
-					</p>
-					<ul>
-						<li>Lorem ipsum dolor sit amet</li>
-						<li>Lorem ipsum dolor sit amet</li>
-						<li>Lorem ipsum dolor sit amet</li>
-						<li>Lorem ipsum dolor sit amet</li>
-						<li>Lorem ipsum dolor sit amet</li>
-					</ul>
-					<p>
-						Lorem ipsum dolor sit amet, consectetuer adipiscing
-						elit, sed diam nonummy nibh
-					</p>
-				</div>
-				<div class="py-2">
-					<a href="#" class="btn btn_custom">Contact Us</a>
-				</div>
-			</div>		
-		</div>
+		{% endfor %}
 	</div>
 {% endblock %}
 
 {% block js %}
 	<script>
 		$(document).ready(function(){
-			$('.scroll_up_privacy_30').hide();
-			$(".scroll_down_privacy_50").on("click",function(){
+			$('.scroll_up').hide();
+			$(".scroll_down").on("click",function(){
+				var id = $(this).attr('id').split('_')[2];
+				console.log(id);
 				$('html').animate({
-		        scrollTop: (document.documentElement.scrollTop+$(".categ_block")[0].offsetHeight)+50},
+		        scrollTop: (document.documentElement.scrollTop+$(".categ_block")[id].offsetHeight)+50},
 		        100);
-		        $(".scroll_down_privacy_50").hide();
-		        $('.scroll_up_privacy_30').show();
+		        $("#scroll_down_"+id).hide();
+		        $('#scroll_up_'+Number(id-1)).show();
 			});
-			$(".scroll_up_privacy_30").on("click",function(){
+			$(".scroll_up").on("click",function(){
+				var id = $(this).attr('id').split('_')[2];
+				console.log(id);
 				$('html').animate({
-		        scrollTop: (document.documentElement.scrollTop-$(".categ_block")[0].offsetHeight)-50},
+		        scrollTop: (document.documentElement.scrollTop-$(".categ_block")[id].offsetHeight)-50},
 		        100);
-		        $(".scroll_down_privacy_50").show();
-		        $('.scroll_up_privacy_30').hide();
+		        $("#scroll_down_"+Number(id+1)).show();
+		        $('#scroll_up_'+id).hide();
 			});
 		});
 	</script>	

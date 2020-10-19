@@ -2,6 +2,7 @@
 
 {% block css %}
 <style>
+	hr{position: relative;z-index: 100;}
 	.slider_heading{
 			font-family: Didot;
 			font-style: italic;
@@ -126,53 +127,98 @@
 		display: block;
 	}
 
-	.carousel-item #Concentrix{
+	#projectCarousel1 .carousel-item #Concentrix{
 		background-image:url("{{ url_for('static', filename='images/Concentrix.png') }}");
 		background-repeat: no-repeat;
 		background-position: center;
 		background-size: cover;
-		height: 65vh;
+		height: 70vh;
 	}
 
-	.carousel-item #Tokopedia{
+	#projectCarousel1 .carousel-item #Tokopedia{
 		background-image:url("{{ url_for('static', filename='images/Tokopedia.png') }}");
 		background-repeat: no-repeat;
 		background-position: center;
 		background-size: cover;
-		height: 65vh;
+		height: 70vh;
 	}
-	.carousel-item #India_Mart{
+	#projectCarousel1 .carousel-item #India_Mart{
 		background-image:url("{{ url_for('static', filename='images/India_Mart.png') }}");
 		background-repeat: no-repeat;
 		background-position: center;
 		background-size: cover;
-		height: 65vh;
+		height: 70vh;
 	}
-	.carousel-item #HCL{
+	#projectCarousel1 .carousel-item #HCL{
 		background-image:url("{{ url_for('static', filename='images/HCL_Nagpur.png') }}");
 		background-repeat: no-repeat;
 		background-position: center;
 		background-size: cover;
-		height: 65vh;
+		height: 70vh;
 	}
-	.carousel-item #ABC{
+	#projectCarousel1 .carousel-item #ABC{
 		background-image:url("{{ url_for('static', filename='images/workstation.png') }}");
 		background-repeat: no-repeat;
 		background-position: center;
 		background-size: cover;
-		height: 65vh;
+		height: 70vh;
 	}
-	.carousel-item #XYZ{
+	#projectCarousel1 .carousel-item #XYZ{
 		background-image:url("{{ url_for('static', filename='images/cabins.png') }}");
 		background-repeat: no-repeat;
 		background-size: cover;
 		background-position: center;
-		height: 65vh;
+		height: 70vh;
+	}
+	#projectCarousel2 .carousel-item #Concentrix{
+		background-image:url("{{ url_for('static', filename='images/Concentrix.png') }}");
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+		height: 55vh;
+	}
+
+	#projectCarousel2 .carousel-item #Tokopedia{
+		background-image:url("{{ url_for('static', filename='images/Tokopedia.png') }}");
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+		height: 55vh;
+	}
+	#projectCarousel2 .carousel-item #India_Mart{
+		background-image:url("{{ url_for('static', filename='images/India_Mart.png') }}");
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+		height: 55vh;
+	}
+	#projectCarousel2 .carousel-item #HCL{
+		background-image:url("{{ url_for('static', filename='images/HCL_Nagpur.png') }}");
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+		height: 55vh;
+	}
+	#projectCarousel2 .carousel-item #ABC{
+		background-image:url("{{ url_for('static', filename='images/workstation.png') }}");
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+		height: 55vh;
+	}
+	#projectCarousel2 .carousel-item #XYZ{
+		background-image:url("{{ url_for('static', filename='images/cabins.png') }}");
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center;
+		height: 55vh;
 	}
 	.carousel-item .overlay_proj{
 		background-color: rgba(0,0,0,0.6);
 	}
-
+	#our_projects{
+		height: 100vh;
+	}
 	.proj_title{
 		font-family: Proxima Nova Regular;
 		color:#ffffff;
@@ -199,8 +245,14 @@
 		opacity: 1;
 	}
 	#projectCarousel2{
+		position: absolute;
+		top:-1vh;
+		left:50%;
+		transform: translateX(-50%);
+		z-index: 99999;
+		margin-bottom: 50vh;
 		background-color:#1a1a1a;
-		height: 110vh; 
+		height: 80vh; 
 	}
 	#projectCarousel2 .carousel-control-next,
 	#projectCarousel2 .carousel-control-prev{
@@ -465,8 +517,8 @@
 		<hr class="heading_underline my-2" data-aos-once="true" data-aos="fade-up" data-aos-duration="1500"> 
 		<div class="row m-0 py-3" data-aos-once="true" data-aos="fade-up" data-aos-duration="1500">
 			<div id="projectCarousel1" class="carousel slide w-100" data-ride="carousel">
-				<div class="carousel-inner w-100" role="listbox">
-					<div class="carousel-item p-0 active">
+				<div class="carousel-inner w-100 py-3" role="listbox">
+					<div class="carousel-item active">
 						<div class="col-md-3 p-0" id="Concentrix">
 							<div class="overlay_proj h-100 w-100 d-flex justify-content-center align-items-center">
 								<h1 class="proj_title text-center">
@@ -528,76 +580,76 @@
 					<span class="mx-2">&#8250;</span>
 				</a>
 			</div>
-			<div id="projectCarousel2" class="carousel slide w-75 mx-auto d-none" data-ride="carousel" data-aos-once="true" data-aos="fade-in" data-aos-duration="1500">
+			<div id="projectCarousel2" class="carousel slide w-75 mx-auto mb-5 d-none" data-ride="carousel" data-aos-once="true" data-aos="fade-in" data-aos-duration="1500">
 				<button class="carousel_close btn text-light float-right">&times;</button>
 				<div class="carousel-inner">
-					<div class="carousel-item w-100 active py-5">
+					<div class="carousel-item w-100 active">
 						<div class="row m-0 w-100">
 							<div class="w-75 mx-auto p-5" id="Concentrix">
 							</div>
-							<div class="w-100 py-5 d-flex flex-column  flex-column justify-content-center">
-								<hr class="heading_underline my-2">
-								<h1 class="proj_title text-center pt-4">
+							<div class="w-100 py-3 d-flex flex-column  flex-column justify-content-center">
+								<hr class="heading_underline my-1">
+								<h1 class="proj_title text-center pt-2">
 									Concentrix, New Delhi
 								</h1>
 							</div>
 						</div>
 					</div>
-					<div class="carousel-item w-100 py-5">
+					<div class="carousel-item w-100">
 						<div class="row m-0 w-100">
 							<div class="w-75 mx-auto p-5" id="Tokopedia">
 							</div>
-							<div class="w-100 py-5 d-flex flex-column  justify-content-center">
-								<hr class="heading_underline my-2">
-								<h1 class="proj_title text-center pt-4">
+							<div class="w-100 py-3 d-flex flex-column  justify-content-center">
+								<hr class="heading_underline my-1">
+								<h1 class="proj_title text-center pt-2">
 									Tokopedia, Gurgaon Office
 								</h1>
 							</div>
 						</div>
 					</div>
-					<div class="carousel-item w-100 py-5" >
+					<div class="carousel-item w-100" >
 						<div class="row m-0 w-100">
 							<div class="w-75 mx-auto p-5" id="India_Mart">
 							</div>
 							<div class="w-100 py-5 d-flex flex-column  justify-content-center">
-								<hr class="heading_underline my-2">
-								<h1 class="proj_title text-center pt-4">
+								<hr class="heading_underline my-1">
+								<h1 class="proj_title text-center pt-2">
 									India Mart, Bangalore
 								</h1>
 							</div>
 						</div>
 					</div>
-					<div class="carousel-item w-100 py-5">
+					<div class="carousel-item w-100">
 						<div class="row m-0 w-100">
 							<div class="w-75 mx-auto p-5" id="HCL">
 							</div>
-							<div class="w-100 py-5 d-flex flex-column  justify-content-center">
-								<hr class="heading_underline my-2">
-								<h1 class="proj_title text-center pt-4">
+							<div class="w-100 py-3 d-flex flex-column  justify-content-center">
+								<hr class="heading_underline my-1">
+								<h1 class="proj_title text-center pt-2">
 									HCL, Noida
 								</h1>
 							</div>
 						</div>
 					</div>
-					<div class="carousel-item w-100 py-5">
+					<div class="carousel-item w-100">
 						<div class="row m-0 w-100">
 							<div class="w-75 mx-auto p-5"  id="ABC">
 							</div>
-							<div class=" w-100 py-5 d-flex flex-column  justify-content-center">
-								<hr class="heading_underline my-2">
-								<h1 class="proj_title text-center pt-4">
+							<div class=" w-100 py-3 d-flex flex-column  justify-content-center">
+								<hr class="heading_underline my-1">
+								<h1 class="proj_title text-center pt-2">
 									ABC
 								</h1>
 							</div>
 						</div>
 					</div>
-					<div class="carousel-item w-100 py-5">
+					<div class="carousel-item w-100">
 						<div class="row m-0 w-100">
-							<div class="w-75 mx-auto p-5"  id="XYZ">
+							<div class="w-50 mx-auto p-5"  id="XYZ">
 							</div>
-							<div class="w-100 py-5 d-flex flex-column  justify-content-center">
-								<hr class="heading_underline my-2">
-								<h1 class="proj_title text-center pt-4">
+							<div class="w-100 py-3 d-flex flex-column  justify-content-center">
+								<hr class="heading_underline my-1">
+								<h1 class="proj_title text-center pt-2">
 									XYZ
 								</h1>
 							</div>
@@ -618,7 +670,7 @@
 			<a href="#a" class="btn btn_custom">Know More</a>
 		</div>
 	</div>
-	<div id="testimonials">
+	<div id="testimonials" class="pt-5 mt-5">
 		<h1 class="heading text-center display-4 d-none d-md-block pb-0" data-aos-once="true" data-aos="fade-up" data-aos-duration="1500"> 
 			Testimonials
 		</h1>
@@ -826,12 +878,10 @@
 				interval: 10000
 			})
 			$("#projectCarousel1 .carousel-item").on("click",function(){
-				$("#projectCarousel1").addClass("d-none");
 				$("#projectCarousel2").removeClass("d-none");
 			});
 			$(".carousel_close").on("click",function(){
 				$("#projectCarousel2").addClass("d-none");
-				$("#projectCarousel1").removeClass("d-none");
 			});
 			$('#projectCarousel1.carousel .carousel-item').each(function(){
 				var minPerSlide = 4;
