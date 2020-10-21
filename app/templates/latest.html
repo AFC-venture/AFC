@@ -45,6 +45,25 @@
 	.fri_col-6{
 		height: 60vh;
 	}
+	/*Zoom Effect*/
+	/* [1] The container */
+	.img-hover-zoom {
+	  overflow: hidden; /* [1.2] Hide the overflowing of child elements */
+	}
+
+	/* [2] Transition property for smooth transformation of images */
+	.img-hover-zoom img {
+	  transition: transform 3.5s ease;
+	}
+
+	/* [3] Finally, transforming the image when container gets hovered */
+	.img-hover-zoom:hover img {
+	  transform: scale(1.1);
+	}
+	.img-hover-zoom:hover .overlay {
+	  background-color: rgba(0,0,0,0.4);
+	}
+	/*End*/
 	@media (max-width: 768px) {
 		.fri_col-7{
 			height: 30vh;
@@ -120,18 +139,18 @@
 				consequat. 
 		</h4>
 		<div class="d-flex m-0 w-100 pt-5" data-aos-once="true" data-aos="fade-up" data-aos-duration="1500">
-			<div class="col-md-7 fri_col-7 p-0" >
+			<div class="col-md-7 fri_col-7 p-0 img-hover-zoom" >
 				<img class="img-fluid h-100 w-100" src="/static/images/friday_1.png">
 			</div>
-			<div class="col-md-5 fri_col-5 pl-2 pr-0">
+			<div class="col-md-5 fri_col-5 pl-2 pr-0 img-hover-zoom">
 				<img class="img-fluid h-100 w-100" src="/static/images/friday_3.png">
 			</div>
 		</div>
 		<div class="d-flex m-0 pt-2 w-100" data-aos-once="true" data-aos="fade-up" data-aos-duration="1500">
-			<div class="col-md-6 fri_col-6 p-0" >
+			<div class="col-md-6 fri_col-6 p-0 img-hover-zoom" >
 				<img class="img-fluid h-100 w-100" src="/static/images/friday_2.png">
 			</div>
-			<div class="col-md-6 fri_col-6 pl-2 pr-0">
+			<div class="col-md-6 fri_col-6 pl-2 pr-0 img-hover-zoom">
 				<img class="img-fluid h-100 w-100" src="/static/images/friday_4.png">
 			</div>
 		</div>

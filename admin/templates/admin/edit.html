@@ -1,0 +1,91 @@
+{% extends "admin/dashboard_base.html" %}
+
+
+{% block css %}
+<style>
+   
+</style>
+{% endblock %}
+
+{% block content %}
+    <div class="container my-5">
+        <h2 class="text-center">{{section}}</h2>
+        <button class="btn btn-primary float-right mb-3">Add</button>
+        <table class="table table-striped">
+            <tr>
+                {% for field in section_content[0].__dict__.keys() %}
+                     {% if field not in unwanted_fields %}
+                        <th>{{ field.upper() }}</th>
+                    {% endif %}
+                {% endfor %}
+                <th>Action</th>
+            </tr>
+            {% for content in section_content %}
+                <tr id="content_{{content.id}}">
+                    {% for field,value in content.__dict__.items() %}
+                        {% if field not in unwanted_fields %}
+                            {% if 'image' in field %}
+                                <td><img src="/static/{{value}}" style="width: 200px;height: 200px;"></td>
+                            {% else %}
+                                <td>{{value}}</td>
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+                    <td>
+                        <button class="btn btn-info mx-2 mb-3 edit" id="edit_{{content.id}}">Edit</button>
+                        <button class="btn btn-danger mx-2 mb-3 delete" id="delete_{{content.id}}">Delete</button>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <div id="delete_Confirm_modal" class="modal fade">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">
+                        Are you sure?
+                    </h4>   
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body">
+                        <h5>
+                            You want to delete - 
+                        </h5>
+                        <table class="table table-striped" id="delete_content">
+                        </table>
+                        <i>Note:This process cannot be undone.</i><br>
+                        <div class="float-right my-3">
+                            <button type="button" class="btn btn-danger cancel_delete" data-dismiss="modal">Cancel</button>
+                            <button type="button" class="btn btn-success confirm_delete">Delete</button>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block js %}
+<script>
+    $(document).ready(function(){
+        $(".delete").on("click",function(){
+            var id=$(this).attr('id').split('_')[1];
+            var heading = $("<tr></tr>");
+            console.log($('table th'));
+            for(var i=0; i<$('table th').length-1;i++){
+                var value = $("<th>"+$($('table th')[i]).html()+"</th>");
+                heading.append(value);
+            }
+            var content = $("<tr></tr>")
+            var list = $('table tr#content_'+id).find("td");
+            for(var i=0; i<list.length-1;i++){
+                var value = $("<td>"+$(list[i]).html()+"</td>");
+                console.log(value)
+                content.append(value);
+            }
+            $("#delete_content").append(heading,content);
+            $("#delete_Confirm_modal").modal("show");
+        });
+    });
+</script>
+{% endblock %}

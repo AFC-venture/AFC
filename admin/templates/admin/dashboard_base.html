@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+	{% if title %}
+        <title>{{ title }} | TurningLife Foundation India based NGO</title>
+    {% else %}
+        <title>TurningLife Foundation India based NGO</title>
+    {% endif %}
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<script src="https://kit.fontawesome.com/32ee507fe4.js" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js" integrity="sha256-sPB0F50YUDK0otDnsfNHawYmA5M0pjjUf4TvRJkGFrI=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/additional-methods.min.js" integrity="sha256-vb+6VObiUIaoRuSusdLRWtXs/ewuz62LgVXg2f1ZXGo=" crossorigin="anonymous"></script>
+</head>
+
+<style>
+	#flash_message{ position: absolute; left: 50%; z-index: 1045; transform: translateX(-50%); }
+    #flash_message .alert{ text-align: center; border-radius: 10px; }
+	.logo{ width: 120px; }
+	.color-white{ color: #FFF; }
+	.color-org{ color: #E54E35; }
+	.bg-org{ background-color: #E54E35; }
+	.color-blue{ color: #1a1a1a; }
+	.bg-blue{ background-color: #1a1a1a; }
+
+	
+	/* Sidebar */
+	.sidebar {
+		height: 100%; /* 100% Full-height */
+		width: 0; /* 0 width - change this with JavaScript */
+		position: fixed; /* Stay in place */
+		z-index: 1; /* Stay on top */
+		top: 0;
+		left: 0;
+		background-color: #1a1a1a; /* Black*/
+		overflow-x: hidden; /* Disable horizontal scroll */
+		transition: 0.3s; /* 0.5 second transition effect to slide in the sidebar */
+	}
+
+	.sidebar a{ font-size: 25px; text-decoration: none; }
+	.sidebar .donor-dropdown a{ font-size: 14px; }
+	#sidebar_close{ font-size: 43px; }
+	.dashboard_link{ letter-spacing: 2px; }
+
+	/* #main_block{ height: 100vh; } */
+	/* End */
+</style>
+
+{% block css %}
+{% endblock %}
+
+<body>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div id="flash_message" class="my-4">
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        {% for category, message in messages %}
+                                <div class="alert alert-{{ category }} shadow-sm border-0" role="alert">
+                                    {{ message }}
+                                </div>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+            </div>
+        {% endif %}
+	{% endwith %}
+	
+	<div id="sidenav_open_block">
+		<a id="sidebar_open" class="m-4"><i class="fa fa-bars fa-2x py-3 text-dark"></i></a>
+		<img src="{{ url_for('static',filename='/icons/AFC-3.png') }}" class="img-fluid logo float-right mr-4 mt-2">
+	</div>
+
+	<div id="mySidenav" class="sidebar">
+		<div class="mx-3 mt-3 mb-4">
+			<img src="{{ url_for('static',filename='/icons/AFC-3.png') }}" class="logo_inside_sidenav img-fluid logo">
+			<span id="sidebar_close" class="float-right mx-2 color-white">&times;</span>
+		</div><br><br>
+		<a href="{{ url_for('admin.admin_dashboard') }}" class="mx-4 pl-5 dashboard_links"><span class='color-white'><b>DASHBOARD</span></b></a>
+		<!-- <div class="dropdown-divider mx-4 mb-4"></div>
+		<a href="#donor-collapse" class="mx-4 dashboard_links" data-toggle="collapse" id="donor" data-target="#donor-collapse"><b class="color-white">DONOR</b> <i class="fa fa-angle-down icon color-org" aria-hidden="true"></i></a>
+		<div class="donor-dropdown collapse" id="donor-collapse">
+			<div class="dropdown-divider ml-5 mr-4"></div>
+			<h6 class="my-3"><a href="#" class="mx-5 pl-3"><span class="color-org">NEW DONATION</span></a></h6>
+			<h6 class="my-3"><a href="#" class="mx-5 pl-3"><span class="color-org">ALL DONATION</span></a></h6>
+		</div>
+		<div class="dropdown-divider ml-5 mr-4  mb-4"></div>
+
+		<a href="#volunteer-collapse" class="mx-4 dashboard_links" id="volunteer" data-toggle="collapse" data-target="#volunteer-collapse"><b class="color-white">VOLUNTEER</b> <i class="fa fa-angle-down icon color-org" aria-hidden="true"></i></a>
+		<div class="donor-dropdown collapse" id="volunteer-collapse">
+			<div class="dropdown-divider ml-5 mr-4"></div>
+			<h6 class="my-3"><a href="#" class="mx-5 pl-3"><span class="color-org">VOLUNTEER REQUESTS</span></a></h6>
+			<h6 class="my-3"><a href="#" class="mx-5 pl-3"><span class="color-org">ALL VOLUNTEER</span></a></h6>
+			<h6 class="my-3"><a href="#" class="mx-5 pl-3"><span class="color-org">VOLUNTEER REPORTING</span></a></h6>
+		</div> -->
+			<div class="dropdown-divider ml-5 mr-4"></div>
+		<a href="{{ url_for('admin.admin_logout') }}" class="mx-4 pl-5 dashboard_links"><span class='color-white'><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;<b>LOGOUT</b></span></a>
+	</div>
+
+	<div id="main_block" class="">
+		{% block content %}
+    	{% endblock %}
+	</div>
+    
+
+    <script>
+        $(document).ready(function(){
+            setTimeout( function(){
+                    $("#flash_message .alert").alert("close");
+                    $("#flash_message").hide(200);
+                }, 4000 )
+
+			var sidebar_width= "20%";
+			if (window.innerWidth <= 1024 && window.innerWidth > 768){
+				sidebar_width="38%";
+				$("#mySidenav").css("width",sidebar_width)
+				$("#main_block").css("margin-left",sidebar_width)
+				$("#sidebar_close").hide()
+				$("#sidenav_open_block").hide()
+				$(".logo_inside_sidenav").show()
+			} else if (window.innerWidth <= 768 && window.innerWidth > 576){
+				sidebar_width="65%"
+				$("#sidebar_close").show()
+				$("#sidenav_open_block").show()
+				$(".logo_inside_sidenav").hide()
+			} else if (window.innerWidth <= 576){
+				sidebar_width="70%";
+				$("#sidebar_close").show()
+				$("#sidenav_open_block").show()
+				$(".logo_inside_sidenav").hide()
+			}else{
+				$("#mySidenav").css("width",sidebar_width)
+				$("#main_block").css("margin-left",sidebar_width)
+				$("#sidebar_close").hide()
+				$("#sidenav_open_block").hide()
+				$(".logo_inside_sidenav").show()
+			}
+
+			$(document).on("click","#sidebar_open",function(){
+				var sidebar_width= "25%";
+				if (window.innerWidth <= 1024 && window.innerWidth > 768){
+					sidebar_width="38%";
+				} else if (window.innerWidth <= 768 && window.innerWidth > 576){
+				sidebar_width="65%"
+				} else if (window.innerWidth <= 576){
+					sidebar_width="70%";
+				}
+				$("#mySidenav").css("width",sidebar_width)
+			});
+
+			$(document).on("click","#sidebar_close",function(){
+				$("#mySidenav").css("width","0")
+			});
+			
+			$("#donor").on("click",function(){
+				if ( !$("#donor-collapse").hasClass("show") ){
+					$("#donor .icon .fa").removeClass("fa-angle-down");
+					$("#donor .icon .fa").addClass("fa-angle-up");
+				}else{
+					$("#donor .icon .fa").removeClass("fa-angle-up");
+					$("#donor .icon .fa").addClass("fa-angle-down");
+				}
+			})
+
+			$("#volunteer").on("click",function(){
+				if( $("#volunteer-collapse").hasClass("show") ){
+					$(this).find(".icon .fa").removeClass("fa-angle-down");
+					$(this).find(".icon .fa").addClass("fa-angle-up");
+				}else{
+					$(this).find(".icon .fa").removeClass("fa-angle-up");
+					$(this).find(".icon .fa").addClass("fa-angle-down");
+				}
+			})
+		})
+    </script>
+</body>
+
+{% block js %}
+{% endblock %}

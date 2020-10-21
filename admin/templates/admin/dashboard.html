@@ -1,0 +1,42 @@
+{% extends "admin/dashboard_base.html" %}
+
+
+{% block css %}
+<style>
+   
+</style>
+{% endblock %}
+
+{% block content %}
+    <span id="url" style="display: none;">{{ url_for('admin.edit', section ='' ) }}</span>
+    <div class="container my-5">
+        <div class="d-flex flex-column">
+            {% for page in pages %}
+                <h2>{{ page.page }}</h2>
+                <h6>Select section:</h6>
+                <div class="pl-5 row">   
+                    <select class="form-control col-md-4 mx-4" id="page_{{ page.id }}_section">
+                        {% for section in page.sections.split(',') %}
+                            <option>{{ section }}</option>
+                        {% endfor %}
+                    </select>
+                    <button class="btn btn-info edit" id="editpage_{{page.id}}">Edit</button>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block js %}
+<script>
+    $(document).ready(function(){
+        
+        $(".edit").on("click",function(){
+            var id =$(this).attr('id').split('_')[1];
+            var section_value = $("#page_"+id+"_section").val();
+            console.log(section_value);
+            window.location=$("#url").text()+section_value;
+        });
+    });
+</script>
+{% endblock %}
