@@ -16,10 +16,10 @@
 		height: 80vh;
 	}
 	.categ_image{
-		height: 80vh;
+		height: 79vh;
 	}
 	.categ_content{
-		font-size: 26px;
+		font-size: 24px;
 		font-family: Proxima Nova Regular;
 		color:#1a1a1a;
 	}
@@ -46,11 +46,28 @@
 		color:black;
 		cursor:pointer;
 	}
+	@media (max-width: 768px) {
+		.categ_block{
+			height: 100%;
+		}
+		.categ_image{
+			height: 40vh;
+		}
+		.categ_content{
+			font-size: 18px;
+		}
+		hr.cat_heading_underline{
+			background-color: #e44e35;
+			height:1.5px;
+			margin: 10px 5px 25px ;
+			width: 30%;
+		}
+	}
 </style>
 {% endblock %}
 
 {% block content %}
-	<div class="mt-5 py-5 px-5">
+	<div class="mt-5 py-5 px-3 p-md-5">
 		{% for id,item in items %}
 			{% if id%2==0 %}
 				<div class="row m-0 categ_block" id="item_{{id}}">
@@ -62,20 +79,20 @@
 							{{ item.name }}
 						</h1>
 						<hr class="cat_heading_underline my-2"> 
-						<div class="categ_content pr-5">
+						<div class="categ_content pr-md-5">
 						 	{{ item.description|safe }}
 						</div>
 						<div class="py-2">
-							<a href="#" class="btn btn_custom">Contact Us</a>
+							<a href="{{ url_for('contact_us') }}" class="btn btn_custom">Contact Us</a>
 						</div>
 					</div>
-					<div class="col-md-6 px-5"  data-aos-once="false" data-aos="fade-up" data-aos-duration="1500">
+					<div class="col-md-6 px-md-5 text-center"  data-aos-once="false" data-aos="fade-up" data-aos-duration="1500">
 						<img class="img-fluid categ_image" src="/static/{{ item.image }}">
 					</div>
 				</div>
 			{% else %}
 				<div class="row m-0 categ_block" id="item_{{id}}">
-					<div class="col-md-6 px-5"  data-aos-once="false" data-aos="fade-up" data-aos-duration="1500">
+					<div class="col-md-6 text-center"  data-aos-once="false" data-aos="fade-up" data-aos-duration="1500">
 						<img class="img-fluid categ_image" src="/static/{{ item.image }}">
 					</div>
 					<div class="col-md-6"  data-aos-once="false" data-aos="fade-up" data-aos-duration="1500">
@@ -86,19 +103,19 @@
 							{{ item.name }}
 						</h1>
 						<hr class="cat_heading_underline my-2"> 
-						<div class="categ_content pr-5">
+						<div class="categ_content pr-md-5">
 						 	{{ item.description|safe }}
 						</div>
 						<div class="py-2">
-							<a href="#" class="btn btn_custom">Contact Us</a>
+							<a href="{{ url_for('contact_us') }}" class="btn btn_custom">Contact Us</a>
 						</div>
 					</div>
 				</div>
 			{% endif %}
 		<div class="mx-auto text-center my-1">
 			{% if id < length-1 %}
-				<a class="scroll_down my-0" id="scroll_down_{{id+1}}">Scroll for {{items[id+1][1].name}}<i class="fa fa-angle-down"></i></a><br>
-				<a class="scroll_up my-0" id="scroll_up_{{id}}">Scroll for {{items[id][1].name}} <i class="fa fa-angle-up"></i></a></a>
+				<a class="scroll_down my-0" id="scroll_down_{{id+1}}"><i class="fa fa-angle-down"></i></a><br>
+				<!-- <a class="scroll_up my-0" id="scroll_up_{{id}}">Scroll for {{items[id][1].name}} <i class="fa fa-angle-up"></i></a></a> -->
 			{%endif %}
 		</div>
 		{% endfor %}

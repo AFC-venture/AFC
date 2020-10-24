@@ -215,6 +215,7 @@
 	}
 	.carousel-item .overlay_proj{
 		background-color: rgba(0,0,0,0.6);
+		border:5px solid white;
 	}
 	#our_projects{
 		height: 100vh;
@@ -222,6 +223,7 @@
 	.proj_title{
 		font-family: Proxima Nova Regular;
 		color:#ffffff;
+		cursor: pointer;
 	}
 	#projectCarousel1 .proj_title:after {
 		content: '';
@@ -244,6 +246,16 @@
 		font-weight: 100;
 		opacity: 1;
 	}
+	.projectCarousel2_bg{
+		position: absolute;
+		top:-1vh;
+		left:50%;
+		transform: translateX(-50%);
+		z-index: 99999;
+		margin-bottom: 50vh;
+		background-color:rgba(0,0,0,0.2);
+		height: 100vh; 
+	}
 	#projectCarousel2{
 		position: absolute;
 		top:-1vh;
@@ -253,6 +265,7 @@
 		margin-bottom: 50vh;
 		background-color:#1a1a1a;
 		height: 80vh; 
+		box-shadow: 30px 30px 30px rgba(0,0,0,0.7);
 	}
 	#projectCarousel2 .carousel-control-next,
 	#projectCarousel2 .carousel-control-prev{
@@ -279,10 +292,10 @@
 		color:#1a1a1a;
 		opacity: 1;
 	}
-	#testimonialCarousel .carousel-item .col-8{
-		background-image: url("{{ url_for('static', filename='images/Testimonial.png') }}");
+	#testimonialCarousel .carousel-item .col-12{
+		
 		background-repeat: no-repeat;
-		background-size: 100% 100%;
+		background-size: 80vw 80vh;
 		background-position: center;
 		height: 80vh;
 	}
@@ -359,6 +372,13 @@
 			.prod_col-3 .col-12{
 				height: 19.5vh;
 			}
+			#testimonialCarousel .carousel-item .col-12{
+		
+				background-repeat: no-repeat;
+				background-size: 80vw 30vh;
+				background-position: center;
+				height: 30vh;
+			}
 			
 	}
 </style>
@@ -428,7 +448,7 @@
 						<p class="icon_heading">Make in<br>India</p>
 					</div>
 				</div>
-				<a href="#a" class="btn btn_custom">Know More</a>
+				<a href="{{ url_for('about_afc') }}" class="btn btn_custom">Know More</a>
 			</div>
 		</div>
 	</div>
@@ -504,7 +524,7 @@
 				</div>
 			</div>
 		<div class="py-5 text-center">
-			<a href="#" class="btn btn_custom">Contact Us</a>
+			<a href="{{ url_for('products') }}" class="btn btn_custom">Explore More</a>
 		</div>
 	</div>
 	<div id="our_projects">
@@ -520,7 +540,7 @@
 				<div class="carousel-inner w-100 py-3" role="listbox">
 					<div class="carousel-item active">
 						<div class="col-md-3 p-0" id="Concentrix">
-							<div class="overlay_proj h-100 w-100 d-flex justify-content-center align-items-center">
+							<div class="overlay_proj h-100 w-100 d-flex justify-content-center align-items-center" >
 								<h1 class="proj_title text-center">
 									Concentrix
 								</h1>
@@ -582,7 +602,7 @@
 			</div>
 			<div id="projectCarousel2" class="carousel slide w-75 mx-auto mb-5 d-none" data-ride="carousel" data-aos-once="true" data-aos="fade-in" data-aos-duration="1500">
 				<button class="carousel_close btn text-light float-right">&times;</button>
-				<div class="carousel-inner">
+				<div class="carousel-inner" >
 					<div class="carousel-item w-100 active">
 						<div class="row m-0 w-100">
 							<div class="w-75 mx-auto p-5" id="Concentrix">
@@ -611,7 +631,7 @@
 						<div class="row m-0 w-100">
 							<div class="w-75 mx-auto p-5" id="India_Mart">
 							</div>
-							<div class="w-100 py-5 d-flex flex-column  justify-content-center">
+							<div class="w-100 py-3 d-flex flex-column  justify-content-center">
 								<hr class="heading_underline my-1">
 								<h1 class="proj_title text-center pt-2">
 									India Mart, Bangalore
@@ -667,7 +687,7 @@
 			</div>
 		</div>
 		<div class="py-5 text-center">
-			<a href="#a" class="btn btn_custom">Know More</a>
+			<a href="{{ url_for('products') }}" class="btn btn_custom">Know More</a>
 		</div>
 	</div>
 	<div id="testimonials" class="pt-5 mt-5">
@@ -683,113 +703,111 @@
 				<div class="carousel-inner w-100">
 					<div class="carousel-item w-100 active py-5">
 						<div class="row m-0 w-100">
-							<div class="col-8 offset-2 p-0">
-								<div class="h-100 w-100 py-5 d-flex flex-column justify-content-center align-items-center">
-									<h1 class="testimonial_content text-center pt-4 d-none d-md-block">
-										AFC is very professional and<br>up to their promise.
-									</h1>
-									<h3 class="testimonial_content text-center pt-4 d-block d-md-none">
-										AFC is very professional and<br>up to their promise.
-									</h3>
-									<hr class="heading_underline my-2">
-									<img class="img-fluid w-25 py-3" src="/static/clients/testimonial_indiamart.png" >
-								</div>
+							<div class="col-md-2 d-none bg-light">
+								n
+							</div>
+							<div class="col-md-8 col-12 mx-auto p-0" style="background-image: url('{{ url_for('static', filename='images/AFC-Homepage-Testimonials01.png') }}');">
+							</div>
+							<div class="col-md-2 d-none bg-light">
+								n
 							</div>
 						</div>
 					</div>
 					<div class="carousel-item w-100 py-5">
 						<div class="row m-0 w-100">
-							<div class="col-8 offset-2">
-								<div class="h-100 w-100 py-5 d-flex flex-column justify-content-center align-items-center">
-									<h1 class="testimonial_content text-center pt-4 d-none d-md-block">
-										Max Life, Gurgaon Office
-									</h1>
-									<h3 class="testimonial_content text-center pt-4 d-block d-md-none">
-										Max Life, Gurgaon Office
-									</h3>
-									<hr class="heading_underline my-2">
-									<img class="img-fluid w-25 py-3" src="/static/clients/testimonial_maxlife.png" >
-								</div>
+							<div class="col-md-2 d-none bg-light">
+								n
 							</div>
-						</div>
-					</div>
-					<div class="carousel-item w-100 py-5" >
-						<div class="row m-0 w-100">
-							<div class="col-8 offset-2 p-0">
-								<div class="h-100 w-100 py-5 d-flex flex-column justify-content-center align-items-center">
-									<h1 class="testimonial_content text-center pt-4 d-none d-md-block">
-										R1, Bangalore
-									</h1>
-									<h3 class="testimonial_content text-center pt-4 d-block d-md-none">
-										R1, Bangalore
-									</h3>
-									<hr class="heading_underline my-2">
-									<img class="img-fluid w-25 py-3" src="/static/clients/testimonial_R1.png" >
-								</div>
+							<div class="col-md-8 col-12 mx-auto p-0" style="background-image: url('{{ url_for('static', filename='images/AFC-Homepage-Testimonials02.png') }}');">
+							</div>
+							<div class="col-md-2 d-none bg-light">
+								n
 							</div>
 						</div>
 					</div>
 					<div class="carousel-item w-100 py-5">
 						<div class="row m-0 w-100">
-							<div class="col-8 offset-2 p-0">
-								<div class="h-100 w-100 py-5 d-flex flex-column justify-content-center align-items-center">
-									<h1 class="testimonial_content text-center pt-4 d-none d-md-block">
-										HCL, Noida
-									</h1>
-									<h3 class="testimonial_content text-center pt-4 d-block d-md-none">
-										HCL, Noida
-									</h3>
-									<hr class="heading_underline my-2">
-									<img class="img-fluid w-25 py-3" src="/static/clients/testimonial_hcl.png" >
-								</div>
+							<div class="col-md-2 d-none bg-light">
+								n
+							</div>
+							<div class="col-md-8 col-12 mx-auto p-0" style="background-image: url('{{ url_for('static', filename='images/AFC-Homepage-Testimonials03.png') }}');">
+							</div>
+							<div class="col-md-2 d-none bg-light">
+								n
+							</div>
+						</div>
+						
+					</div>
+					<div class="carousel-item w-100 py-5">
+						<div class="row m-0 w-100">
+							<div class="col-md-2 d-none bg-light">
+								n
+							</div>
+							<div class="col-md-8 col-12 mx-auto p-0" style="background-image: url('{{ url_for('static', filename='images/AFC-Homepage-Testimonials04.png') }}');">
+							</div>
+							<div class="col-md-2 d-none bg-light">
+								n
+							</div>
+						</div>
+						
+					</div>
+					<div class="carousel-item w-100 py-5">
+						<div class="row m-0 w-100">
+							<div class="col-md-2 d-none bg-light">
+								n
+							</div>
+							<div class="col-md-8 col-12 mx-auto p-0" style="background-image: url('{{ url_for('static', filename='images/AFC-Homepage-Testimonials05.png') }}');">
+							</div>
+							<div class="col-md-2 d-none bg-light">
+								n
 							</div>
 						</div>
 					</div>
 					<div class="carousel-item w-100 py-5">
 						<div class="row m-0 w-100">
-							<div class="col-8 offset-2 p-0">
-								<div class="h-100 w-100 py-5 d-flex flex-column justify-content-center align-items-center">
-									<h1 class="testimonial_content text-center pt-4 d-none d-md-block">
-										Advant
-									</h1>
-									<h3 class="testimonial_content text-center pt-4 d-block d-md-none">
-										Advant
-									</h3>
-									<hr class="heading_underline my-2">
-									<img class="img-fluid w-25 py-3" src="/static/clients/testimonial_advant.png" >
-								</div>
+							<div class="col-md-2 d-none bg-light">
+								n
+							</div>
+							<div class="col-md-8 col-12 mx-auto p-0" style="background-image: url('{{ url_for('static', filename='images/AFC-Homepage-Testimonials06.png') }}');">
+							</div>
+							<div class="col-md-2 d-none bg-light">
+								n
 							</div>
 						</div>
 					</div>
 					<div class="carousel-item w-100 py-5">
 						<div class="row m-0 w-100">
-							<div class="col-8 offset-2 p-0">
-								<div class="h-100 w-100 py-5 d-flex flex-column justify-content-center align-items-center">
-									<h1 class="testimonial_content text-center pt-4 d-none d-md-block">
-										AIHP
-									</h1>
-									<h3 class="testimonial_content text-center pt-4 d-block d-md-none">
-										AIHP
-									</h3>
-									<hr class="heading_underline my-2">
-									<img class="img-fluid w-25 py-3" src="/static/clients/testimonial_aihp.png" >
-								</div>
+							<div class="col-md-2 d-none bg-light">
+								n
+							</div>
+							<div class="col-md-8 col-12 mx-auto p-0" style="background-image: url('{{ url_for('static', filename='images/AFC-Homepage-Testimonials07.png') }}');">
+							</div>
+							<div class="col-md-2 d-none bg-light">
+								n
 							</div>
 						</div>
 					</div>
 					<div class="carousel-item w-100 py-5">
 						<div class="row m-0 w-100">
-							<div class="col-8 offset-2 p-0">
-								<div class="h-100 w-100 py-5 d-flex flex-column justify-content-center align-items-center">
-									<h1 class="testimonial_content text-center pt-4 d-none d-md-block">
-										Axis Bank
-									</h1>
-									<h3 class="testimonial_content text-center pt-4 d-block d-md-none">
-										Axis Bank
-									</h3>
-									<hr class="heading_underline my-2">
-									<img class="img-fluid w-25 py-3" src="/static/clients/testimonial_axis.png" >
-								</div>
+							<div class="col-md-2 d-none bg-light">
+								n
+							</div>
+							<div class="col-md-8 col-12 mx-auto p-0" style="background-image: url('{{ url_for('static', filename='images/AFC-Homepage-Testimonials08.png') }}');">
+							</div>
+							<div class="col-md-2 d-none bg-light">
+								n
+							</div>
+						</div>
+					</div>
+					<div class="carousel-item w-100 py-5">
+						<div class="row m-0 w-100">
+							<div class="col-md-2 d-none bg-light">
+								n
+							</div>
+							<div class="col-md-8 col-12 mx-auto  p-0" style="background-image: url('{{ url_for('static', filename='images/AFC-Homepage-Testimonials09.png') }}');">
+							</div>
+							<div class="col-md-2 d-none bg-light">
+								n
 							</div>
 						</div>
 					</div>

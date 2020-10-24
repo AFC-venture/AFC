@@ -15,12 +15,12 @@ Laboratories and more. The company takes pride in conveying that all their produ
 db.session.add(about)
 db.session.commit()
 
-icon1 = HomeAboutUsSectionIcons(section=about.id,description="Inhouse<br>Manufacturing",static_image="warehouse-static",hover_image="warehouse-hover")
-icon2 = HomeAboutUsSectionIcons(section=about.id,description="Customisation<br>Capability",static_image="customisation-static",hover_image="customisation-hover")
-icon3 = HomeAboutUsSectionIcons(section=about.id,description="Pan-India<br>Presence",static_image="PANIndia-static",hover_image="PANIndia-hover")
-icon4 = HomeAboutUsSectionIcons(section=about.id,description="Environmentally<br>Responsible",static_image="environmentally_responsible-static",hover_image="environmentally_responsible-hover")
-icon5 = HomeAboutUsSectionIcons(section=about.id,description="Trusted Over<br>12 Years",static_image="truster_over_12years-static",hover_image="truster_over_12years-hover")
-icon6 = HomeAboutUsSectionIcons(section=about.id,description="Make in<br>India",static_image="makeinindia-static",hover_image="makeinindia-hover")
+icon1 = HomeAboutUsSectionIcons(section=about.id,description="Inhouse<br>Manufacturing",static_image="/icons/warehouse-static.png",hover_image="/icons/warehouse-hover.png")
+icon2 = HomeAboutUsSectionIcons(section=about.id,description="Customisation<br>Capability",static_image="customisation-static.png",hover_image="/icons/customisation-hover.png")
+icon3 = HomeAboutUsSectionIcons(section=about.id,description="Pan-India<br>Presence",static_image="/icons/PANIndia-static.png",hover_image="/icons/PANIndia-hover.png")
+icon4 = HomeAboutUsSectionIcons(section=about.id,description="Environmentally<br>Responsible",static_image="/icons/environmentally_responsible-static.png",hover_image="/icons/environmentally_responsible-hover.png")
+icon5 = HomeAboutUsSectionIcons(section=about.id,description="Trusted Over<br>12 Years",static_image="/icons/truster_over_12years-static.png",hover_image="/icons/truster_over_12years-hover.png")
+icon6 = HomeAboutUsSectionIcons(section=about.id,description="Make in<br>India",static_image="/icons/makeinindia-static.png",hover_image="/icons/makeinindia-hover.png")
 db.session.add_all([icon6,icon5,icon4,icon3,icon2,icon1])
 db.session.commit()
 

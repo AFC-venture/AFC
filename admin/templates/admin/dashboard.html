@@ -10,17 +10,18 @@
 {% block content %}
     <span id="url" style="display: none;">{{ url_for('admin.edit', section ='' ) }}</span>
     <div class="container my-5">
-        <div class="d-flex flex-column">
+        <div class="d-flex flex-row flex-wrap">
             {% for page in pages %}
-                <h2>{{ page.page }}</h2>
-                <h6>Select section:</h6>
-                <div class="pl-5 row">   
-                    <select class="form-control col-md-4 mx-4" id="page_{{ page.id }}_section">
-                        {% for section in page.sections.split(',') %}
-                            <option>{{ section }}</option>
-                        {% endfor %}
-                    </select>
-                    <button class="btn btn-info edit" id="editpage_{{page.id}}">Edit</button>
+                <div class="py-4 w-50">    
+                    <h3>{{ page.page }}</h3>
+                    <div class="pl-5 row">   
+                        <select class="form-control col-md-8 mx-4" id="page_{{ page.id }}_section">
+                            {% for section in page.sections.split(',') %}
+                                <option>{{ section }}</option>
+                            {% endfor %}
+                        </select>
+                        <button class="btn btn-info edit" id="editpage_{{page.id}}">Edit</button>
+                    </div>
                 </div>
             {% endfor %}
         </div>

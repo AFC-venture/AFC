@@ -79,6 +79,7 @@
 			background-color: rgba(26,26,26,0.7);
 			border-radius: 0px
 		}
+		.nav-link:hover .dropdown-menu{display: block;}
 		.dropdown:hover .dropdown-menu {display: block;}
 		.dropdown-item_heading{
 			font-family: Proxima Nova Bold;
@@ -105,7 +106,6 @@
 			width: 34%;
 			margin:0px 8%;
 		}
-		.dropdown-item.active 
 		.nav_prod_category{
 			width: 20%;
 		}
@@ -268,11 +268,11 @@
 	@media (max-width: 768px) {
 		.dropdown-menu{
 			position: absolute;
-			top:7.5vh;
+			top:9vh;
 			margin-left:-30vw;
 			width: 100vw;
 			background-color: rgba(26,26,26,0.7);
-			border-radius: 0px
+			border-radius: 0px;
 		}
 		.dropdown:hover .dropdown-menu {display: block;}
 		.dropdown-item_heading{
@@ -309,6 +309,15 @@
 		.nav_prod_category{
 			width: 30vw;
 		}
+		.nav_prod_category.active .dropdown-item{
+			font-family: Proxima Nova Regular !important;
+			background-color: transparent;
+			font-size: 10px !important;
+			color: #ffffff !important;
+		}
+	}
+	.logo{
+		width: 160px;
 	}
 </style>
 {% block css %}
@@ -330,9 +339,9 @@
 				<li class="nav-item px-2 d-flex">
 					<a class="nav-link py-0" href="{{ url_for('about_afc') }}" id="about_afc">About Us</a>
 				</li>
-				<li class="nav-item pl-2 d-flex">
-					<a class="nav-link py-0" href="{{ url_for('products') }}" id="products">Products</a>&nbsp;
-					<div class="dropdown">
+				<li class="nav-item pl-2">
+					<div class="dropdown d-flex">
+						<a class="nav-link py-0" href="{{ url_for('products') }}" id="products">Products</a>&nbsp;
 						<a class="btn btn-lg p-0" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 					    <i class="fa fa-angle-down" aria-hidden="true"></i> 
 					  	</a>
@@ -361,7 +370,7 @@
 	{% block content %}
 	{% endblock %}
 	
-	<div id="footer" class="py-4">
+	<div id="footer" class="py-4 text-center">
 		<div id="certifications">
 			<h1 class="heading text-center d-none d-md-block pt-md-4 pb-0"> 
 				Certification & Compliance
@@ -393,11 +402,12 @@
 			<input type="email" class="form-control w-25 d-none d-md-block" placeholder="Your Email ID">
 			<input type="email" class="form-control w-100 d-block d-md-none mx-3" placeholder="Your Email ID">
 		</div>
-		<div class="text-center pb-4">
+		<div class="text-center pb-1">
 			<a href="#a" class="btn submit_btn_custom">Submit</a>
 		</div>
-		<div class="pt-3">
-			<div class="d-flex justify-content-center flex-wrap py-2 px-4">
+		<img class="img-fluid logo" src="/static/icons/AFC-3.png" >
+		<div class="pt-0">
+			<div class="d-flex justify-content-center flex-wrap pb-2 px-4">
 				<a class="footer_link px-3" href="#">Home</a>
 				<a class="footer_link px-3" href="#">About Us</a>
 				<a class="footer_link px-3 " href="#">Products</a>
@@ -551,7 +561,7 @@
 							} else if ( active=='latest'){
 								$(".nav-link#latest").parent().addClass("active");
 							} else if ( active=='products'){
-								$(".nav-link#products").parent().addClass("active");
+								$(".nav-link#products").parent().parent().addClass("active");
 								if (active_prod!="products"){
 									console.log($(".dropdown-item#"+active_prod));
 									$(".dropdown-item#"+active_prod).parent().addClass("active");
@@ -622,8 +632,8 @@
 		} else if ( active=='latest'){
 			$(".nav-link#latest").parent().addClass("active");
 		} else if ( active=='products'){
-			$(".nav-link#products").parent().addClass("active");
-			if (active_prod!="products"){
+			$(".nav-link#products").parent().parent().addClass("active");
+			if (active_prod && active_prod!="products"){
 				console.log($(".dropdown-item#"+active_prod));
 				$(".dropdown-item#"+active_prod).parent().addClass("active");
 			}

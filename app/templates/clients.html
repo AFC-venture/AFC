@@ -73,7 +73,7 @@
 	}
 	.icons_nav{
 		position: sticky;
-		top: 10%;
+		top: 0%;
 		z-index: 3;
 		background-color: #ffffff;
 	}
@@ -198,7 +198,7 @@
 		</div>
 	</div>
 	<div class="px-5 icons_nav w-100 text-center" data-aos-once="true" data-aos="fade-up" data-aos-duration="1500">
-		<div class="d-flex flex-wrap justify-content-around px-md-5">
+		<div class="d-flex flex-wrap justify-content-around px-md-5 py-1">
 			<a href="#bsfi">
 				<div class="px-md-3">
 					<img class="img-fluid about_icons" id="icon1_static"  src="/static/icons/bank-static.png">
@@ -362,7 +362,7 @@
 
 {% block js %}
 	<script>
-		$(".icons_nav").css('top',$(".navbar")[0].offsetHeight);
+		$(".icons_nav").css('padding-top',$(".navbar")[0].offsetHeight);
 			window.onscroll = function() {myFunction()};
 			function myFunction() {
 				if (document.body.scrollTop > 950 || document.documentElement.scrollTop > 950) {
